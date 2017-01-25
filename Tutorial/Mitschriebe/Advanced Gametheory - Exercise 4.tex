@@ -1,0 +1,394 @@
+\documentclass[12pt]{extreport} % Schriftgröße: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt oder 20pt
+
+%% Packages
+\usepackage{scrextend}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{changes}
+\usepackage{chngcntr}
+\usepackage{cmap}
+\usepackage{color}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{makeidx}
+\usepackage{mathtools} 
+\usepackage{xpatch}
+\usepackage{pgfplots}
+\usepackage{stmaryrd}
+\pgfplotsset{compat=1.7}
+\usetikzlibrary{calc}	
+\usetikzlibrary{matrix}	
+
+\usepackage{amsmath}
+\usepackage[inline]{enumitem}
+
+\usepackage{cmap}
+
+\usepackage{microtype}
+\usepackage{sgame, tikz} % Game theory packages
+\usetikzlibrary{trees, calc} % For extensive form games
+\usepackage{subfig} % Manipulation and reference of small or sub figures and tables
+
+
+% Language Setup (Deutsch)
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[english]{babel}
+
+% Options
+\makeatletter%%  
+  % Linkfarbe, {0,0.35,0.35} für Türkis, {0,0,0} für Schwarz 
+  \definecolor{linkcolor}{rgb}{0,0.35,0.35}
+  % Zeilenabstand für bessere Leserlichkeit
+  \def\mystretch{1.2} 
+  % Publisher definieren
+  \newcommand\publishers[1]{\newcommand\@publishers{#1}} 
+  % Enumerate im 1. Level: \alph für a), b), ...
+  \renewcommand{\labelenumi}{\alph{enumi})} 
+  % Enumerate im 2. Level: \roman für (i), (ii), ...
+  \renewcommand{\labelenumii}{(\roman{enumii})}
+  % Zeileneinrückung am Anfang des Absatzes
+  \setlength{\parindent}{0pt} 
+  % Verweise auf Enumerate, z.B.: 3.2 a)
+  \setlist[enumerate,1]{ref={\thesatz ~ \alph*)}}
+  % Für das Proof-Environment: 'Beweis:' anstatt 'Beweis.'
+  \xpatchcmd{\proof}{\@addpunct{.}}{\@addpunct{:}}{}{} 
+  % Nummerierung der Bilder, z.B.: Abbildung 4.1
+  \@ifundefined{thechapter}{}{\def\thefigure{\thechapter.\arabic{figure}}} 
+\makeatother%
+
+% Meta Setup (Für Titelblatt und Metadaten im PDF)
+\title{Höhere Mathematik I}
+\author{G. Herzog, C. Schmoeger}
+\date{Wintersemester 2016/17}
+\publishers{Karlsruher Institut für Technologie}
+
+
+
+%% Math. Definitions
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+%% Theorems (unnamedtheorem = Theorem ohne Namen)
+\newtheoremstyle{named}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{#2 \thmnote{#3}}
+\newtheoremstyle{itshape}{}{}{\itshape}{}{\bfseries}{:}{ }{}
+\newtheoremstyle{normal}{}{}{\normalfont}{}{\bfseries}{:}{ }{}
+\renewcommand*{\qed}{\hfill\ensuremath{\square}}
+
+\theoremstyle{named}
+\newtheorem{unnamedtheorem}{Theorem} \counterwithin{unnamedtheorem}{chapter}
+
+\theoremstyle{itshape}
+\newtheorem{satz}[unnamedtheorem]{Satz}	
+\newtheorem*{definition}{Definition}
+
+\theoremstyle{normal}
+\newtheorem{beispiel}[unnamedtheorem]{Beispiel}
+\newtheorem{folgerung}[unnamedtheorem]{Folgerung}
+\newtheorem{hilfssatz}[unnamedtheorem]{Hilfssatz}
+\newtheorem{anwendung}[unnamedtheorem]{Anwendung}
+\newtheorem{anwendungen}[unnamedtheorem]{Anwendungen}
+\newtheorem*{beispiel*}{Beispiel}
+\newtheorem*{beispiele}{Beispiele}
+\newtheorem*{bemerkung}{Bemerkung} 
+\newtheorem*{bemerkungen}{Bemerkungen}
+\newtheorem*{bezeichnung}{Bezeichnung}
+\newtheorem*{eigenschaften}{Eigenschaften}
+\newtheorem*{folgerung*}{Folgerung}
+\newtheorem*{folgerungen}{Folgerungen}
+\newtheorem*{hilfssatz*}{Hilfssatz}
+\newtheorem*{regeln}{Regeln}
+\newtheorem*{schreibweise}{Schreibweise}
+\newtheorem*{schreibweisen}{Schreibweisen}
+\newtheorem*{uebung}{Übung}
+\newtheorem*{vereinbarung}{Vereinbarung}
+
+%% Template
+\makeatletter%
+\DeclareUnicodeCharacter{00A0}{ } \pgfplotsset{compat=1.7} \hypersetup{colorlinks,breaklinks, urlcolor=linkcolor, linkcolor=linkcolor, pdftitle=\@title, pdfauthor=\@author, pdfsubject=\@title, pdfcreator=\@publishers}\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} \ProcessOptions \def\baselinestretch{\mystretch} \setlength{\oddsidemargin}{0.125in} \setlength{\evensidemargin}{0.125in} \setlength{\topmargin}{0.5in} \setlength{\textwidth}{6.25in} \setlength{\textheight}{8in} \addtolength{\topmargin}{-\headheight} \addtolength{\topmargin}{-\headsep} \def\pulldownheader{ \addtolength{\topmargin}{\headheight} \addtolength{\topmargin}{\headsep} \addtolength{\textheight}{-\headheight} \addtolength{\textheight}{-\headsep} } \def\pullupfooter{ \addtolength{\textheight}{-\footskip} } \def\ps@headings{\let\@mkboth\markboth \def\@oddfoot{} \def\@evenfoot{} \def\@oddhead{\hbox {}\sl \rightmark \hfil \rm\thepage} \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne \@chapapp\ \thechapter. \ \fi ##1}}} \pulldownheader } \def\ps@myheadings{\let\@mkboth\@gobbletwo \def\@oddfoot{} \def\@evenfoot{} \def\sectionmark##1{} \def\subsectionmark##1{}  \def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox {}} \def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage} \pulldownheader }	\def\chapter{\cleardoublepage  \thispagestyle{plain} \global\@topnum\z@ \@afterindentfalse \secdef\@chapter\@schapter} \def\@makeschapterhead#1{ {\parindent \z@ \raggedright \normalfont \interlinepenalty\@M \Huge \bfseries  #1\par\nobreak \vskip 40\p@ }} \newcommand{\indexsection}{chapter} \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}
+	% Titlepage
+	\def\maketitle{ \begin{titlepage} 
+			~\vspace{3cm} 
+		\begin{center} {\Huge \@title} \end{center} 
+	 		\vspace*{1cm} 
+	 	\begin{center} {\large \@author} \end{center} 
+	 	\begin{center} \@date \end{center} 
+	 		\vspace*{7cm} 
+	 	\begin{center} \@publishers \end{center} 
+	 		\vfill 
+	\end{titlepage} }
+\makeatother%
+
+% Indexdatei erstellen
+\makeindex 
+
+\begin{document}
+
+
+\section*{Advanced Game Theory - Exercise 4}
+
+\subsection*{4.1 Aufgabe}
+
+Gegeben sei ein Drei-Personen-Abstimmungsspiel $\Gamma_{C} = [N, v]$ mit $N = \{1, 2, 3\}$, in dem jeder Spieler genau eine Stimme hat und in dem anhand der Einfachen-Mehrheit-Regel über die Aufteilung $x$ eines Kuchens auf die drei Personen entschieden werden soll, wobei $x = (x_1, x_2, x_3) \in \mathbb{R}^{3}$, $x_i \neq 0$ für alle $i \in N$ und $\sum_{i} x_{i} \leq i$. Der individuelle Nutzen eines jeden Spielers ist gleich dem Anteil am Kuchen, den er erhält, d.h. $u_i(x_i) = x_i$ für $i \in N$.
+
+\begin{enumerate}
+	\item Bestimmen Sie die charakteristischen Funktionswerte v(K) aller Koaliationen $K \subseteq N$.
+		\begin{proof}
+			$$ v(\{ 1 \}) = 0, \quad v(\{ 2 \}) = 0, \quad v(\{ 3 \}) = 0, \quad v(\{ 1, 2,3 \}) = 1  $$
+			$$ v(\{ 1, 2 \}) = 1, \quad  v(\{ 2, 3 \}) = 1, \quad v(\{ 1, 3 \}) = 1 $$
+		\end{proof}
+	\item Bestimmen Sie den Kern $C(\Gamma_C)$ und den Shapley-Wer $\Phi(\Gamma_C)$.
+		\begin{proof}
+			Den Kern $C(\Gamma_C)$ erhält man, indem man einer Aufteilung $x_1, x_2, x_3$ das folgende Gleichungssystem als Randbedingungen mitgibt:
+			\begin{align*}
+				x_{1} + x_{2} + x_{3} = 1 & = v(\{1, 2, 3 \}) \\
+				x_{1} + x_{3} \geq 1 & = v(\{1, 3 \}) \\
+				x_{2} + x_{3} \geq 1 & = v(\{ 2, 3 \}) \\
+				x_{1} + x_{2} \geq 1 & = v(\{ 1, 2 \}) \\
+				x_{3} \geq 0 & = v(\{ 3 \}) \\
+			    x_{2} \geq 0 & = v(\{ 2 \}) \\
+				x_{1} \geq 0 & = v(\{ 1 \})
+			\end{align*}
+			Setzen wir die Gleichungen 2 - 4 ineinander ein, so erhalten wir:
+			$$ x_{1} \geq 1 - x_{2}, \quad x_{3} \geq 1 - x_{2} $$
+			$$ 1 - x_{2} + 1 - x_{2} \geq 1 \iff x_{2} \geq \frac{1}{2} $$
+			Aus Symmetrie (oder einfach Wiederholung der obigen Schritte für $x_{1}$ und $x_{2}$) erhalten wir:
+			$$ x_{1}, x_{2}, x_{3} \geq \frac{1}{2}. $$
+			Allerdings bedeutet dies:
+			\begin{equation*}
+				\frac{1}{2} + \frac{1}{2} + \frac{1}{2} \leq x_{1} + x_{2} + x_{3} = 1, \qquad \lightning
+			\end{equation*} 
+			d.h. $C(\Gamma_C) = \emptyset$. 
+			Für den Shapley-Wert betrachten wir folgendes:
+			\begin{center}
+    			\begin{tabular}{| c | c | c | c |}
+   					\hline
+    					Reihenfolge/Marg. Beitrag &  Sp. 1 & Sp. 2 & Sp. 3  \\ 
+    						\hline
+    					$1, 2, 3$ & $0$ & $1$ & $0$  \\ 
+    						\hline
+    					$1, 3, 2$ & $0$ & $0$ & $1$  \\
+    						\hline
+    					$2, 1, 3$ & $1$ & $0$ & $0$  \\
+       						\hline
+    					$2, 3, 1$ & $0$ & $0$ & $1$  \\
+      						\hline
+    					$3, 1, 2$ & $1$ & $0$ & $0$  \\
+      						\hline
+    					$3, 2, 1$ & $0$ & $1$ & $0$  \\
+      						\hline \hline
+    					$\phi_{i}(\Sigma_{C}) = \Sigma$  & $2$ & $2$ & $2$  \\
+    				\hline
+   				 \end{tabular}
+    		\end{center}
+    		d.h. $\Phi(\Sigma_{C}) = \left(\frac{2}{6}, \frac{2}{6}, \frac{2}{6} \right)$.
+		\end{proof}
+	\item Lösen Sie die Teilaufgaben a) und b) unter der Bedingung, dass Koalitionen, die sowohl Spieler 2 als auch Spieler 3 enthalten, nicht gebildet werden.
+		\begin{proof}
+			Die Randbedingung ändern sich wie folgender Maßen:
+			\begin{align*}
+				x_{1} + x_{2} + x_{3} = 1 & = v(\{1, 2, 3 \}) \\
+				x_{1} + x_{3} \geq 1 & = v(\{1, 3 \}) \\
+				x_{2} + x_{3} \geq 0 & = v(\{ 2, 3 \}) \\
+				x_{1} + x_{2} \geq 1 & = v(\{ 1, 2 \}) \\
+				x_{3} \geq 0 & = v(\{ 3 \}) \\
+			    x_{2} \geq 0 & = v(\{ 2 \}) \\
+				x_{1} \geq 0 & = v(\{ 1 \})
+			\end{align*}
+			d.h. die eine/zwei Randbedingungen werden trivial. Der Kern besteht also aus
+			$$ x_{3} \geq 1 - x_{1}, \quad x_{2} \geq 1 - x_{1} $$
+			$$ \Rightarrow x_{1} = 1 $$
+			D.h. $C(\Gamma_{C}) = \{ (1, 0, 0) \}$. Der Shapely-Wert lässt sich wieder über folgendes bestimmen
+			\begin{center}
+    			\begin{tabular}{| c | c | c | c |}
+   					\hline
+    					Reihenfolge/Marg. Beitrag &  Sp. 1 & Sp. 2 & Sp. 3  \\ 
+    						\hline
+    					1, 2, \deleted{\color{red}{3}} & $0$ & $1$ & $0$  \\ 
+    						\hline
+    					1, 3, \deleted{\color{red}{2}} & $0$ & $0$ & $1$  \\
+    						\hline
+    					2, 1, \deleted{\color{red}{3}} & $1$ & $0$ & $0$  \\
+       						\hline
+    					2, \deleted{\color{red}{3, 1}} & $0$ & $0$ & $0$  \\
+      						\hline
+    					3, 1, \deleted{\color{red}{2}} & $1$ & $0$ & $0$  \\
+      						\hline
+    					3, \deleted{\color{red}{2, 1}} & $0$ & $0$ & $0$  \\
+      						\hline \hline
+    					$\phi_{i}(\Sigma_{C}) = \Sigma$  & $2$ & $1$ & $1$  \\
+    				\hline
+   				 \end{tabular}
+    		\end{center}
+    		d.h. $\Phi(\Sigma_{C}) = \left(\frac{2}{c}, \frac{1}{c}, \frac{1}{c} \right)$; die Frage bleibt aber, welchen Wert $c$ annehmen muss. Mein Tipp wäre $\frac{v(N)}{\sum \phi_{i}(\Sigma_{C})}$\footnote{Scheint mir nicht ganz konsistent mit der Vorlesung $(1/n!)$ zu sein}. Laut Musterlösung gilt $c = 4$ was konsistent mit meiner Vermutung wäre.
+		\end{proof}
+	\item Lösen Sie die Teilaufgaben a) und b) für das Drei-Personen-Abstimmungsspiel $\Gamma_C = [N, v]$ mit $N = \{1, 2, 3\}$ in dem Spieler 1 ein Stimmengewicht von 60\% und Spieler 2 und 3 von jeweils 20\% besitzen und Entscheidungen anhand der Zweidrittel-Mehrheit-Regel (qualifizierte Mehrheit) getroffen werden.
+	  \begin{proof}
+	  ~\\
+		\begin{enumerate} 
+			\item Bestimmen Sie die charakteristischen Funktionswerte v(K) aller Koaliationen $K \subseteq N$.
+			$$ v(\{ 1 \}) = 0, \quad v(\{ 2 \}) = 0, \quad v(\{ 3 \}) = 0, \quad v(\{ 1, 2, 3 \}) = 1  $$
+			$$ v(\{ 1, 2 \}) = 1, \quad  v(\{ 1, 3 \}) = 1, \quad v(\{ 2, 3 \}) = 0 $$
+			\item Bestimmen Sie den Kern $C(\Gamma_C)$ und den Shapley-Wer $\Phi(\Gamma_C)$. \\
+			
+			Den Kern $C(\Gamma_C)$ erhält man, indem man einer Aufteilung $x_1, x_2, x_3$ das folgende Gleichungssystem als Randbedingungen mitgibt:
+			\begin{align*}
+				x_{1} + x_{2} + x_{3} = 1 & = v(\{1, 2, 3 \}) \\
+				x_{1} + x_{3} \geq 1 & = v(\{1, 3 \}) \\
+				x_{1} + x_{2} \geq 1 & = v(\{ 1, 2 \}) \\
+				x_{2} + x_{3} \geq 0 & = v(\{ 2, 3 \}) \\
+				x_{3} \geq 0 & = v(\{ 3 \}) \\
+			    x_{2} \geq 0 & = v(\{ 2 \}) \\
+				x_{1} \geq 0 & = v(\{ 1 \})
+			\end{align*}
+			d.h. $x_{3} \geq 1 - x_{1}$, $x_{2} \geq 1- x_{1}$.
+			$$ 1 \geq 1 - x_{3} + x_{2} + x_{3} \iff x_{2} = 0$$
+			$$ 1 \geq 1 + x_{3} + x_{2} - x_{2} \iff x_{3} = 0$$
+    		d.h. $\Phi(\Sigma_{C}) = \left(1, 0, 0 \right)$. Schneller geht das auch, durch das Theorem, dass bei einem Veto-Spieler alle anderen die Auszahlung $0$ erhalten müssen. Für den Shapley-Wert betrachten wir:
+  			\begin{center}
+    			\begin{tabular}{| c | c | c | c |}
+   					\hline
+    					Reihenfolge/Marg. Beitrag &  Sp. 1 & Sp. 2 & Sp. 3  \\ 
+    						\hline
+    					$1, 2, 3$ & $0$ & $1$ & $0$  \\ 
+    						\hline
+    					$1, 3, 2$ & $0$ & $0$ & $1$  \\
+    						\hline
+    					$2, 1, 3$ & $1$ & $0$ & $0$  \\
+       						\hline
+    					$2, 3, 1$ & $1$ & $0$ & $0$  \\
+      						\hline
+    					$3, 1, 2$ & $1$ & $0$ & $0$  \\
+      						\hline
+    					$3, 2, 1$ & $1$ & $0$ & $0$  \\
+      						\hline \hline
+    					$\phi_{i}(\Sigma_{C}) = \Sigma$  & $4$ & $1$ & $1$  \\
+    				\hline
+   				 \end{tabular}
+    		\end{center}
+    		d.h. $\Phi(\Sigma_{C}) = \left(\frac{4}{c}, \frac{1}{c}, \frac{1}{c} \right)$, $c = 4$(?).
+		\end{enumerate}
+	\end{proof}
+\end{enumerate}
+
+\newpage
+
+\subsection*{4.2 Aufgabe} 
+Gegeben sei folgende Auszahlungstabelle eines Zwei-Personen-Spiels in Normalform 
+	
+\begin{figure*}[h!]
+  \begin{center}
+	\begin{game}{2}{2}[~][~]
+	    	  &   $s_{21}$   &   $s_{22}$   \\
+	 $s_{11}$ &  $3,      3$ & $0, \alpha$  \\
+	 $s_{12}$ &  $\alpha, 0$ & $1, 1$     
+	\end{game}
+  \end{center}
+\end{figure*}
+Beschreiben Sie jeweils für $\alpha = 5$ und $\alpha = 7$ das korrespondierende Koalitionsspiel $\Gamma_C = [N, v]$ und bestimmen Sie den Kern $C(\Gamma_C)$.
+
+	\begin{proof}
+		Wir haben das Spiel gegeben durch $N = \{1, 2\}$ und $v \colon P(N) \rightarrow \R$.
+		
+		Angenommen $v$ ist superadditiv, und da wir wissen, dass dieses Spile symmetrisch ist, gilt:
+		\begin{enumerate}
+			\item $\alpha = 5$ \\
+				$$ v(N) = \max_{i,j,k,j \in N} u(s_{ij},s_{kj}) = \max_{i,j,k,j \in N} \left( u_{1}(s_{ij},s_{kj}) + u_{2}(s_{ij},s_{kj}) \right) = 3 + 3 = 6, $$ 
+				$$ v(\{1\}) = v(\{2\}) = \min_{i,j,k,j \in N} u_{1/2}(s_{ij},s_{kj}) = 1  $$
+		
+				Um den Kern zu bestimmen, betrachte:
+				\begin{align*}
+					x_{1} + x_{2} = 6 & = v(\{1, 2, 3 \}) \\
+			    	x_{2} \geq 1 & = v(\{ 2 \}) \\
+					x_{1} \geq 1 & = v(\{ 1 \})
+				\end{align*}
+				$$ \Rightarrow C(\Gamma_{C}) = \{ x_{1}, x_{2} \colon x_{1}, x_{2} \geq 1, x_{1} + x_{2} = 6 \} \neq \emptyset $$ \newpage
+			\item $\alpha = 6$ \\
+				$$ v(N) = \max_{i,j,k,j \in N} u(s_{ij},s_{kj}) = \max_{i,j,k,j \in N} \left( u_{1}(s_{ij},s_{kj}) + u_{2}(s_{ij},s_{kj}) \right) = 7 + 0 = 0 + 7 = 7, $$ 
+				$$ v(\{1\}) = v(\{2\}) = \min_{i,j,k,j \in N} u_{1/2}(s_{ij},s_{kj}) = 1  $$
+		
+				Um den Kern zu bestimmen, betrachte:
+				\begin{align*}
+					x_{1} + x_{2} = 7 & = v(\{1, 2, 3 \}) \\
+			    	x_{2} \geq 1 & = v(\{ 2 \}) \\
+					x_{1} \geq 1 & = v(\{ 1 \})
+				\end{align*}
+				$$ \Rightarrow C(\Gamma_{C}) = \{ x_{1}, x_{2} \colon x_{1}, x_{2} \geq 1, x_{1} + x_{2} = 7 \} \neq \emptyset $$
+		\end{enumerate}
+	\end{proof}
+	
+\newpage
+
+\subsection*{4.3 Aufgabe}
+
+Ein Kleintierzüchterverein hat sieben Mitglieder: zwei Meerschweinchenzüchter $M_1$ und $M_2$, zwei Taubenzüchter $T_1$ und $T_2$ und drei Hasenzüchter $H_1$, $H_2$ und $H_3$. Entscheidungen werden mit einfacher Mehrheit gefällt.
+
+  \begin{enumerate}
+ 	\item Beschreiben Sie unter der Bedingung, dass die Mitglieder einer Zuchtgruppe stets einheitlich abstimmen, das Koalitionsspiel $\Gamma_C = [N, v]$ für die drei unabhängingen Spieler in Form der drei Zuchtgruppen $M = \{M_1,M_2\}$, $T = \{T_1, T_2\}$ und $H = \{H_1,H_2,H_3\}$, also $N = \{M, T, H\}$, und berechnen Sie die Shapley-Werte für $M$, $T$ und $H$.
+ 		\begin{proof}
+ 			Es gilt $\Gamma_C = [N, v]$, wobei $N = \{ M, T, H \}$ und $v \colon P(N) \rightarrow \N$ mit:
+ 			$$ v(N) = 1, ~ v(\{M, T\}) = 1, ~ v(\{T, H\}) = 1, ~ v(\{M,H\}) = 1,$$
+ 			$$  v(\{M\}) = v(\{T\}) = v(\{H\}) = 0. $$
+			Für den Shapley-Wert betrachten wir:
+  			\begin{center}
+    			\begin{tabular}{| c | c | c | c |}
+   					\hline
+    					Reihenfolge/Marg. Beitrag & M & T & H \\ 
+    						\hline
+    					$M, T, H$ & $0$ & $1$ & $0$  \\ 
+    						\hline
+    					$T, H, M$ & $0$ & $0$ & $1$  \\
+    						\hline
+    					$T, M, H$ & $1$ & $0$ & $0$  \\
+       						\hline
+    					$H, T, M$ & $0$ & $1$ & $0$  \\
+      						\hline
+    					$H, M, T$ & $1$ & $0$ & $0$  \\
+      						\hline
+    					$M, H, T$ & $0$ & $0$ & $1$  \\
+      						\hline \hline
+    					$\phi_{i}(\Sigma_{C}) = \Sigma$  & $2$ & $2$ & $2$  \\
+    				\hline
+   				 \end{tabular}
+    		\end{center}
+    		d.h. $\Phi(\Sigma_{C}) = \left(\frac{2}{c}, \frac{2}{c}, \frac{2}{c} \right)$, $c = 6$(?).
+ 		\end{proof}
+	\item Eines Tages zerstreiten sich die drei Hasenzüchter, was dazu führt, dass sie die Hasenkoalition auflösen und in Abstimmungen einzeln auftreten. Die Meerschweinchenzüchter und Taubenzüchter stimmen weiterhin einheitlich ab. Wie lauten die Ergebnisse von Teilaufgabe a) für die fünf unabhängingen Spieler $M$, $T$, $H_1$, $H_2$ und $H_3$. Vergleichen Sie die Shapley-Werte mit denen von Teilaufgabe a). Was fällt auf?
+ 		\begin{proof}
+ 			Es gilt $\Gamma_C = [N, v]$, wobei $N = \{ M, T, H_{1}, H_{2}, H_{3} \}$ und $v \colon P(N) \rightarrow \N$ mit:
+ 			$$ v(\{T, H_{1}, H_{2}, H_{3} \}) = 1, ~ v(\{M, H_{1}, H_{2}, H_{3} \}) = 1,  ~ v(\{T, H_{i}, H_{j} \}) = 1, ~ v(\{M, H_{i}, H_{j} \}) = 1,$$
+ 			$$  v(\{M\}) = v(\{T\}) = v(\{ H_{i} \}) = v(\{ H_{i}, H_{j} \}) = v(\{ H_{1}, H_{2}, H_{3} \}) = 0. $$
+ 			$$ v(N) = 1, ~ v(\{M, T\}) = 1, ~v(\{T, H_{i}\}) = 0, ~ v(\{M, H_{i}\}) = 0$$
+			Aus Symmetrie-Gründen können wir den Shapley-Wert für z.B. $T$ berechnen über:
+  			\begin{center}
+    			\begin{tabular}{| c | c | c | c |}
+   					\hline
+    					Reihenfolge & Marg. Beitrag von T \\ 
+    						\hline
+    					$M, T, \pi(H_{1}, H_{2}, H_{3})$ & $6$   \\ 
+    						\hline
+    					$M, H_{i}, T, \pi(H_{j}, H_{k})$ & $3 \cdot 2 = 6$  \\
+    						\hline
+    					$H_{i}, M, T, \pi(H_{j}, H_{k})$ & $3 \cdot 2 = 6$   \\
+       						\hline
+    					$\pi(H_{i}, H_{j}), T, M, H_{k}$ & $3 \cdot 2 = 6$   \\
+      						\hline
+    					$\pi(H_{i}, H_{j}), T, H_{k}, M$ & $3 \cdot 2 = 6$ \\
+      						\hline
+    					$\pi(H_{1}, H_{2}, H_{3}), M, T$  & $6$ \\
+      						\hline \hline
+    					$\phi_{T}(\Sigma_{C}) = \Sigma$  & $36$  \\
+    				\hline
+   				 \end{tabular}
+    		\end{center}
+    		d.h. $\Phi_{T}(\Sigma_{C}) = \frac{36}{n!} = \frac{36}{120} = \frac{3}{10}$. Eben aus Symmetrie-Gründen gilt: $\Phi_{T}(\Sigma_{C}) = \Phi_{M}(\Sigma_{C})$. \\ 
+    		Schließlich gilt wieder aus Symmetriegründen:
+    		$$ \Phi_{H_{i}}(\Sigma_{C}) = \frac{1 - \Phi_{T}(\Sigma_{C}) - \Phi_{M}(\Sigma_{C})}{3} = \frac{1 - 0,\overline{3} - 0,\overline{3}}{3} = 0,1\overline{3}, \quad \forall i \in \{1, 2, 3\}. $$
+    		Es fällt auf, dass in der Summe die Shapley Werte der Hasen höher ist, als in der a). Dies ist der Kritikpunkt am Shapley-Wert.
+ 		\end{proof}
+  \end{enumerate}
+\end{document}

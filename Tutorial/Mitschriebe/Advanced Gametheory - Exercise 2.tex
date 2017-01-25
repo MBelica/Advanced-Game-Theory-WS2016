@@ -1,0 +1,202 @@
+\documentclass[12pt]{extreport} % Schriftgröße: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt oder 20pt
+
+%% Packages
+\usepackage{scrextend}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{chngcntr}
+\usepackage{cmap}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{makeidx}
+\usepackage{mathtools} 
+\usepackage{xpatch}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+\usetikzlibrary{calc}	
+\usetikzlibrary{matrix}	
+
+\usepackage{amsmath}
+\usepackage[inline]{enumitem}
+
+\usepackage{cmap}
+
+\usepackage{microtype}
+\usepackage{sgame, tikz} % Game theory packages
+\usetikzlibrary{trees, calc} % For extensive form games
+\usepackage{subfig} % Manipulation and reference of small or sub figures and tables
+
+
+% Language Setup (Deutsch)
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[english]{babel}
+
+% Options
+\makeatletter%%  
+  % Linkfarbe, {0,0.35,0.35} für Türkis, {0,0,0} für Schwarz 
+  \definecolor{linkcolor}{rgb}{0,0.35,0.35}
+  % Zeilenabstand für bessere Leserlichkeit
+  \def\mystretch{1.2} 
+  % Publisher definieren
+  \newcommand\publishers[1]{\newcommand\@publishers{#1}} 
+  % Enumerate im 1. Level: \alph für a), b), ...
+  \renewcommand{\labelenumi}{\alph{enumi})} 
+  % Enumerate im 2. Level: \roman für (i), (ii), ...
+  \renewcommand{\labelenumii}{(\roman{enumii})}
+  % Zeileneinrückung am Anfang des Absatzes
+  \setlength{\parindent}{0pt} 
+  % Verweise auf Enumerate, z.B.: 3.2 a)
+  \setlist[enumerate,1]{ref={\thesatz ~ \alph*)}}
+  % Für das Proof-Environment: 'Beweis:' anstatt 'Beweis.'
+  \xpatchcmd{\proof}{\@addpunct{.}}{\@addpunct{:}}{}{} 
+  % Nummerierung der Bilder, z.B.: Abbildung 4.1
+  \@ifundefined{thechapter}{}{\def\thefigure{\thechapter.\arabic{figure}}} 
+\makeatother%
+
+% Meta Setup (Für Titelblatt und Metadaten im PDF)
+\title{Höhere Mathematik I}
+\author{G. Herzog, C. Schmoeger}
+\date{Wintersemester 2016/17}
+\publishers{Karlsruher Institut für Technologie}
+
+
+
+%% Math. Definitions
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+%% Theorems (unnamedtheorem = Theorem ohne Namen)
+\newtheoremstyle{named}{}{}{\normalfont}{}{\bfseries}{:}{0.25em}{#2 \thmnote{#3}}
+\newtheoremstyle{itshape}{}{}{\itshape}{}{\bfseries}{:}{ }{}
+\newtheoremstyle{normal}{}{}{\normalfont}{}{\bfseries}{:}{ }{}
+\renewcommand*{\qed}{\hfill\ensuremath{\square}}
+
+\theoremstyle{named}
+\newtheorem{unnamedtheorem}{Theorem} \counterwithin{unnamedtheorem}{chapter}
+
+\theoremstyle{itshape}
+\newtheorem{satz}[unnamedtheorem]{Satz}	
+\newtheorem*{definition}{Definition}
+
+\theoremstyle{normal}
+\newtheorem{beispiel}[unnamedtheorem]{Beispiel}
+\newtheorem{folgerung}[unnamedtheorem]{Folgerung}
+\newtheorem{hilfssatz}[unnamedtheorem]{Hilfssatz}
+\newtheorem{anwendung}[unnamedtheorem]{Anwendung}
+\newtheorem{anwendungen}[unnamedtheorem]{Anwendungen}
+\newtheorem*{beispiel*}{Beispiel}
+\newtheorem*{beispiele}{Beispiele}
+\newtheorem*{bemerkung}{Bemerkung} 
+\newtheorem*{bemerkungen}{Bemerkungen}
+\newtheorem*{bezeichnung}{Bezeichnung}
+\newtheorem*{eigenschaften}{Eigenschaften}
+\newtheorem*{folgerung*}{Folgerung}
+\newtheorem*{folgerungen}{Folgerungen}
+\newtheorem*{hilfssatz*}{Hilfssatz}
+\newtheorem*{regeln}{Regeln}
+\newtheorem*{schreibweise}{Schreibweise}
+\newtheorem*{schreibweisen}{Schreibweisen}
+\newtheorem*{uebung}{Übung}
+\newtheorem*{vereinbarung}{Vereinbarung}
+
+%% Template
+\makeatletter%
+\DeclareUnicodeCharacter{00A0}{ } \pgfplotsset{compat=1.7} \hypersetup{colorlinks,breaklinks, urlcolor=linkcolor, linkcolor=linkcolor, pdftitle=\@title, pdfauthor=\@author, pdfsubject=\@title, pdfcreator=\@publishers}\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}} \ProcessOptions \def\baselinestretch{\mystretch} \setlength{\oddsidemargin}{0.125in} \setlength{\evensidemargin}{0.125in} \setlength{\topmargin}{0.5in} \setlength{\textwidth}{6.25in} \setlength{\textheight}{8in} \addtolength{\topmargin}{-\headheight} \addtolength{\topmargin}{-\headsep} \def\pulldownheader{ \addtolength{\topmargin}{\headheight} \addtolength{\topmargin}{\headsep} \addtolength{\textheight}{-\headheight} \addtolength{\textheight}{-\headsep} } \def\pullupfooter{ \addtolength{\textheight}{-\footskip} } \def\ps@headings{\let\@mkboth\markboth \def\@oddfoot{} \def\@evenfoot{} \def\@oddhead{\hbox {}\sl \rightmark \hfil \rm\thepage} \def\chaptermark##1{\markright {\uppercase{\ifnum \c@secnumdepth >\m@ne \@chapapp\ \thechapter. \ \fi ##1}}} \pulldownheader } \def\ps@myheadings{\let\@mkboth\@gobbletwo \def\@oddfoot{} \def\@evenfoot{} \def\sectionmark##1{} \def\subsectionmark##1{}  \def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox {}} \def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage} \pulldownheader }	\def\chapter{\cleardoublepage  \thispagestyle{plain} \global\@topnum\z@ \@afterindentfalse \secdef\@chapter\@schapter} \def\@makeschapterhead#1{ {\parindent \z@ \raggedright \normalfont \interlinepenalty\@M \Huge \bfseries  #1\par\nobreak \vskip 40\p@ }} \newcommand{\indexsection}{chapter} \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}
+	% Titlepage
+	\def\maketitle{ \begin{titlepage} 
+			~\vspace{3cm} 
+		\begin{center} {\Huge \@title} \end{center} 
+	 		\vspace*{1cm} 
+	 	\begin{center} {\large \@author} \end{center} 
+	 	\begin{center} \@date \end{center} 
+	 		\vspace*{7cm} 
+	 	\begin{center} \@publishers \end{center} 
+	 		\vfill 
+	\end{titlepage} }
+\makeatother%
+
+% Indexdatei erstellen
+\makeindex 
+
+\begin{document}
+
+
+\section*{Advanced Game Theory - Exercise 3}
+
+\subsection*{3.1}
+  Assumption we make: finite number of pure strategies $\Rightarrow$ there exists a Nash-Equilibrium. ~\\
+  
+  When a strategy $\sigma_{i}$ is eliminated then so is every strategy that plays $\sigma_{i}$ with positive probability.
+  
+  $$ S^{\infty}: \text{ set of strategies that survive iterated elimination of strictly dominated strategies.} $$
+  
+  $\left| S^{\infty} \right| = 1$. ~\\
+  
+  \textbf{Claim:} If $\left(s_{1}^{*}, \dotsc, s_{I}^{*} \right)$ is a Nash-Equilibrium, then $s^{*} \in S^{\infty}$.
+  \begin{proof}
+  	Let $\left( s_{1}^{*}, \dotsc, s_{I}^{*} \right)$ be a Nash-Equilibrium and assume $s^{*} \notin S^{\infty}$. Let $i$ be the player whose strategy is eliminated first (in round $k$). ~\\
+  	
+  	i.e. $\exists \sigma_{i}, \sigma_{i}' \in \Delta\left(S_{i}\right)$:
+  	$$ u_{i}(\sigma_{i}, s_{-i}) > u_{i}(\sigma_{i}', s_{-i}) \quad \forall s_{i} \in S_{-i}^{k-1} $$
+  	and $\sigma_{i}'$ is played with positiv probability in $s_{i}^{*}$. ~\\
+  	
+  	Let $s_{i}'$ be derived from $s_{i}^{*}$ with replacing $\sigma_{i}'$ by $\sigma_{i}$.
+  	\begin{align*}
+  		\Rightarrow \quad u_{i}(s_{i}', s_{-i}^{*}) &= u_{i}(s_{i}^{*},  s_{-i}^{*}) + \underbrace{s_{i}^{*}}_{> 0}(\sigma_{i}')\underbrace{\left[ u_{i}(\sigma_{i}, s_{-i}^{*}) - u_{i}(\sigma_{i}', s_{-i}^{*}) \right]}_{> 0} \\
+  		& > u_{i}(s_{i}^{*}, s_{-i}^{*})
+  	\end{align*} 
+  which contradicts the fact that $s^{*}$ is a Nash-Equilibrium.
+  \end{proof}
+~\newpage
+\subsection*{3.3}
+\begin{table}[!htbp]
+\centering
+	
+\begin{game}{2}{4}[Player 1][Player 2]
+	    &  LL     &  L & M, & R    \\
+	 U  &  $100, 2$ & $-100, 1$ & $0,0$ & $-100, -100$  \\
+	 D  &  $-100, -100$ & $100, -49$ & $1, 0$ & $100, 2$ \\
+\end{game}
+\end{table}
+
+\begin{enumerate}
+	\item Play $M$, todo: explanation
+	\item Pure Nash-Equilibria: $(U, LL)$ and $(D, R)$ ~\\
+		Mixed Equilibria: 
+		\begin{enumerate}
+			\item Player 1 mixes $U$ and $D$ with probabilities $p$ and $1 -p$ respectively.
+			\item Player 2 can mix between: $(LL, L), (LL, M), (LL, R), (L, M), (L, R),$
+				$$ (M, R), (LL, L, M), (LL, L, R), (LL, M, R), (L, M, R), (LL, L, M, R) $$
+		\end{enumerate}
+		\textbf{Claim}: Only $(LL, L)$ will lead to a Nash-Equilibrium.
+			\begin{proof}[Proof (Using the Proposition after the Definition of Mixed Strategy NE)] ~\\
+				Only $(LL, L)$ will lead to a Nash Equilibrium
+				\begin{align*}
+					u_{2}(LL) = u_{2}(L) ~ & \iff ~ 2p - 100 (1-p) = p - 49 (1-p) \\
+					& \iff ~p = \frac{51}{52}
+				\end{align*} 
+				Therefore: $u_{2}(LL) = u_{2}(L) = \frac{1}{26}$, $u_{2}(M) = 0$, $u_{2}(R) < 0$.
+				\begin{align*}
+					u_{1}(u) = u_{1}(D)  ~ & \iff ~ 100q - 100(1-q) = -100q + 100(1-q) \\
+					& \iff ~ q = \frac{1}{2}
+				\end{align*} 
+				where $q$ is the probability of Player 2 playing $LL$.~\\
+				$$ \Rightarrow ~ \text{ Nash Equilibrium: } \left( \frac{51}{52} U + \frac{25}{26} D, \frac{1}{2} LL + \frac{1}{2} L \right). $$
+				Now we have proven that $(LL, L)$ is a Nash Equilibrium. We will subsequently show that no other Nash Equilibrium exists:
+				\begin{itemize}
+					\item $(LL, M)$: $u_{2}(LL) \overset{!}{=} u_{2}(M) = 0 \iff p = \frac{50}{51}$, but then $u_{2}(L) = \frac{1}{51} > 0$ and hence deviation would result in a higher payout. Therefore $(LL, M)$ is no Nash Equilibrium.
+					\item $(LL, R)$: $u_{2}(LL) = u_{2}(R) \iff p = \frac{1}{2}$, but then $u_{2}(LL) = - 49$ and $u_{2}(M) = 0 > - 49$ and again a contradiction to the Nash Equilibrium $(LL, R)$
+					\item $(L, M)$, $(L, R)$, $(M, R)$, $(M, L, R)$: choosing on of these strategies we can see in the Normalform representation that Player 1 will always play $D$ $\Rightarrow$ Player 2 plays $R$ without mixing it, hence there is no positiv probability in playing $M$ or $L$.
+					\item For the remaining cases four cases the proof follows analogously; we find the necessary probability and show that deviation is enlarging the utility.
+				\end{itemize}
+			\end{proof}
+	\item $M$ is not part of any Nash Equilibrium. However, $M$ is best response to $\frac{1}{2} U + \frac{1}{2}D$ and therefore rationalisable.
+	\item Whenever communication is possible, we can even expect $(U, LL)$ or $(D, R)$ as outcome as both players would profit.
+\end{enumerate}
+
+\end{document}

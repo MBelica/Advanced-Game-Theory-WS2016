@@ -1,0 +1,4 @@
+\select@language {ngerman}
+\activateonlyattoc 
+\contentsline {chapter}{\numberline {15}Evolution\IeC {\"a}re Spieltheorie}{2}{chapter.15}
+\contentsline {section}{\numberline {15.1}Spiele in Normalform}{2}{section.15.1}
