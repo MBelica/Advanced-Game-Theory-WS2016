@@ -5,10 +5,10 @@
 \contentsline {section}{\numberline {1.3}Nash Equilibrium}{12}{section.1.3}
 \contentsline {section}{\numberline {1.4}Subgame Perfection in Dynamic Games}{13}{section.1.4}
 \contentsline {section}{\numberline {1.5}Excercises}{14}{section.1.5}
-\contentsline {chapter}{\numberline {2}Kooperative Spiele}{20}{chapter.2}
-\contentsline {section}{\numberline {2.1}Der Kern}{20}{section.2.1}
-\contentsline {section}{\numberline {2.2}Der Shapley-Wert}{21}{section.2.2}
-\contentsline {section}{\numberline {2.3}Einfache Spiele}{22}{section.2.3}
-\contentsline {section}{\numberline {2.4}Konvexe Spiele}{23}{section.2.4}
-\contentsline {section}{\numberline {2.5}\IeC {\"U}bungen}{24}{section.2.5}
-\contentsline {chapter}{\numberline {3}Evolution\IeC {\"a}re Spieltheorie}{33}{chapter.3}
+\contentsline {chapter}{\numberline {2}Kooperative Spiele}{21}{chapter.2}
+\contentsline {section}{\numberline {2.1}Der Kern}{21}{section.2.1}
+\contentsline {section}{\numberline {2.2}Der Shapley-Wert}{22}{section.2.2}
+\contentsline {section}{\numberline {2.3}Einfache Spiele}{23}{section.2.3}
+\contentsline {section}{\numberline {2.4}Konvexe Spiele}{24}{section.2.4}
+\contentsline {section}{\numberline {2.5}\IeC {\"U}bungen}{25}{section.2.5}
+\contentsline {chapter}{\numberline {3}Evolution\IeC {\"a}re Spieltheorie}{34}{chapter.3}
