@@ -377,7 +377,7 @@ We first address the above question for simultaneous-move games, which we study 
 What should we expect to observe in the Prisoners' Dilemma?
 
 \begin{definition}[Strictly Dominant Strategy]
-	A strategy $s_i \in \mathcal{S}_i$ is strictly dominant for player $i$ in game $\Gamma_N = ]I, \{  \mathcal{S}_i \}, \{ u_i(\cdot)\}]$ if for all $s_i' \neq s_i$:
+	A strategy $s_i \in \mathcal{S}_i$ is \textbf{strictly dominant} for player $i$ in game $\Gamma_N = ]I, \{  \mathcal{S}_i \}, \{ u_i(\cdot)\}]$ if for all $s_i' \neq s_i$:
 	$$ u_{i}(s_i, s_{-i}) > u_i(s_i', s_{-i})  $$
 	for all $s_{i} \in \mathcal{S}_{-i}$.
 \end{definition}
@@ -391,7 +391,7 @@ Applied to Prisoner's Dilemma: Confess is a strictly dominant strategy for each 
 
 
 \begin{definition}[Weakly Dominated Strategy]
-	$s_i \mathcal{S}_{i}$ is weakly dominated for player $i$ in game $\Gamma_N$ if there exists another strategy $s_i' \in \mathcal{S}_i$ such that:
+	$s_i \mathcal{S}_{i}$ is \textbf{weakly dominated} for player $i$ in game $\Gamma_N$ if there exists another strategy $s_i' \in \mathcal{S}_i$ such that:
 	$$ u_i(s_i', s_{-i}) \geq u_i(s_i, s_{-i}) $$
 	for all $s_{-i} \in \mathcal{S}_{-i}$, with strict inequality for at least one $s_{-i}$.
 \end{definition}
@@ -501,8 +501,6 @@ In this game, the iterated elimination of strictly dominated strategies still le
 
 \subsubsection*{Aufgabe 1.2}	
 
-
-	% Node styles
 	\tikzset{
 	% Two node styles for game trees: solid and hollow
 	solid node/.style={circle,draw,inner sep=1.5,fill=black},
