@@ -2,7 +2,7 @@
 
 % Language Setup (Deutsch)
 \usepackage[utf8]{inputenc} 
-\usepackage[ngerman]{babel}
+\usepackage[english]{babel}
 
 %% Packages
 \usepackage{scrextend}
@@ -120,6 +120,7 @@
 \newtheorem{example}[unnamedtheorem]{Example}
 \newtheorem{folgerung}[unnamedtheorem]{Folgerung}
 \newtheorem{hilfssatz}[unnamedtheorem]{Hilfssatz}
+\newtheorem{proposition}[unnamedtheorem]{Proposition}
 \newtheorem{anwendung}[unnamedtheorem]{Anwendung}
 \newtheorem{anwendungen}[unnamedtheorem]{Anwendungen}
 \newtheorem*{beispiel*}{Beispiel}
@@ -191,7 +192,7 @@
 \end{definition} 
 
 
-\begin{example*}[of simultaneous move games]  ~\
+\begin{example}[of simultaneous move games]  ~\
 	\begin{enumerate}
 		\item Matching Pennies
 			\begin{figure}[h!] \centering
@@ -279,7 +280,7 @@
 \end{figure}
 
 	\end{enumerate}
-\end{example*} ~\
+\end{example} ~\
 
 \begin{definition}[Information] ~\
 	\begin{enumerate}
@@ -352,6 +353,137 @@
 \end{theorem}
 
 \section{Rationalisable Strategies}
+
+Central question of Game Theory: What should we expect to observe in a game played by rational players? Or more precisely: What should we expect to observe in a game played by rational players who are fully knowledgeable about the structure of the game and each others' rationality? ~\\
+
+We first address the above question for simultaneous-move games, which we study using their normal form representation. We use the following notation:
+\begin{itemize}
+	\item $\Gamma_N = [I, \{ S_i \}, \{ u_i(\cdot)]$ if we consider pure strategies only, ~\\
+		$\Gamma_{N} = [I, \{ \Delta(S_i)\}, \{ u_i(\cdot) \}]$ if we allow for mixed strategies
+	\item $s_{-i} = (s_1, \dotsc, s_{i-1}, s_{i+1}, \dotsc, s_l) \in \mathcal{S}_{-i}$ where $\mathcal{S}_{-i} = S_1 \times \dotsc \times S_{i-1} \times S_{i+1} \times \cdots \times S_{l}$
+	\item $s = (s_i, s_{-i})$
+\end{itemize}
+
+\begin{example}[Prisoners' Dilemma] ~\\
+			\begin{figure}[h!] \centering
+  				\begin{game}{2}{2}[Player $1$][Player $2$]
+   	    			   	 	&	  don't confess    &  confess   \\
+   	 				don't confess   &    $-2, -2$   & $-10, -1$  \\
+   	 				confess   &    $-1, -10$   & $-5, -5$  \\
+   				\end{game}
+			\end{figure}
+\end{example}
+
+What should we expect to observe in the Prisoners' Dilemma?
+
+\begin{definition}[Strictly Dominant Strategy]
+	A strategy $s_i \in \mathcal{S}_i$ is strictly dominant for player $i$ in game $\Gamma_N = ]I, \{  \mathcal{S}_i \}, \{ u_i(\cdot)\}]$ if for all $s_i' \neq s_i$:
+	$$ u_{i}(s_i, s_{-i}) > u_i(s_i', s_{-i})  $$
+	for all $s_{i} \in \mathcal{S}_{-i}$.
+\end{definition}
+Applied to Prisoner's Dilemma: Confess is a strictly dominant strategy for each player.
+
+\begin{definition}[Strictly Dominated Strategy]
+	$s_i \in \mathcal{S}_i$ is \textbf{strictly dominated} for player $i$ in game $\Gamma_N$ if there exists another strategy $s_i' \in \mathcal{S}_i$ such that:
+	$$ u_i(s_i', s_{-i}) \geq u_i(s_i, s_{-i}) $$
+	for all $s_{-i} \in \mathcal{S}_{-i}$. In this case we say that $s_i'$ strictly dominates $s_i$.
+\end{definition}
+
+
+\begin{definition}[Weakly Dominated Strategy]
+	$s_i \mathcal{S}_{i}$ is weakly dominated for player $i$ in game $\Gamma_N$ if there exists another strategy $s_i' \in \mathcal{S}_i$ such that:
+	$$ u_i(s_i', s_{-i}) \geq u_i(s_i, s_{-i}) $$
+	for all $s_{-i} \in \mathcal{S}_{-i}$, with strict inequality for at least one $s_{-i}$.
+\end{definition}
+
+\begin{example} ~\\
+	\begin{figure}[h!] \centering
+  				\begin{game}{3}{2}[Player $1$][Player $2$]
+   	    			   	 	&	  L    &  R   \\
+   	 				U   &    $1, -1$   & $-1, 1$  \\
+   	 				M   &    $-1, 1$   & $1, -1$  \\
+   					D   &    $-2, 5$   & $-3, 2$  \\
+   				\end{game} $ \Rightarrow D \text{ is strictly dominated by } U \text{ and } M.$
+   					\begin{game}{3}{2}[Player $1$][Player $2$]
+   	    			   	 	&	  L    &  R   \\
+   	 				U   &    $5, 1$   & $4, 0$  \\
+   	 				M   &    $6, 0$   & $3, 1$  \\
+   					D   &    $6,4$   & $4, 4$  \\
+   				\end{game} $\Rightarrow U \text{ and } M \text{ are weakly dominated by } D.$
+	\end{figure}
+\end{example} ~\\
+
+
+\begin{example}[Prisoners’ Dilemma – A Variation]
+	Assume Prisoner 1 is the district attorney’s brother: If neither player confesses, player 1 is free	 ~\\
+	\begin{figure}[h!] \centering
+  				\begin{game}{2}{2}[Player $1$][Player $2$]
+   	    			   	 	&	  don't confess    &  confess   \\
+   	 				don't confess   &    $0, -2$   & $-10, -1$  \\
+   	 				confess   &    $-1, -10$   & $-5, -5$  
+   	   				\end{game} $$\Rightarrow D \text{ is strictly dominated by } U \text{ and } M.$$
+	\end{figure} ~\
+	
+	$\Rightarrow \text{ Player 1 has no dominant strategy anymore}$.
+\end{example}
+
+In this game, the iterated elimination of strictly dominated strategies still leads to a unique prediction. In general, the order of elimination of strictly dominated strategies does not matter! How about iterated elimination of weakly dominated strategies?
+
+\begin{definition}
+	A strategy $\sigma_i \in \Delta(\mathcal{S}_i)$ is strictly dominated for $i$ in game $\Gamma_{N} = [I, \{ \Delta(\mathcal{S}_i)\}, \{ u_i(\cdot) \}]$ if there exists another strategy $\sigma_i' \in \Delta(\mathcal{S}_i)$ such that for all $\sigma_{-i} \in \Pi_{j \neq i} \Delta(\mathcal{S}_{j})$:
+	$$ u_{i}(\sigma_i', \sigma_{-i}) > u_i(\sigma_i, \sigma_{-i}). $$
+\end{definition}
+
+
+\begin{proposition}
+	Player $i$'s pure strategy $s_i \in \mathcal{S}_i$ is strictly dominated in a game $\Gamma_N = [I, \{ \Delta(\mathcal{S}_i)\}, \{ u_i(\cdot)\}]$ if and only if there exists another strategy $\sigma_i' \in \Delta(\mathcal{S}_i)$ such that
+	$$ u_i(\sigma_i', s_{-i}) > u_i(s_i, s_{-i}) \text{ for all } s_{-i} \in \mathcal{S}_{-i}. $$
+	
+	\begin{proof}
+		This follows because we can write
+		$$ u_i(\sigma_i', \sigma_{-i}) - u_i(s_i, \sigma_{-i}) = \sum_{s_{-i} \in \mathcal{S}_{-i}} \left[ \Pi_{k \neq i} \sigma_{k}(s_{k}) \right] \left[ u_{i}(\sigma_i', s_{-i}) - u_{i}(s_i, s_{-i}) \right]. $$
+		And this expression is positive for all $\sigma_{-i}$ if and only if $u_i(\sigma_i', s_{-i}) - u_{i}(s_{i}, s_{-i})$ is positive for all $s_{-i}$.
+	\end{proof}
+\end{proposition} ~\\
+
+\begin{example} ~\
+	\begin{figure}[h!] \centering
+  				\begin{game}{3}{2}[Player $1$][Player $2$]
+   	    			   	 	&	  L    &  R   \\
+   	 				U   &    $10, 1$   & $0, 4$  \\
+   	 				M   &    $4, 2$   & $4, 3$ \\
+   	 				D   &    $0, 5$   & $10, 2$  
+
+   	   				\end{game} $$\Rightarrow \frac{1}{2}U+ \frac{1}{2} D \text{ strictly dominates } M.$$
+	\end{figure}
+\end{example}
+
+\begin{definition}[Best response]
+	The strategy $\sigma_i$ is a \textbf{best response} for player $i$ to her rivals' strategies $\sigma_{-i}$ if:
+	$$ u_i(\sigma_i, \sigma_{-i}) \geq u_i(\sigma_i', \sigma_{-i}) $$
+	for all $\sigma_i' \in \Delta(\mathcal{S}_i)$. Strategy $\sigma_i$ is never a best response if there is no $\sigma_{-i}$ for which $\sigma_{i}$ is a best response.
+\end{definition}
+
+\begin{definition}[Rationalisable Strategies]
+	In game $\Gamma_N = [I, \{ \Delta(\mathcal{S}_i) \}, \{ u_i(\cdot) \}]$, the strategies in $\Delta(\mathcal{S}_i)$ that survive the iterated elimination of strategies that are never a best response are known as player $i$'s \textbf{rationalisable strategies}.
+\end{definition} ~\newpage
+
+\begin{example} ~\\
+		\begin{figure}[h!] \centering
+  				\begin{game}{4}{4}[Player $1$][Player $2$]
+   	    			   	 	& $b_1$ & $b_2$ & $b_3$ & $b_4$   \\
+   	 				$a_1$   &    $0, \underline{7}$   & $2, 5$&    $\underline{7}, 0$   & $0, 1$  \\
+   	 				$a_2$   &    $5, 2$   & $\underline{3}, \underline{3}$&    $5, 2$   & $0, 1$ \\
+   	 				$a_3$   &    $\underline{7}, 0$   & $2, 5$ &    $0, \underline{7}$   & $0, 1$  \\
+					$a_4$   &    $0, \underline{0}$   & $0, -2$ &    $0, \underline{0}$   & $\underline{10}, -1$ 
+   	   				\end{game} $$\Rightarrow \frac{1}{2}U+ \frac{1}{2} D \text{ strictly dominates } M.$$
+	\end{figure} ~\\
+	$\Rightarrow b_4$ is never best response for player 2 and \textit{then} $a_4$ is never best response for player 1. ~\\
+	$\Rightarrow \{a_1, a_2, a_3\}$ and $\{ b_1, b_2, b_3 \}$ are the rationalisable strategies in this game.
+\end{example}
+
+\newpage
+
 
 \section{Nash Equilibrium}
 
