@@ -12,3 +12,5 @@
 \contentsline {section}{\numberline {2.4}Konvexe Spiele}{24}{section.2.4}
 \contentsline {section}{\numberline {2.5}\IeC {\"U}bungen}{25}{section.2.5}
 \contentsline {chapter}{\numberline {3}Evolution\IeC {\"a}re Spieltheorie}{34}{chapter.3}
+\contentsline {section}{\numberline {3.1}Spiele in Normalform}{34}{section.3.1}
+\contentsline {section}{\numberline {3.2}Aufgaben}{37}{section.3.2}

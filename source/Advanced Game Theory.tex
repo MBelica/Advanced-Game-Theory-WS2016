@@ -734,7 +734,7 @@ Musterlösung
 
 \subsection*{Advanced Game Theory - 4. Exercise}
 
-\subsubsection*{4.1 Aufgabe}
+\subsubsection*{Aufgabe 4.1}
 
 Gegeben sei ein Drei-Personen-Abstimmungsspiel $\Gamma_{C} = [N, v]$ mit $N = \{1, 2, 3\}$, in dem jeder Spieler genau eine Stimme hat und in dem anhand der Einfachen-Mehrheit-Regel über die Aufteilung $x$ eines Kuchens auf die drei Personen entschieden werden soll, wobei $x = (x_1, x_2, x_3) \in \mathbb{R}^{3}$, $x_i \neq 0$ für alle $i \in N$ und $\sum_{i} x_{i} \leq i$. Der individuelle Nutzen eines jeden Spielers ist gleich dem Anteil am Kuchen, den er erhält, d.h. $u_i(x_i) = x_i$ für $i \in N$.
 
@@ -878,7 +878,7 @@ Gegeben sei ein Drei-Personen-Abstimmungsspiel $\Gamma_{C} = [N, v]$ mit $N = \{
 	\end{proof}
 \end{enumerate}
 
-\subsubsection*{4.2 Aufgabe} 
+\subsubsection*{Aufgabe 4.2} 
 Gegeben sei folgende Auszahlungstabelle eines Zwei-Personen-Spiels in Normalform 
 	
 \begin{figure*}[h!]
@@ -922,7 +922,7 @@ Gegeben sei folgende Auszahlungstabelle eines Zwei-Personen-Spiels in Normalform
 		\end{enumerate}
 	\end{proof}
 
-\subsubsection*{4.3 Aufgabe}
+\subsubsection*{Aufgabe 4.3}
 
 Ein Kleintierzüchterverein hat sieben Mitglieder: zwei Meerschweinchenzüchter $M_1$ und $M_2$, zwei Taubenzüchter $T_1$ und $T_2$ und drei Hasenzüchter $H_1$, $H_2$ und $H_3$. Entscheidungen werden mit einfacher Mehrheit gefällt.
 
@@ -992,6 +992,173 @@ Ein Kleintierzüchterverein hat sieben Mitglieder: zwei Meerschweinchenzüchter 
   \end{enumerate}
 
 \chapter{Evolutionäre Spieltheorie}
+
+  
+\section{Spiele in Normalform}
+Für symmetrische Spiele:
+$$ A = \left( a_{ij} \right) \quad i = 1, \dotsc, m_{i}, ~ j = 1, \dotsc, m_{j} $$
+d.h.
+% game table 
+\begin{description}
+	\item $N$: Spielermenge $|N| = n$
+	\item $\Sigma_{i}$: Menge der reinen Strategien von $i \in N$, $\left| \Sigma_{i} \right| = m_{i}$, $\sigma_{i} \in \mathcal{E}_{i}$.
+	\item $S_{i}$: Menge der gemischten Strategien von $i \in N$
+		\begin{description}
+			\item $S_{i} = \left\{ \right\}$.
+			\item $s_{ij} = \mathds{P}(\sigma_{ij})$.
+		\end{description}
+\end{description}
+  
+\begin{definition}[Trägermenge] Wir definieren die Trägermenge für jeden Spieler $i \in N$:
+	$$ C(S_{i}) = \left\{ \sigma_{ij} \in \Sigma_{i} : s_{ij} > 0 \right\}, $$
+	als die Menge der Strategien die mit positiver Wahrscheinlichkeit gespielt werden.
+\end{definition}  
+
+\begin{definition}[Beste-Antwort-Menge] Sei
+	$$ B_{i}(s_{-i}) = \left\{ \sigma_{j} \in \Sigma_{i} : H(\sigma_{ij}, s_{-i}) = \max_{\sigma_{ik \in \Sigma_{i}}} H(\sigma_{ik}, s_{-i}) \right\} $$ 
+	$H$ bezeichne pay-off-Funktion ~\\
+	$$ \hat{H}(s_{-i}) \coloneqq \max_{\sigma_{il} \in \Sigma_{i}} H(\sigma_{ik}, s_{-i}) $$
+\end{definition}
+  
+  
+\begin{beispiel*}
+	$\sigma_{ij} \in B_{i}(S_{-i})$ und $\sigma_{ik} \in B(S_{-i}) \Rightarrow$ alle $s_{i} \in S_{i}$ mit
+	$$ C(S_{i}) = \{ \sigma_{ij}, \sigma_{ik} \} $$	
+	sind auch beste Antwort, denn
+	$$ s_{ij} H(\sigma_{j}, s_{-i}) + s_{ik} H(\sigma_{ik}, s_{-i}) = (s_{ij} + s_{ik}) \hat{H}(s_{-i}) = \hat{H}(s_{-i}). $$
+\end{beispiel*}
+
+Sei $s^{*} = \left( s_{1}^{*}, \dotsc, s_{n}^{*} \right)$ ein Nash-Gleichgewicht. Mit $s_{i}^{*} = (s_{i1}^{*}, \dotsc s_{im_{i}}^{*})$ gilt
+$$ C(s_{i}^{*}) \subseteq B_{i}(s_{-i}^{*}) $$
+ \textit{Hinreichend? Ja! Proposition Slide 36 (AGT Teil 1)}.
+
+
+\begin{unnamedtheorem}[Grundannahmen der evolutionären Spieltheorie]
+	\begin{enumerate}
+		\item große Population
+		\item Population ist monomorph
+		\item random matching
+		\item Wettstreit (Spiel) ist statisch und symmetrisch
+			$$ \rightarrow \text{ symmetrisches Spiel in Normalform mit zwei Spielern}. $$
+		\item Auszahlung entspricht der \enquote{biologischen Fitness} ($\phi$ Anzahl Nachkommen)
+		\item Reproduktion ist asexuell und die von den Eltern gewählt Strategie wird unverändert an die Nachkommen vererbt (nur Selektion, keine Mutation).
+	\end{enumerate}
+\end{unnamedtheorem} 
+ 
+
+\begin{unnamedtheorem}[Symmetrisches 2-Personenspiel in Normalform]
+	Spieler müssen nicht unterschieden werden $\Rightarrow$ Strategieraum:
+	$$ S = \{ s\in \R^{m} : \sum_{i=1}^{m} s_{i} = 1, s_{i} \geq 0, i = 1, \dotsc, m \} $$
+\end{unnamedtheorem}
+  
+ 
+\begin{definition}[Evolutionär stabile Strategie, ESS]
+	Eine Strategie $p \in S$ hei{\ss}t evolutionär stabil, wenn
+	\begin{enumerate}
+		\item $H(p,p) \geq H(q, p)$ für alle $q \in S$ (Gleichgewichtsbedingung)
+		\item Für alle $q \in S \setminus \{ p \}$ mit $H(q, p) = H(p, p)$ gilt: $H(p, q) > H(q, q)$ (Stabilitätsbedingung)
+	\end{enumerate}
+\end{definition}  
+
+
+\begin{unnamedtheorem}[Eigenschaften von evolutionär stabilen Strategien] ~\
+	\begin{itemize}
+		\item Ist $p \in S$ eine evolutionär stabile Strategie, dann bildet $(p, p)$ ein symmetrisches Nash-Gleichgewicht
+		\item Jede $2 \times 2$-Matrix $A = \begin{pmatrix}
+			a_{11} & a_{12} \\ a_{21} & a_{22}
+		\end{pmatrix}$ mit $H(p,p) = p'Ap$ sodass $a_{11} \neq a_{21}$ und / oder $a_{12} = a_{22}$, besitzt eine ESS
+		Ist $(p,p)$ ein striktes NGG, dann ist $p$ eine ESS. Im strikten NGG $(p, p)$ gilt $C(p) = B(p)$. Ein striktes NGG ist immer ein Gleichgewicht in reinen Strategien. Beispiel:
+   \begin{game}{2}{2}[~][]
+   	    &  ~      &  ~     \\
+   	 ~  &    $3, 3$      & $2, 0$  \\
+   	  	&  $0, 2$ & $4, 4$\\
+   \end{game}
+	\item Im Normalformspielen mit $m \times m$-Matrizen $a$ mit $m \geq 3$ existieren entweder endlich viele ESS keine.
+	\end{itemize}
+\end{unnamedtheorem}
+  
+\begin{unnamedtheorem}[Allgemein gilt]
+	Ist $p$ ESS $\Rightarrow \neg \exists \sigma \in C(p)$ mit $\sigma \in C(S^{*})$ für $s^{*} \neq q$ ist Nash-Gleichgewicht
+\end{unnamedtheorem} 
+
+$\Rightarrow \#$ ESS $\leq \left| \Sigma \right|$ - Gleichheit nur, fall es kein ESS in gemischten Strategien gibt.  
+  
+\section{Aufgaben}
+
+\subsubsection*{Aufgabe 5.2}  
+  \begin{enumerate}[label=\alph*\upshape)] \setcounter{enumi}{1}
+  	\item Gegeben sei:
+      $$ \begin{game}{2}{2}[~][~]
+   	    &  $\sigma_{1}$      &  $\sigma_{2}$     \\
+   	 $\sigma_{1}$  &    0, 0      & 0, 0  \\
+   	 $\sigma_{2}$ 	&  0, 0 & 1, 1 \\
+   \end{game}$$ $\Rightarrow A = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} \text{ (Gegenbeispiel)}$
+   $$ \sigma^{*} = (\sigma_1, \sigma_1) , \sigma^{**} = (\sigma_2, \sigma_2) $$
+  \end{enumerate}
+    
+  \begin{enumerate}[label=\alph*\upshape)]
+  	\item Angenommen $p \in S$ ist ESS  und wird von $q \in S$ schwach dominiert
+  		$$ \Rightarrow H(q, z) \geq H(p, z) \quad \forall z \in S $$
+  		\begin{align*}
+  			\Rightarrow & H(p,p) = H(q, p) \quad \text{ Bedingung 1: ok} \\
+  			\Rightarrow & H(p,q) \leq H(q, q) \quad \text{ Bedingung 2: verletzt} \\
+  		\end{align*} \setcounter{enumi}{2}
+  	\item klar!
+  \end{enumerate}
+   
+\subsubsection*{Aufgabe 5.1 (Hawk-Dove-Game / Falke-Taube-Spiel)}   
+	$$
+		\begin{game}{2}{2}[~][~]
+   	   			&  $F$      &  $T$     \\
+   	 $F$  &    $\frac{v-c}{2}$, $\frac{v-c}{2}$      & $v, 0$  \\
+   	 $T$ 	&  $v, 0$ & $\frac{v}{2}$, $\frac{v}{2}$ \\
+   \end{game}$$
+   $A = \begin{pmatrix}
+   	\frac{v-c}{2} & v \\ 0 & \frac{v}{2}
+   \end{pmatrix}$, $c > v > 0$
+   \begin{itemize}
+   	\item es existiert keine dominante Strategie
+   	\item es existiert kein symmetrisch Nash-Gleichgewicht in reinen Strategien
+   	\item $(F, T)$, $(T, F)$ sind strikte Nash-Gleichgewichte
+   \end{itemize}
+   Interpretation: Recource $v$, Tauben teilen friedlich, Falken vertielgt Zaube, Falken kämpfen $\rightarrow$ neg, outcome für beide. ~\\
+   $p = (p_F, p_T)$
+  $$	H(F, p) \overset{!}{=} H(T, p) \overset{!}{=} H(p,p) $$
+   $$	\begin{rcases} H(F, p) & = p_{F} \frac{v-c}{2} + p_T v \\ H(T, p) & = p_F 0 + p_T \frac{v}{2} \end{rcases} \xrightarrow[]{p_F + p_T =1} p_F = \frac{v}{c}, p_T = 1 - \frac{v}{c} $$
+   ist das einzige symmetrisch Nas-Gleichgewicht, kein triviales Spiel $\Rightarrow \exists ESS$
+   $$ \Rightarrow \left( \frac{v}{2}, 1 - \frac{v}{2} \right) \text{ ist ESS} $$
+   oder man rechnet nach $H(F,p) = H(t, p) = H(p,p)$ ~\\
+   $\Rightarrow z.z. H(p, F) > H(F, F)$, $H(p, T) > H(T, T)$
+
+\subsubsection*{Aufgabe 5.3}
+$$A = \begin{pmatrix} 1 & 1 & 0 \\ 1& 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}$$   
+\begin{enumerate}
+	\item Nash-Gleichgewicht in reinen Strategien:
+		$$ (x,x), ~(x,y), ~(y,x), ~(y,z), ~(z, y),  ~(z,z) $$
+		Trivial: $C(A) = \{ A \}$, $A \in \{ x,y,z\}$
+		$$ B(x) = \{x,y\}, ~B(y) = \{x, y,z\}, ~B(z) = \{ y, z \} $$
+		$$ \Rightarrow C(\cdot) \underset{\not-}{\subset} B(\cdot) $$
+		Nash-Gleichgewicht in gemischten Strategien (nur sym.)
+		$$ S^{*} = \{ (s_x, s_y, 0) : s_x \in (0, 1), s_y = 1 - s_x \} \quad C(S^{*}) = \{x, y\} $$
+		$$ S^{**} = \{ (0, s_y, s_z) : s_y \in (0, 1), s_z = 1 - s_y \} \quad C(S^{**}) = \{y, z\} $$
+		$B(S^{*}) = \{ x, y \}$, $B(S^{**}) = \{y, z \}$
+	\item Angenommen $p \in S$ mit $p_x \in [0, 1]$ und $p_y = 1 - p_x$ ist ein ESS
+		\begin{description}
+			\item Bedingung 1: $\checkmark$
+			\item Bedingung 2: $H(x, p) = H(p, p) = 1$ mit $p_x < 1$
+				$$ \Rightarrow H(p, x) > H(x, x) \text{ Widerspruch!} $$
+				analog in anderen Fällen $\Rightarrow $ ESS existiert nicht.
+		\end{description}
+\end{enumerate}
+
+
+\begin{erinnerung}
+	Ist $p$ ESS $\Rightarrow \neg \exists \sigma \in C(p)$ mit $\sigma \in C(S^{*})$ für $s^{*} \neq q$ ist Nash-Gleichgewicht.
+
+	$\Rightarrow \#$ ESS $\leq \left| \Sigma \right|$ - wobei Gleichheit nur gilt, fall es kein ESS in gemischten Strategien gibt.
+\end{erinnerung}
+   
+
 
 \newpage
 
