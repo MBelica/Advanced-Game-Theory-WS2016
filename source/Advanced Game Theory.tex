@@ -492,26 +492,32 @@ In this game, the iterated elimination of strictly dominated strategies still le
 
 ~\newpage
 
-\section{Excercises}
+
+\section{Exercises}
 
 \subsection*{Advanced Game Theory - 1. Exercise}
 
-\subsubsection*{Excercise 1.1}
-	It holds that $|S| = \Pi_{n=1}^{N} M_{n}$, while:
-	$$ S = M_{1} \times \dots \times M. $$
+\subsubsection*{Exercise 1.1}
 
-\subsubsection*{Excercise 1.2}	
+In a game where player $i$ has $N$ information sets indexed $n = 1, \dotsc, N$ and $M_n$ possible actions at information set $n$, how many strategies does player $i$ have?
 
+	\begin{proof}
+		It holds that $|S| = \Pi_{n=1}^{N} M_{n}$, while:
+		$$ S = M_{1} \times \dots \times M. $$
+	\end{proof}
+
+\subsubsection*{Exercise 1.2}	
+	Consider the two-player game whose extensive form representation (excluding payoffs) is depicted below.
 	\tikzset{
 	% Two node styles for game trees: solid and hollow
 	solid node/.style={circle,draw,inner sep=1.5,fill=black},
 	hollow node/.style={circle,draw,inner sep=1.5}
 	}
 
-\begin{figure}[htbp]
+\begin{figure}[h!]
 	\centering
-		\caption*{Extensive form game with imperfect information}
-	\begin{tikzpicture}[scale=1.5,font=\footnotesize]
+
+	\begin{tikzpicture}[scale=1.25,font=\footnotesize]
 	% Specify spacing for each level of the tree
 	\tikzstyle{level 1}=[level distance=15mm,sibling distance=40mm]
 	\tikzstyle{level 2}=[level distance=15mm,sibling distance=22mm]
@@ -555,37 +561,44 @@ In this game, the iterated elimination of strictly dominated strategies still le
 	% specify mover at 4nd information set
 	\node at ($(6)!.5!(7)$) {$P1$};
   \end{tikzpicture}
+  		\caption*{Extensive form game with imperfect information}
 \end{figure}
 
 
 \begin{enumerate}
-	\item Die Strategieräume sind:
-	  \begin{align*}
- 		S_{1} & = \big\{ (L, x, x), (L, x, y), (L, y, x), (L, y, y), ~\hspace{7cm} \\
- 			  & ~\qquad (M, x, x), (M, x, y), (M, y, x), (M, y, y), \\
- 			  & ~\qquad (R, x, x), (R, x, y), (R, y, x), (R, y, y) \big\} \\
- 			  & = \left\{ S_{1}^{1}, \dotsc, S_{1}^{12} \right\} \\
- 		S_{2} & = \left\{ (l), (r) \right\}
- 	  \end{align*}
-	\item It must hold for $p_i, q_i, r_i \geq 0$ that:
-		\begin{align*}
+	\item What are the possible strategies of player 1 and player 2?
+		\begin{proof}
+			The possible strategies are:
+	  		\begin{align*}
+ 				S_{1} & = \big\{ (L, x, x), (L, x, y), (L, y, x), (L, y, y), ~\hspace{7cm} \\
+ 			  		& ~\qquad (M, x, x), (M, x, y), (M, y, x), (M, y, y), \\
+ 			  		& ~\qquad (R, x, x), (R, x, y), (R, y, x), (R, y, y) \big\} \\
+ 			  		& = \left\{ S_{1}^{1}, \dotsc, S_{1}^{12} \right\} \\
+ 				S_{2} & = \left\{ (l), (r) \right\}
+ 	  		\end{align*}
+ 	  	\end{proof}
+	\item Show that for any behaviour strategy of player $i$, there is a mixed strategy for that player that yields exactly the same distribution over outcomes for any strategies, mixed or behaviour, that might be played by $i$'s rivals [this result is due to Kuhn (1953)].
+		\begin{proof}
+		  It must hold for $p_i, q_i, r_i \geq 0$ that:
+		  \begin{align*}
 			p_{1} + p_{2} + p_{3} & = 1 \\
 			q_{1} + q_{2} & = 1 \\
 			r_{1} + r_{2} & = 1
-		\end{align*}
-		Example of a behaviour strategy: $(p_{1}L + p_{2}M + p_{3}R, q_{1} x + q_{2}y, r_{1}x + r_{2} y)$ \\
-		Example of a mixed strategy: $\sum_{i=1}^{12} p_{i} S_{1}^{i}$ \\
-		For player 2 there is nothing to show. \\ 
+		  \end{align*}
+		  Example of a behaviour strategy: $(p_{1}L + p_{2}M + p_{3}R, q_{1} x + q_{2}y, r_{1}x + r_{2} y)$ \\
+		  Example of a mixed strategy: $\sum_{i=1}^{12} p_{i} S_{1}^{i}$ \\
+		  For player 2 there is nothing to show. \\ 
 		
-		Probability distribution of the outcomes:
-		$$ p_{1}, ~ p_{2} \sigma(l) q_{1}, ~ p_{2} \sigma(l) q_{2}, ~ p_{2} \sigma(r) q_{1}, ~ p_{2} \sigma(r) q_{2}, \dotsc $$
-		The following mixed strategy of player 1 is realisation equivalent
-		$$ \left( p_{1} S^{1} + p_{2} q_{1} S_{1}^{5} + p_{2} q_{2} S_{1}^{7} + p_{3} r_{1} S_{1}^{9} + p_{3} r_{2} S_{1}^{10} \right) $$
-		z.z.: ~ $ 1 = p_{1} + p_{2} q_{1} + p_{2} q_{2} + p_{3} r_{1} + p_{3} r_{3}$. Beweis: klar.
+		  Probability distribution of the outcomes:
+		  $$ p_{1}, ~ p_{2} \sigma(l) q_{1}, ~ p_{2} \sigma(l) q_{2}, ~ p_{2} \sigma(r) q_{1}, ~ p_{2} \sigma(r) q_{2}, \dotsc $$
+		  The following mixed strategy of player 1 is realisation equivalent
+		  $$ \left( p_{1} S^{1} + p_{2} q_{1} S_{1}^{5} + p_{2} q_{2} S_{1}^{7} + p_{3} r_{1} S_{1}^{9} + p_{3} r_{2} S_{1}^{10} \right) $$
+		  z.z.: ~ $ 1 = p_{1} + p_{2} q_{1} + p_{2} q_{2} + p_{3} r_{1} + p_{3} r_{3}$. Beweis: klar.
+		\end{proof}
 	\item Musterlösung im Ilias
 \end{enumerate} ~\\
 
-\subsubsection*{Excercise 1.3} ~\\
+\subsubsection*{Exercise 1.3} ~\\
 
 	\begin{table}[!htbp]
 		\centering
@@ -600,20 +613,29 @@ In this game, the iterated elimination of strictly dominated strategies still le
 
 \subsection*{Advanced Game Theory - 2. Exercise}
 
-\subsubsection*{Excercise 2.1}
+\subsubsection*{Exercise 2.1}
 
-$\Sigma_i^N$ set of strategies for player $i$ that remain after $N$ rounds of elimination of never best response strategies. ~\\
-
-Suppose $s_1 \in \Sigma_i^N$ is never best response to any strategy in $\Sigma_{-i}^N$. Suppose we do not delete $s_1$ in round $N+1$. Now $s_1$ will not be a best response to any strategy in $\Sigma_{-i}^{N+1} \subseteq \Sigma_{-i}^{N}$. In particular, it will never be a best response to any strategy in $\Sigma_{-i}^{N+k}$ for $k \geq 1$.
-$$ \Rightarrow s_1 \text{ will be deleted in a later round.} $$
-
-\subsubsection*{Excercise 2.2} % todo hier stammt etwas nicht
-
-Suppose $s_i \in S_i$ is stricty dominated by $\sigma_i^{*} \in \Delta(S_i)$. Suppose further that $\sigma_i \in \Delta(S_i)$ plays $s_i^{*}$ with positiv probability $\sigma_i(s_i^*)$ ~\\
-
-\textbf{Claim:} $\sigma_i$ is strictly dominated by $\sigma_i' \in \Delta(S_i)$ which is equivalent to $\sigma_i$ but puts $\sigma(S_i)$ to $\sigma_i^*$.
+Prove that the order of removal does not matter for the set of strategies that survives a process of iterated deletion of strategies that are never a best response.
 
 \begin{proof}
+	$\Sigma_i^N$ set of strategies for player $i$ that remain after $N$ rounds of elimination of never best response strategies. ~\\
+
+	Suppose $s_1 \in \Sigma_i^N$ is never best response to any strategy in $\Sigma_{-i}^N$. Suppose we do not delete $s_1$ in round $N+1$. Now $s_1$ will not be a best response to any strategy in $\Sigma_{-i}^{N+1} \subseteq \Sigma_{-i}^{N}$. In particular, it will never be a best response to any strategy in $\Sigma_{-i}^{N+k}$ for $k \geq 1$.
+	$$ \Rightarrow s_1 \text{ will be deleted in a later round.} $$ ~\\
+
+	\textit{I think that this prove is incomplete: one has to show or at least mention that the eliminated strategy was never a best response. For example, if you have 3 strictly ordered strategies two of them are never a best response, however, if I eliminate the best response one of the two can't be deleted anymore.}
+\end{proof}
+
+\subsubsection*{Exercise 2.2} % todo hier stammt etwas nicht
+
+Prove that if pure strategy $s_i$ is a strictly dominated strategy in game $\Gamma_N = [I, \{ \Delta(\mathcal{S}_i)\}, \{u_i(\cdot)\}]$ then so is any strategy that plays $s_i$ with positive probability.
+
+\begin{proof}
+	Suppose $s_i \in S_i$ is strictly dominated by $\sigma_i^{*} \in \Delta(S_i)$. Suppose further that $\sigma_i \in \Delta(S_i)$ plays $s_i^{*}$ with positiv probability $\sigma_i(s_i^*)$ ~\\
+
+	\textbf{Claim:} $\sigma_i$ is strictly dominated by $\sigma_i' \in \Delta(S_i)$ which is equivalent to $\sigma_i$ but puts $\sigma(S_i)$ to $\sigma_i^*$.
+
+
 	\begin{align*}
 		u_i(\sigma_i, \sigma_{-i}) & = \sum_{s_i \in S_i} \sigma_i(s_i) u_i(s_i, \sigma_{-i}) \\
 		& = \sum_{s_i \neq s_i^*} \sigma_i(s_i, u_i(s_i, \sigma_i) + \sigma_i(s_i^*) u_i(s_i^*, \sigma_{-i}) \\
@@ -622,20 +644,42 @@ Suppose $s_i \in S_i$ is stricty dominated by $\sigma_i^{*} \in \Delta(S_i)$. Su
 	\end{align*}
 \end{proof}
 
-\subsubsection*{Excercise 2.3}
+\subsubsection*{Exercise 2.3}
 
 \begin{enumerate}
-	\item keine
-	\item keine
-	\item $s_1$ (by p.g. $s_2$). Any mixed strategy that contains $s_1$ (by 2.2).
-	\item e) f) Musterlösung im Ilias
+	\item Determine all strictly dominant strategies.
+		\begin{proof}
+			There are no strictly dominant strategies.
+		\end{proof}
+	\item Determine all weakly dominant strategies.
+		\begin{proof}
+		There are no weakly dominant strategies.
+		\end{proof}
+	\item Determine all strictly dominated strategies
+		\begin{proof}
+			$s_1$ (by e.g. $s_2$). By exercise 2.2 it holds further that any mixed strategy that contains $s_1$ is strictly dominated as well.
+		\end{proof}
+	\item Determine all weakly dominated strategies.
+		\begin{proof}
+			The strategies $s_1$, $s_2$ and $s_6$ are weakly dominated. For player 2, the strategies $t_1$ and $t_2$ are weakly dominated. Applying exercise 2.2 with the non-strict inequality yields: all mixed strategies that play a weakly dominated strategy with positive probability are also weakly dominated.
+		\end{proof}
+	\item Determine which strategies survive the iterative elimination of weakly dominated strategies.
+		\begin{proof}
+			The strategies s3 and t3 are the only strategies that survive the iterative elimination of weakly dominated strategies. ~\\
+			
+			\textit{In this case it isn't, but in general is the iterative elimination of weakly dominated strategies dependent on the order of elimination, isn't it?}
+		\end{proof}
+	 \item Determine all rationalisable strategies.
+	 	\begin{proof}
+	 		The strategies $s_3$, $s_4$, $s_5$, $t_3$, $t_4$ and $t_6$ are the rationalisable strategies.
+	 	\end{proof}
 \end{enumerate}
 
 
 \subsection*{Advanced Game Theory - 3. Exercise}
 
 
-\subsubsection*{Excercise 3.1}
+\subsubsection*{Exercise 3.1}
   Assumption we make: finite number of pure strategies $\Rightarrow$ there exists a Nash-Equilibrium. ~\\
   
   When a strategy $\sigma_{i}$ is eliminated then so is every strategy that plays $\sigma_{i}$ with positive probability.
@@ -661,12 +705,12 @@ Suppose $s_i \in S_i$ is stricty dominated by $\sigma_i^{*} \in \Delta(S_i)$. Su
   \end{proof}
   
   
-\subsubsection*{Excercise 3.2}
+\subsubsection*{Exercise 3.2}
 
 Musterlösung
 
   
-\subsubsection*{Excercise 3.3}
+\subsubsection*{Exercise 3.3}
 \begin{table}[!htbp]
 \centering
 	
