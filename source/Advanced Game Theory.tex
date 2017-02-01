@@ -596,9 +596,9 @@ In a game where player $i$ has $N$ information sets indexed $n = 1, \dotsc, N$ a
 		  z.z.: ~ $ 1 = p_{1} + p_{2} q_{1} + p_{2} q_{2} + p_{3} r_{1} + p_{3} r_{3}$. Beweis: klar.
 		\end{proof}
 	\item Musterlösung im Ilias
-\end{enumerate} ~\\
+\end{enumerate} 
 
-\subsubsection*{Exercise 1.3} ~\\
+\subsubsection*{Exercise 1.3}
 	\textit{What was this - I can't find the corresponding exercise?}
 	\begin{table}[!htbp]
 		\centering
@@ -618,30 +618,28 @@ In a game where player $i$ has $N$ information sets indexed $n = 1, \dotsc, N$ a
 Prove that the order of removal does not matter for the set of strategies that survives a process of iterated deletion of strategies that are never a best response.
 
 \begin{proof}
-	$\Sigma_i^N$ set of strategies for player $i$ that remain after $N$ rounds of elimination of never best response strategies. ~\\
+	Let $\Sigma_i^N$ be the set of strategies for player $i$ that remain after $N$ rounds of elimination of never best response strategies. ~\\
 
-	Suppose $s_1 \in \Sigma_i^N$ is never best response to any strategy in $\Sigma_{-i}^N$. Suppose we do not delete $s_1$ in round $N+1$. Now $s_1$ will not be a best response to any strategy in $\Sigma_{-i}^{N+1} \subseteq \Sigma_{-i}^{N}$. In particular, it will never be a best response to any strategy in $\Sigma_{-i}^{N+k}$ for $k \geq 1$.
+	Suppose $s_1 \in \Sigma_i^N$ is never a best response to any strategy in $\Sigma_{-i}^N$. Suppose we do not delete $s_1$ in round $N+1$. Now $s_1$ will not be a best response to any strategy in $\Sigma_{-i}^{N+1} \subseteq \Sigma_{-i}^{N}$. In particular, it will never be a best response to any strategy in $\Sigma_{-i}^{N+k}$ for $k \geq 1$.
 	$$ \Rightarrow s_1 \text{ will be deleted in a later round.} $$ ~\\
 
 	\textit{I think that this prove is incomplete: one has to show or at least mention that the eliminated strategy was never a best response. For example, if you have 3 strictly ordered strategies two of them are never a best response, however, if I eliminate the best response one of the two can't be deleted anymore.}
 \end{proof}
 
-\subsubsection*{Exercise 2.2} % todo hier stammt etwas nicht
+\subsubsection*{Exercise 2.2}
 
 Prove that if pure strategy $s_i$ is a strictly dominated strategy in game $\Gamma_N = [I, \{ \Delta(\mathcal{S}_i)\}, \{u_i(\cdot)\}]$ then so is any strategy that plays $s_i$ with positive probability.
 
 \begin{proof}
-	Suppose $s_i \in S_i$ is strictly dominated by $\sigma_i^{*} \in \Delta(S_i)$. Suppose further that $\sigma_i \in \Delta(S_i)$ plays $s_i^{*}$ with positiv probability $\sigma_i(s_i^*)$ ~\\
+	Suppose $s_i^* \in S_i$ is strictly dominated by $\sigma_i^{*} \in \Delta(S_i)$. Suppose further that $\sigma_i \in \Delta(S_i)$ plays $s_i^*$ with positiv probability $\sigma_i(s_i^*)$ ~\\
 
-	\textbf{Claim:} $\sigma_i$ is strictly dominated by $\sigma_i' \in \Delta(S_i)$ which is equivalent to $\sigma_i$ but puts $\sigma(S_i)$ to $\sigma_i^*$.
-
-
-	\begin{align*}
-		u_i(\sigma_i, \sigma_{-i}) & = \sum_{s_i \in S_i} \sigma_i(s_i) u_i(s_i, \sigma_{-i}) \\
-		& = \sum_{s_i \neq s_i^*} \sigma_i(s_i, u_i(s_i, \sigma_i) + \sigma_i(s_i^*) u_i(s_i^*, \sigma_{-i}) \\
-		& < \sum_{s_i \neq s_i^*} \sigma_i(s_i, u_i(s_i, \sigma_i) + \sigma_i(s_i^*) u_i(\sigma_i^*, \sigma_{-i}) \\
-		& = u_i(\sigma_i', \sigma_{-i}) \quad \forall \sigma_{-i} \in \Delta(S_{-i})
-	\end{align*}
+	\textbf{Claim:} $\sigma_i$ is strictly dominated by $\sigma_i' \in \Delta(S_i)$ which is equivalent to $\sigma_i$ but assigns the $\sigma(s_i^*)$ to $\sigma_i^*$ instead of $s_i^*$. \underline{Proof:}
+	
+		\begin{align*}	
+			u_i(\sigma_i, \sigma_{-i}) & = \sum_{s_i \in S_i} \sigma_i(s_i) u_i(s_i, \sigma_{-i}) \\ 
+				& = \sum_{s_i \neq s_i^*} \sigma_i(s_i) u_i(s_i, \sigma_i) + \sigma_i(s_i^*) u_i(s_i^*, \sigma_{-i}) \\
+				& <\sum_{s_i \neq s_i^*} \sigma_i(s_i) u_i(s_i, \sigma_i) + \sigma_i(s_i^*) u_i(\sigma_i^*, \sigma_{-i}) = u_i(\sigma_i', \sigma_{-i}), \quad \forall \sigma_{-i} \in \Delta(S_{-i})
+		\end{align*}
 \end{proof}
 
 \subsubsection*{Exercise 2.3}
@@ -680,34 +678,45 @@ Prove that if pure strategy $s_i$ is a strictly dominated strategy in game $\Gam
 
 
 \subsubsection*{Exercise 3.1}
-  Assumption we make: finite number of pure strategies $\Rightarrow$ there exists a Nash-Equilibrium. ~\\
+	Show that if there is a unique profile of strategies that survives iterated removal of strictly dominated strategies, this profile is a Nash equilibrium.
+
+	\begin{proof}
+  		First, we assume that there is only a finite number of pure strategies $\Rightarrow$ there exists at least one Nash-Equilibrium. ~\\
   
-  When a strategy $\sigma_{i}$ is eliminated then so is every strategy that plays $\sigma_{i}$ with positive probability.
+  		By exercise 2.2., when a strategy $\sigma_{i}$ is eliminated then so is every strategy that plays $\sigma_{i}$ with positive probability. We define $S^{\infty}$ as the set of strategies that survive iterated elimination of strictly dominated strategies. Note that by assumption it holds:
+  		$$ \left| S^{\infty} \right| = 1. $$
   
-  $$ S^{\infty}: \text{ set of strategies that survive iterated elimination of strictly dominated strategies.} $$
-  
-  $\left| S^{\infty} \right| = 1$. ~\\
-  
-  \textbf{Claim:} If $\left(s_{1}^{*}, \dotsc, s_{I}^{*} \right)$ is a Nash-Equilibrium, then $s^{*} \in S^{\infty}$.
-  \begin{proof}
-  	Let $\left( s_{1}^{*}, \dotsc, s_{I}^{*} \right)$ be a Nash-Equilibrium and assume $s^{*} \notin S^{\infty}$. Let $i$ be the player whose strategy is eliminated first (in round $k$). ~\\
-  	
-  	i.e. $\exists \sigma_{i}, \sigma_{i}' \in \Delta\left(S_{i}\right)$:
+  \textbf{Claim:} If $\left(s_{1}^{*}, \dotsc, s_{I}^{*} \right)$ is a Nash-Equilibrium, then $s^{*} \in S^{\infty}$. \underline{Proof:} ~\\
+
+  	Let $\left( s_{1}^{*}, \dotsc, s_{I}^{*} \right)$ be a Nash-Equilibrium and assume $s^{*} \notin S^{\infty}$. Let $i$ be the player whose strategy is eliminated first (in round $k$), i.e. $\exists \sigma_{i}, \sigma_{i}' \in \Delta\left(S_{i}\right)$:
   	$$ u_{i}(\sigma_{i}, s_{-i}) > u_{i}(\sigma_{i}', s_{-i}) \quad \forall s_{i} \in S_{-i}^{k-1} $$
   	and $\sigma_{i}'$ is played with positiv probability in $s_{i}^{*}$. ~\\
   	
   	Let $s_{i}'$ be derived from $s_{i}^{*}$ with replacing $\sigma_{i}'$ by $\sigma_{i}$.
-  	\begin{align*}
-  		\Rightarrow \quad u_{i}(s_{i}', s_{-i}^{*}) &= u_{i}(s_{i}^{*},  s_{-i}^{*}) + \underbrace{s_{i}^{*}}_{> 0}(\sigma_{i}')\underbrace{\left[ u_{i}(\sigma_{i}, s_{-i}^{*}) - u_{i}(\sigma_{i}', s_{-i}^{*}) \right]}_{> 0} \\
-  		& > u_{i}(s_{i}^{*}, s_{-i}^{*})
-  	\end{align*} 
+  	$$ \Rightarrow \quad u_{i}(s_{i}', s_{-i}^{*}) = u_{i}(s_{i}^{*},  s_{-i}^{*}) + \underbrace{s_{i}^{*}}_{> 0}(\sigma_{i}')\underbrace{\left[ u_{i}(\sigma_{i}, s_{-i}^{*}) - u_{i}(\sigma_{i}', s_{-i}^{*}) \right]}_{> 0}  > u_{i}(s_{i}^{*}, s_{-i}^{*}), $$
   which contradicts the fact that $s^{*}$ is a Nash-Equilibrium.
   \end{proof}
   
   
 \subsubsection*{Exercise 3.2}
 
-Musterlösung
+
+Consider a bargaining situation in which two individuals are considering undertaking a business venture that will earn them 100 dollars in profit, but they must agree on how to split the 100 dollars. Bargaining works as follows: The two individuals each make a demand simultaneously. If their demands sum to more than 100 dollars, they fail to agree, and each gets nothing. If their demand sums to less than 100 dollars, they do the project, each gets his demand, and the rest goes to charity.
+
+\begin{enumerate}
+	\item What are each player's strictly dominated strategies?
+		\begin{proof}
+			Musterlösung im Ilias.
+		\end{proof}
+	\item What are each player's weakly dominated strategies?
+		\begin{proof}
+			Musterlösung im Ilias.
+		\end{proof}
+	\item What are the pure strategy Nash equilibria of this game?
+		\begin{proof}
+			Musterlösung im Ilias.
+		\end{proof}
+\end{enumerate}
 
   
 \subsubsection*{Exercise 3.3}
@@ -1127,7 +1136,7 @@ $$ C(s_{i}^{*}) \subseteq B_{i}(s_{-i}^{*}) $$
 
 $\Rightarrow \#$ ESS $\leq \left| \Sigma \right|$ - Gleichheit nur, fall es kein ESS in gemischten Strategien gibt.  
   
-\section{Aufgaben}
+\section{Übungen}
 
 \subsubsection*{Aufgabe 5.2}  
   \begin{enumerate}[label=\alph*\upshape)] \setcounter{enumi}{1}
