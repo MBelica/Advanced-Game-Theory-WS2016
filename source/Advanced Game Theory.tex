@@ -73,9 +73,9 @@
   \def\mystretch{1.5} 
   % Publisher definieren
   \newcommand\publishers[1]{\newcommand\@publishers{#1}} 
-  % Enumerate im 1. Level: \alph für a), b), ...
+  % Enumerate im 1. Level: \alph für a), b), \dotsc
   \renewcommand{\labelenumi}{\alph{enumi})} 
-  % Enumerate im 2. Level: \roman für (i), (ii), ...
+  % Enumerate im 2. Level: \roman für (i), (ii), \dotsc
   \renewcommand{\labelenumii}{(\roman{enumii})}
   % Zeileneinrückung am Anfang des Absatzes
   \setlength{\parindent}{0pt} 
@@ -120,6 +120,7 @@
 \newtheorem{example}[unnamedtheorem]{Example}
 \newtheorem{folgerung}[unnamedtheorem]{Folgerung}
 \newtheorem{hilfssatz}[unnamedtheorem]{Hilfssatz}
+\newtheorem{lemma}[unnamedtheorem]{Lemma}
 \newtheorem{proposition}[unnamedtheorem]{Proposition}
 \newtheorem{anwendung}[unnamedtheorem]{Anwendung}
 \newtheorem{anwendungen}[unnamedtheorem]{Anwendungen}
@@ -293,17 +294,17 @@
 	A game in \textbf{extensive form} consists of:
 	\begin{enumerate}[label=(\roman*\upshape)]
 		\item A finite set of nodes $\mathcal{X}$, a finite set of possible actions $\mathcal{A}$, and a finite set of players $\{1, \dotsc, l\}$.
-		\item A funktion $p \colon \mathcal{X} \rightarrow \{ \mathcal{X} \cup \emptyset \}$ specifying a single immediate predecessor of each node $x$; $p(x) \in \mathcal{X}$ expect for one element $x_{0}$, the \textbf{initial node}. The immediate \textbf{successor node} of $x$ are $s(x) = p^{-1}(x)$. ~\\
+		\item A funktion $p \colon \mathcal{X} \Rightarrow \{ \mathcal{X} \cup \emptyset \}$ specifying a single immediate predecessor of each node $x$; $p(x) \in \mathcal{X}$ expect for one element $x_{0}$, the \textbf{initial node}. The immediate \textbf{successor node} of $x$ are $s(x) = p^{-1}(x)$. ~\\
 			To have a tree structure, a predecessor can never be a successor and vice versa. The set of \textbf{terminal nodes} $T = \{ x \in \mathcal{X} \colon s(x) = \emptyset \}$. All other nodes $X \setminus T$ are \textbf{decision nodes}.
-		\item A function $\alpha \colon \mathcal{X} \setminus \{ x_{0} \} \rightarrow \mathcal{A}$ giving the action that leads to any non-initial node $x$ from its immediate predecessor $p(x)$ with $x', x'' \in s(x); x' \neq x'' \Rightarrow \alpha(x') \neq \alpha(x'')$. The set of choices at decision node $x$ is $c(x) = \{ a \in \mathcal{A} \colon a = \alpha(x') \text{ for some } x' \in s(x) \}$.
-		\item A collection of information sets $\mathcal{H}$, and a function $H \colon \mathcal{X} \rightarrow \mathcal{H}$ assigning each decision node $x$ to an information set $H(x) \in \mathcal{H}$ with $c(x) = c(x')$ if H(x) = $H(x')$. ~\\
+		\item A function $\alpha \colon \mathcal{X} \setminus \{ x_{0} \} \Rightarrow \mathcal{A}$ giving the action that leads to any non-initial node $x$ from its immediate predecessor $p(x)$ with $x', x'' \in s(x); x' \neq x'' \Rightarrow \alpha(x') \neq \alpha(x'')$. The set of choices at decision node $x$ is $c(x) = \{ a \in \mathcal{A} \colon a = \alpha(x') \text{ for some } x' \in s(x) \}$.
+		\item A collection of information sets $\mathcal{H}$, and a function $H \colon \mathcal{X} \Rightarrow \mathcal{H}$ assigning each decision node $x$ to an information set $H(x) \in \mathcal{H}$ with $c(x) = c(x')$ if H(x) = $H(x')$. ~\\
 			The choices available at information set $H$ can be written as
 			$$ C(H) = \{ a \in \mathcal{A} \colon a \in c(x) \text{ for } x \in H \}. $$
-		\item A function $\iota \colon \mathcal{H} \rightarrow \{ 0, 1, \dotsc, l \}$ assigning a player to each information set ($i = 0$ 'nature'). ~\\
+		\item A function $\iota \colon \mathcal{H} \Rightarrow \{ 0, 1, \dotsc, l \}$ assigning a player to each information set ($i = 0$ 'nature'). ~\\
 			The collection of player i's information set is denoted by
 			$$ \mathcal{H}_i = \{ H \in \mathcal{H} \colon i = \iota(H) \}. $$
-		\item A function $\rho \colon \mathcal{H}_0 \times \mathcal{A} \rightarrow [0,1]$ assigning a probability to each action of nature with $\rho(H,a) = 0$ if $a \notin C(H)$ und $\sum_{a \in C(H)} \rho(H, a) = 1$ for all $H \in \mathcal{H}_{0}$.
-		\item A collection of payoff function $u = \{ u_1(\cdot), \dotsc, u_l(\cdot) \}$, where $u_i \colon T \rightarrow \R$.
+		\item A function $\rho \colon \mathcal{H}_0 \times \mathcal{A} \Rightarrow [0,1]$ assigning a probability to each action of nature with $\rho(H,a) = 0$ if $a \notin C(H)$ und $\sum_{a \in C(H)} \rho(H, a) = 1$ for all $H \in \mathcal{H}_{0}$.
+		\item A collection of payoff function $u = \{ u_1(\cdot), \dotsc, u_l(\cdot) \}$, where $u_i \colon T \Rightarrow \R$.
 	\end{enumerate}
 	\textbf{A game in extensive form:} $\Gamma_E = \{ \mathcal{X}, \mathcal{A}, I, p(\cdot), \alpha(\cdot), \mathcal{H}, H(\cdot), \iota(\cdot), \rho(\cdot), u \}$.
 \end{definition}
@@ -318,7 +319,7 @@
 \end{comment*}
 
 \begin{definition}[Strategy]
-	Let $\mathcal{H}_i$ denote the collection of player $i$'s information sets, $\mathcal{A}$ the set of possible actions in the game, and $C(H) \subset \mathcal{A}$ the set of actions possible at information set $H$. A \textbf{strategy} for player $i$ is a function $s_i \colon \mathcal{H}_i \rightarrow \mathcal{A}$ such that $s_i(H) \in C(H)$ for all $H \in \mathcal{H}_i$.
+	Let $\mathcal{H}_i$ denote the collection of player $i$'s information sets, $\mathcal{A}$ the set of possible actions in the game, and $C(H) \subset \mathcal{A}$ the set of actions possible at information set $H$. A \textbf{strategy} for player $i$ is a function $s_i \colon \mathcal{H}_i \Rightarrow \mathcal{A}$ such that $s_i(H) \in C(H)$ for all $H \in \mathcal{H}_i$.
 \end{definition}
 
 \begin{definition}[Normal Form Representation]
@@ -330,8 +331,8 @@
 
 \begin{definition} ~\
 	\begin{enumerate}
-		\item $s_i \colon \mathcal{H}_i \rightarrow \mathcal{A}$ describes deterministic choices at each $H \in \mathcal{H}_i$ and is called a \textbf{pure strategy}
-		\item a \textbf{mixed strategy} is a probability distribution over all pure strategies $\sigma_i \colon \mathcal{S}_i \rightarrow [0, 1]$, with $\sigma_i(s_i) \geq 0$ and $\sum_{s_i \in \mathcal{S}_i} \sigma_i(s_i) = 1$.
+		\item $s_i \colon \mathcal{H}_i \Rightarrow \mathcal{A}$ describes deterministic choices at each $H \in \mathcal{H}_i$ and is called a \textbf{pure strategy}
+		\item a \textbf{mixed strategy} is a probability distribution over all pure strategies $\sigma_i \colon \mathcal{S}_i \Rightarrow [0, 1]$, with $\sigma_i(s_i) \geq 0$ and $\sum_{s_i \in \mathcal{S}_i} \sigma_i(s_i) = 1$.
 		\item player $i$'s set of possible mixed strategies can be associated with the points of the simplex $\Delta(\mathcal{S}_i)$, called the \textbf{mixed extension} of $\mathcal{S}_i$.
 		\item since we assume that individuals are expected utility maximisers, player $i$'s utility of a profile of mixed strategies $\sigma = \left( \sigma_i, \dotsc, \sigma_l \right)$ is given by
 			$$ u_i(\sigma) = \sum_{s \in \mathcal{S}} [\sigma_1(s_1) \cdot \sigma_2(s_2) \cdot \dotsc \cdot \sigma_l(s_l)] \cdot u_i(s), $$
@@ -485,13 +486,471 @@ In this game, the iterated elimination of strictly dominated strategies still le
 ~\newpage
 
 \section{Nash Equilibrium}
+
+\begin{example}
+		\begin{figure}[h!] \centering
+  				\begin{game}{3}{3}[Player $1$][Player $2$]
+   	    			   	 	& $L$ & $M$ & $R$   \\
+   	 				$U$   &    $5, 3$   & $0, 4$&    $3,5$  \\
+   	 				$M$   &    $4, 0$   & $\underline{5}, \underline{5}$&    $4, 0$ \\
+   	 				$D$   &    $3, 5$   & $0, 4$ &    $5, 3$ 
+   	   				\end{game}
+	\end{figure} ~\\
+	All strategies in this game are rationalisable, i.e. best responses to reasonable conjectures about other players' strategies. Yet only one strategy profile (namely $(M,M)$) contains best responses to correct conjectures about other players' strategies.
+\end{example}
+
+
+\begin{definition}[Nash Equilibrium]
+	A strategy profile $s = (s_1, \dotsc, s_l)$ constitutes a Nash equilibrium (NE) of game $\Gamma_N$ if for every $i = 1, \dotsc, l$
+	$$ u_i(s_i, s_{-i}) \geq u_i(s_i', s_{-i}) \text{ for all } s_i' \in \mathcal{S}_i $$
+	In the game on the previous slide, there is only one Nash equilibrium.
+\end{definition}
+
+\begin{example}[Meeting in New York]
+	\begin{enumerate}
+		\item Part 1
+			\begin{figure}[h!] \centering
+  				\begin{game}{2}{2}[Player $1$][Player $2$]
+   	    			   	 	& $Empire State$ & $Grand Central$    \\
+   	 				$Empire State$   &$\underline{100}, \underline{100}$& $0, 0$  \\
+   	 				$Grand Central$   &    $0, 0$   & $\underline{100}, \underline{100}$ \\
+   	   			\end{game} $$\Rightarrow (Empire State, Empire State) \text{ and } (Grand Central, Grand Central) \text{ are Nash equilibria.} $$
+			\end{figure} ~\\
+		\item Part 2
+			\begin{figure}[h!] \centering
+  				\begin{game}{2}{2}[Player $1$][Player $2$]
+   	    			   	 	& $Empire State$ & $Grand Central$    \\
+   	 				$Empire State$   &$\underline{100}, \underline{100}$& $0, 0$  \\
+   	 				$Grand Central$   &    $0, 0$   & $\underline{1000}, \underline{1000}$ \\
+   	   			\end{game} $$\Rightarrow \text{Again, } (Empire State, Empire State) \text{ and } (Grand Central, Grand Central) \text{ are Nash equilibria}. $$
+			\end{figure} ~\\
+	\end{enumerate}
+\end{example}
+
+Why should we acre about Nash equilibria? Why should players' conjecture about each other's play be correct?
+\begin{enumerate}
+	\item If there is a unique predict outcome to a game, it must be a Nash-Equilibrium.
+	\item Thus, a \enquote{focal point} (see example part 2) can be the unique predicted outcome to a game only if it is a Nash-Equilibrium.
+	\item An agreement between players is self-enforcing if it is a Nash-Equilibrium.
+	\item In a repeated game, a social convention to play the game might emerge. Only a Nash-Equilibrium can be maintained as a stable convention.
+\end{enumerate} 
+ 
+\begin{definition}[Mixed Strategy Nash Equilibrium]
+	A mixed strategy profile $\sigma = (\sigma_1, \dotsc, \sigma_l)$ constitutes a Nash equilibrium of game $\Gamma_N$ if for every $i=1, \dotsc, l$,
+	$$ u_i(\sigma_i, \sigma_{-i}) \geq u_i(\sigma_i', \sigma_{-i}) \text{ for all } \sigma_i' \in \Delta(\mathcal{S}_i). $$
+\end{definition} 
+ 
+\begin{proposition} 
+	Let $\mathcal{S}_{i}^{+} \subset \mathcal{S}$ denote the set of pure strategies that player $i$ plays with positive probability in mixed strategy profile $\sigma = (\sigma_1, \dotsc, \sigma_l)$. Strategy profile $\sigma$ is a Nash equilibrium in game $\Gamma_N$ if and only if for all $i = 1, \dotsc, l$,
+	\begin{enumerate}
+		\item $u_i(s_i, \sigma_{-i}) = u_i(s_i', \sigma_{-i})$ for all $s_i, s_i' \in \mathcal{S}_i^+$
+		\item $u_i(s_i, \sigma_{-i}) \geq u_i(s_i', \sigma_{-i})$ for all $s_i \in \mathcal{S}_i^+$ and all $s_i' \notin \mathcal{S}_i^+$.
+	\end{enumerate}
+\end{proposition} 
+ 
+\begin{example}[Meeting in New York 2]
+			\begin{figure}[h!] \centering
+  				\begin{game}{2}{2}[Player $1$][Player $2$]
+   	    			   	 	& $Empire State$ & $Grand Central$    \\
+   	 				$Empire State$   &$\underline{100}, \underline{100}$& $0, 0$  \\
+   	 				$Grand Central$   &    $0, 0$   & $\underline{1000}, \underline{1000}$ \\
+   	   			\end{game} $$\Rightarrow \text{Again, } (Empire State, Empire State) \text{ and } (Grand Central, Grand Central) \text{ are Nash equilibria}. $$
+			\end{figure} ~\\
+		There are two pure strategy Nash-Equilibria, but are there also mixe strategy Nash-Equilibria? Let $p$ denote the probability of (player $-i$) playing ES. Then for player $i$ to play ES and GC with positive probability in a Nash-Equilibrium, we need
+		$$ u_i(ES, p\cdot ES + (1-p) \cdot GC) = u_i(GC, p \cdot ES + (1 - p) \cdot GC) $$
+		$$ \Rightarrow 100 \cdot p = 1000 \cdot (1 - p) \iff p = \frac{10}{11} $$
+		Thus, there is a mixed strategy Nash-Equilibrium with both players playing ES with probability $\frac{10}{11}$.
+\end{example} 
+ 
+\begin{itemize}
+	\item In a Nash equilibrium each player's strategy is a best response to all other players' strategies.
+	\item Let $b_i(s_{-i})$ denote the best response(s) of player $i$ to the strategies $s_{-i}$
+	\item Then $b_i \colon \mathcal{S}_{-i} \Rightarrow \mathcal{S}_i$ is a correspondence, called player $i$'s best response correspondence.
+	\item Define $b \colon \mathcal{S} \Rightarrow \mathcal{S}$ by $(s_1, \dotsc, s_l) \Rightarrow b_1(s_{-1}) \times \dotsc \times b_l(s_{-l})$
+	\item A strategy profile $s \in \mathcal{S}$ is a Nash equilibrium if and only if $s \in b(s)$
+	\item Thus, to prove existence of Nash equilibria, we have to show that a fixed point of the correspondence $b$ exists
+	\item To do so, we employ Kakutani's fixed-point theorem
+\end{itemize} 
+ 
+\begin{lemma}
+	If $\mathcal{S}_1, \dotsc, \mathcal{S}_l$ are nonempty, compact and convex and $u_i$ is continuous in $\mathcal{S}_1, \dotsc, \mathcal{S}_l$ and quasi-concave, then player $i's$ best response correspondence $b_i(\cdot)$ is nonempty-valued, convex-valued and upper hemicontinuous.
+\end{lemma} 
+ 
+\begin{definition}[Quasi-Concave Function]
+	The function $f \colon A \Rightarrow \mathbb{R}$, defined on the convex set $A \subset \mathbb{R}^N$, is quasi-concave if its upper contour sets $\{ x \in A \colon f(x) \geq t \}$ are convex sets.
+\end{definition} 
+ 
+\begin{definition}[Upper Hemicontinuous Correspondence]
+	Given $A \subset \mathbb{R}^{N}$ and the closed set $Y \subset \mathbb{R}^{K}$, the correspondence $f \colon A \Rightarrow Y$ is upper hemicontinuous if it has a closed graph and the images of compact sets are bounded.
+\end{definition} 
+
+\begin{theorem}[Kakutani's Fixed Point Theorem]
+	Suppose that $A \subset \mathbb{R}^N$ is a nonempty, compact, convex set, and that $f \colon A \Rightarrow A$ is a correspondence from $A$ into itself that is nonempty-valued, convex-valued and upper hemicontinuous. ~\\
+	
+	Then $f(\cdot)$ has a fixed point; that is, there is an $x \in A$ such that $x \in f(x)$.
+\end{theorem}
+ 
+\begin{proposition}
+	A Nash equilibrium exists in game $\gamma_N$ if for all $i = 1, \dotsc, l$,
+	\begin{enumerate}
+		\item $\mathcal{S}_i$ is a nonempty, convex, and compact subset of some Euclidean space $\mathbb{R}^M$
+		\item $u_i(s_1, \dotsc, s_l)$ is continuous in $(s_1, \dotsc, s_l)$ and quasi-concave in $s_i$.
+	\end{enumerate}
+	
+	\begin{proof}
+		By the lemma about strategy sets, $b(\cdot)$ is nonempty, convex-valued and upper hemicontinuous. By Kakutani's fixed point theorem there exists an $s \in \mathcal{S}$ such that $s \in b(s)$. By the definition of $b$: $s_i \in b_i(s_{-i})$ for all $i = 1, \dotsc, l$. Thus $s$ is a Nash equilibrium.
+	\end{proof}
+\end{proposition} 
+
+\begin{proposition}
+	Every Game $\Gamma_N = \left[ I, \{ \Delta(\mathcal{S}_i) \}, \{u_i(\cdot)\} \right]$ in which the sets $\mathcal{S}_1, \dotsc, \mathcal{S}_l$ have a finite number of elements has a mixed strategy Nash equilibrium.
+\end{proposition}
+
+This follows from the previous proposition on the existence of Nash equilibria because the set of mixed strategies $\Delta(\mathcal{S}_i)$ of a finite number if pure strategies is nonempty, convex, and compact.
+
+\begin{example} ~\\
+			\begin{figure}[h!] \centering
+  				\begin{game}{2}{2}[Player $1$][Player $2$]
+   	    			   	 	& $L$ & $R$    \\
+   	 				$O$   & $-2, 1$ & $1, -1$ \\
+   	 				$U$   & $1, -2$ & $-1, 1$ \\
+   	   			\end{game}
+			\end{figure} 
+			
+	\textbf{Player 1's calculation:}
+	\begin{align*}
+		\Rightarrow & u_1(p \cdot O + (1 - p) \cdot U, q \cdot L + (1 - q) \cdot R) \\
+			& = pq (-2) + p(1-q)1 + (1-p)q1 + (1-p)(1-q)(-1) \\
+			& = -2pq + p - pq + q - pq - 1 + p + q -pq \\
+			& = - 5pq + 2p + 2q - 1 \\
+			& = (2 - 5q)p + 2q - 1
+	\end{align*}
+	$2 - 5q > 0 \Rightarrow p = 1 \text{ optimal (pure strategy)} \\
+		2 - 5q = 0 \Rightarrow p \in [0, 1] \text{ optimal} \\
+		2  - 5q < 0 \Rightarrow p = 0 \text{ optimal (pure strategy)}$
+	$$b_1(q) = \begin{cases} 1, & q < \frac{2}{5} \\ \in [0,1], & q = \frac{2}{5} \\ 0, & q > \frac{2}{5} \end{cases} ~\qquad $$
+			
+	\textbf{Player 2's calculation:}
+	\begin{align*}
+		\Rightarrow & u_2(p \cdot O + (1 - p) \cdot U, q \cdot L + (1 - q) \cdot R) \\
+			& = pq1 + p(1-q)(-1) + (1-p)q(-2) + (1-p)(1-q)1 \\
+			& = pq - p + pq - 2q + 2pq - q + pq - p + 1 \\
+			& = 5pq - 2p - 3q + 1 \\
+			& = (5p - 3)q - 2p + 1
+	\end{align*}
+	$5p - 3 > 0 \Rightarrow q = 1 \text{ optimal (pure strategy)} \\
+		5p - 3 = 0 \Rightarrow q \in [0, 1] \text{ optimal} \\
+		5p - 3 < 0 \Rightarrow q = 0 \text{ optimal (pure strategy)}$
+	$$ b_2(p) = \begin{cases} o, & p < \frac{3}{5} \\ \in [0,1], & p = \frac{3}{5} \\ 1, & p > \frac{3}{5} \end{cases} ~\qquad $$ ~\\
+	
+	$\Rightarrow$ The only mixed strategy Nash-Equilibrium in this game $\left( \frac{3}{5} O + \frac{2}{5} U, \frac{2}{5} L + \frac{3}{5} R \right)$.
+\end{example}
  
 ~\newpage 
  
 \section{Subgame Perfection in Dynamic Games}
 
-~\newpage
+\begin{example}[Predation Game] ~\\
+  \begin{figure}[h!]
+ 	\centering
+    \begin{tikzpicture}[thin,
+      level 1/.style={sibling distance=40mm},
+      level 2/.style={sibling distance=25mm},
+      level 3/.style={sibling distance=15mm},
+      every circle node/.style={minimum size=1.5mm,inner sep=0mm}]
+      
+      \node[circle,draw,label=above:Firm E (entrant)] (root) {}
+        child { node [circle,fill,label=above:$$] {}
+          node[left] {$(0,2)$}
+          edge from parent
+            node[left] {Out~}}
+        child { node [circle,fill,label=right:Firm I (incumbent)] {}
+          child { 
+            node {$($-$3,$-$1)$}
+              edge from parent
+                node[left] {Fight~}}
+          child { 
+            node {$(2,1)$}
+              edge from parent
+                node[right] {~Accommodate}}
+           edge from parent
+             node[right] {In}};
+    \end{tikzpicture}
+  \end{figure}
+  
+  	Predation Game in normal form representation:			\begin{figure}[h!] \centering
+  				\begin{game}{2}{2}[Player $1$][Player $2$]
+   	    			   	 	& Fight & Accom.    \\
+   	 				Out   & $0, 2$ & $0, 2$ \\
+   	 				In   & $-3, -1$ & $2, 1$ \\
+   	   			\end{game}
+			\end{figure} $$ \Rightarrow \text{ two Nash-Equilibria in the normal form game: } (\text{Out, Fight if 'In'}), (\text{In, Accommodate if 'In'}) $$	But: Is the strategy Fight if ’In’ credible?
+\end{example}
 
+\begin{proposition}[Principle of sequential rationality]
+	A strategy should specify optimal actions at every point in the game tree given the opponents’ strategies.
+\end{proposition}
+
+\begin{proposition}[Backward induction]
+	Backward induction is an iterative procedure to identify Nash equilibria that satisfy the principle of sequential rationality in dynamic games:
+	\begin{itemize}
+		\item Determine the optimal actions at the final decision nodes in the tree.
+		\item Derive the reduced extensive form game by deleting the part of the game following these decision nodes and replacing them by the payoffs that result from the optimal play.
+		\item Proceed to the next-to-last decision nodes and solve for the optimal actions to be taken there by players who correctly anticipate the actions that will follow at the final nodes.
+		\item Continue in this way backwards through the game tree.
+	\end{itemize}
+\end{proposition}
+
+\begin{example}[Predation Game] ~\\
+  \begin{figure}[h!]
+ 	\centering
+    \begin{tikzpicture}[thin,
+      level 1/.style={sibling distance=45mm},
+      level 2/.style={sibling distance=35mm},
+      level 3/.style={sibling distance=15mm},
+      every circle node/.style={minimum size=1.5mm,inner sep=0mm}]
+      
+      \node[circle,draw,label=above:Player 1] (root) {}
+        child { node [circle,fill,label=left:Player 3] {}
+          child { 
+            node {$(2,0,1)$}
+              edge from parent
+                node[left] {l~~}}
+          child { 
+            node {$($-$1,5,6)$}
+              edge from parent
+                node[right] {~r}}
+          edge from parent
+            node[left] {$L$~~}}
+        child { node [circle,fill,label=right:Player 2] {}
+          child { node [circle,fill,label=right:~Player 3] {}
+          	child { 
+              node {$(3,1,2)$}
+              	edge from parent
+                node[left] {l~}}
+            child { 
+              node {$(5,4,4)$}
+                edge from parent
+                node[right] {~r}}
+            edge from parent
+              node[left] {$a$~}}
+          child { node [circle,fill,label=right:$$] {}
+          	child { 
+              node {$(0,$-$1,7)$}
+              	edge from parent
+                node[left] {l~}}
+            child { 
+              node {$($-$2,2,0)$}
+                edge from parent
+                node[right] {~r}}
+            edge from parent
+              node[right] {~$b$}}
+           edge from parent
+             node[right] {~R}};
+    \end{tikzpicture}
+  \end{figure} $$ \Rightarrow \text{ Equilibrium via backward induction: } (R,a,rrl), \text{ other NEs: e.g. } (L,b,rlr) $$
+\end{example}
+
+\begin{theorem}[Zermelo’s Theorem]Every finite game of perfect information $\Gamma_E$ has a pure strategy Nash equilibrium that can be derived through backward induction. Moreover, if no player has the same payoffs at any two terminal nodes, then there is a unique Nash equilibrium that can be derived in this manner.
+\end{theorem}
+
+\begin{example}[Predation Game Version B (Selten, 1865)] ~\\
+  \begin{figure}[h!]
+ 	\centering
+    \begin{tikzpicture}[thin,
+      level 1/.style={sibling distance=45mm},
+      level 2/.style={sibling distance=35mm},
+      level 3/.style={sibling distance=15mm},
+      every circle node/.style={minimum size=1.5mm,inner sep=0mm}]
+      
+      \node[circle,draw,label=above:Firm E] (root) {}
+        child { node [circle,fill,label=left:] {}
+          node[left] {$(0,2)$}
+          edge from parent
+            node[left] {Out~~}}
+        child { node [circle,fill,label=right:Firm E] {}
+          child { node(1) [circle,fill,label=right:\hspace{1cm}Firm I] {}
+          	child { 
+              node {$($-$3,$-$1)$}
+              	edge from parent
+                node[left] {F~}}
+            child { 
+              node {$(1,$-$2)$}
+                edge from parent
+                node[right] {~A}}
+            edge from parent
+              node[left] {Fight~}}
+          child { node(3) [circle,fill,label=right:$$] {}
+          	child { 
+              node {$($-$2,$-$1)$}
+              	edge from parent
+                node[left] {F~}}
+            child { 
+              node {$(3,1)$}
+                edge from parent
+                node[right] {~A}}
+            edge from parent
+              node[right] {~Accommodate}}
+           edge from parent
+             node[right] {~~In}};
+            \draw[dashed,rounded corners=10]($(1) + (-.2,.25)$)rectangle($(3) +(.2,-.25)$);
+    \end{tikzpicture}
+  \end{figure} $$ \Rightarrow \text{ Equilibrium via backward induction: } (R,a,rrl), \text{ other NEs: e.g. } (L,b,rlr) $$ ~\\
+	Normal form representation:
+			\begin{figure}[h!] \centering
+  				\begin{game}{4}{2}[Firm E][Firm I]
+   	    			   	 	& A & F    \\
+   	 				Out, A if In  & $0, 2$ & \underline{$0, 2$} \\
+   	 				Out, F if In  & $0, 2$ & \underline{$0, 2$} \\
+   	 				In, A if In  & \underline{$3, 1$} & -$2$, -$1$ \\
+   	 				In, F if In  & $1$, -$2$ & -$3$, -$1$ 
+   	   			\end{game}
+			\end{figure}	
+	$$\Rightarrow \text{ Three NEs: } [(\text{Out, A if In}), F],  [(\text{Out, F if In}), F], ~ [(\text{In, A if In}), A] $$
+
+	\textbf{But:} Principle of sequential rationality: A strategy should specify optimal actions at every point in the game tree given the opponents’ strategies.
+\end{example}
+
+\begin{definition}[Subgame]
+	A subgame of an extensive form game $\Gamma_E$ is a subset of the game having the following properties:
+	\begin{enumerate}
+		\item It begins with an information set containing a single decision node, contains all the decision nodes that are successors of this node, and contains only these nodes.
+		\item If decision node x is in the subgame, then every $x' \in H(x)$ is also, where $H(x)$ is the information set that contains decision node $x$.
+	\end{enumerate}
+\end{definition} 
+
+\begin{definition}[Subgame Perfect Nash Equilibrium]
+	A profile of strategies $\sigma = (\sigma_1, \dotsc, \sigma_l)$ in an $l$-player extensive form game $\Gamma_E$ is a subgame perfect Nash equilibrium (SPNE) if it induces a Nash equilibrium in every subgame of $\Gamma_E$.	
+\end{definition}
+
+\begin{proposition}
+	Consider an extensive form game $\Gamma_E$ and some subgame $G$ of $\Gamma_E$. Suppose that strategy profile $\gamma^G$ is a SPNE in subgame $G$, and let $\Gamma_E$ be the reduced game formed by replacing subgame $G$ by a terminal node with payoffs equal to those arising from play of $\sigma^G$. Then:
+	\begin{enumerate}
+		\item In any SPNE $\sigma$ of $\sigma_E$ in which $\sigma^G$ is the play in subgame $G$, players’ moves at information sets outside subgame $G$ must constitute a SPNE of reduced game $\Gamma_E'$.
+		\item If $\sigma'$ is a SPNE of $\Gamma_E'$, then the strategy profile $\sigma$ specifies the moves in $\sigma^G$ information sets in subgame $G$ and that specifies the moves in $\sigma'$ at information sets not in $G$ is a SPNE of $\Gamma_E$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{example}[Niche Choice Game] ~\\
+  \begin{figure}[h!]
+ 	\centering
+    \begin{tikzpicture}[thin,
+      level 1/.style={sibling distance=45mm},
+      level 2/.style={sibling distance=35mm},
+      level 3/.style={sibling distance=15mm},
+      every circle node/.style={minimum size=1.5mm,inner sep=0mm}]
+      
+      \node[circle,draw,label=above:Firm E] (root) {}
+        child { node [circle,fill,label=left:] {}
+          node[left] {$(0,2)$}
+          edge from parent
+            node[left] {Out~}}
+        child { node [circle,fill,label=right:Firm E] {}
+          child { node(1) [circle,fill,label=right:\hspace{1cm}Firm I] {}
+          	child { 
+              node {$($-$6,$-$6)$}
+              	edge from parent
+                node[left] {SN~}}
+            child { 
+              node {$($-$1,1)$}
+                edge from parent
+                node[right] {~LN}}
+            edge from parent
+              node[left] {Small Niche~}}
+          child { node(3) [circle,fill,label=right:$$] {}
+          	child { 
+              node {$(1,$-$1)$}
+              	edge from parent
+                node[left] {SN~}}
+            child { 
+              node {$($-$3,$-$3)$}
+                edge from parent
+                node[right] {~LN}}
+            edge from parent
+              node[right] {~Large Niche}}
+           edge from parent
+             node[right] {~~In}};
+            \draw[dashed,rounded corners=10]($(1) + (-.2,.25)$)rectangle($(3) +(.2,-.25)$);
+    \end{tikzpicture}
+  \end{figure} 
+  
+  Post-entry subgame:
+			\begin{figure}[h!] \centering
+  				\begin{game}{2}{2}[Firm E][Firm I]
+   	    			   	 	& SN & LN    \\
+   	 				SN  & -$6$, -$6$ & -$1$, $1$ \\
+   	 				LN  & $1$, -$1$  & -$3$, -$3$
+   	   			\end{game}
+			\end{figure}	
+  $\Rightarrow$ Two NEs in subgame: $(SN,LN)$, $(LN,SN)$ ~\\
+
+  Normal form representation of the whole game: 
+			\begin{figure}[h!] \centering
+  				\begin{game}{4}{2}[Firm E][Firm I]
+   	    			   	 	& SN & LN    \\
+   	 				Out, SN  & $0$, $2$ & \underline{$0$, $2$} \\
+   	 				Out, LN  & $0$, $2$ & \underline{$0$, $2$} \\
+   	 				In, SN  &  -$6$, -$6$ & -$1$, $1$ \\
+   	 				In, LN  & \underline{$1$, -$1$} & -$3$, -$3$ 
+   	   			\end{game}
+			\end{figure}	  
+  $\Rightarrow$ Two SPNE in pure strategies: [$(Out, SN),LN$], [$(In, LN),SN$]. Note: [$(Out, LN),LN$] is not subgame perfect! ~\\
+  
+  \underline{Period 1:}
+  \begin{itemize}
+  	\item Player 1 offers a split: $s^1 \in [0, v]$
+  	\item Player 2 can reject and the game continues in period 2, or accept and the split is implemented and the game ends immediately with $u_1 = s^1$, $u_2 = v - s^1$.
+  \end{itemize}
+  
+  \underline{Period 2:}
+  \begin{itemize}
+  	\item Player 2  offers a split: $s^2 \in [0, v]$
+  	\item Player 1 can reject and the game continues in period 3, or accept and the split is implemented and the game ends immediately with $u_1 = \delta \cdot s^2$, $u_2 = \delta \cdot (v - s^2)$.
+  \end{itemize}
+  and so on $\dotsc$ ~\\
+
+  \textbf{There is a unique SPNE:} ~\\
+
+  Suppose T is odd:
+  \begin{description}
+  	\item \underline{Period T:} Player 1 makes the offer in period T and player 2 is willing to accept any offer. Payoffs: $(\delta^{T-1} \cdot v, 0)$.
+  	\item \underline{Period T-1:} Player 2 makes the offer and player 1 will accept if and only if the payoff for player 1 is at least $\delta^{T-1} \cdot v$. Payoffs: $(\delta^{T-1} \cdot v, \delta^{T-2} \cdot v - \delta^{T-1} \cdot v)$.
+  	\item \underline{Period T-2:} Player 1 makes the offer and player 2 will accept if and only if the payoff for player 2 is at least $\delta^{T-2} \cdot v - \delta^{T-1} \cdot v$. Payoffs: $(\delta^{T-3} \cdot v - \delta^{T-2} \cdot v + \delta^{T-1} \cdot v, \delta^{T-2} \cdot v - \delta^{T-1} \cdot v)$.
+  	\item $\dotsc$
+  \end{description} 
+  
+  $\Rightarrow$ The resulting SPNE for odd T is:
+	\begin{description}
+		\item $v_1^*(T) = v(1 - \delta + \delta^2 - \dotsc + \delta^{T-1}) = v \left[ (1 - \delta) \left(\frac{1 - \delta^{T-1}}{1 - \delta^2} \right) + \delta^{T-1} \right]$
+		\item $v_2^*(T) = v - v_1^*(T)$
+	\end{description} ~\\
+  $\Rightarrow$ The resulting SPNE for even T is:
+	\begin{description}
+		\item $v_1^*(T) = v - \delta v_1^*(T-1)$
+		\item $v_2^*(T) = v_1^*(T - 1)$.
+	\end{description} ~\\
+  $\Rightarrow$ For large T, this converges to:
+  \begin{description}
+  	\item $\lim_{T \rightarrow \infty} v_1^*(T) = \frac{v}{1 + \delta}$
+  	\item $\lim_{T \rightarrow \infty} v_2^*(T) = \frac{\delta v}{1 + \delta}$
+  \end{description}
+\end{example}
+
+Now consider the bilateral bargaining gam with infinite horizon:
+
+\begin{proposition}[Shaked \& Sutton (1984)]
+	The infinite horizon bargaining game has a unique SPNE in which the players reach an agreement in period 1 such that player 1 earns $\frac{v}{1 + \delta}$ and player 2 $\frac{\delta v}{1 + \delta}$.
+	
+	\begin{proof}
+		Let $\overline{v_1}$ be the largest payoff that player 1 gets in any SPNE. Then player 1's payoff in any SPNE cannot be lower than $\underline{v_1} = v - \delta \overline{v_1}$. Also $overline{v_1} \leq v - \delta \underline{v_1}$ because player 2 rejects any offer of less than $\delta \underline{v_1}$. And we have:
+		$$ \overline{v_1} \leq v - \delta \underline{v_1} = \underline{v_1} + \delta \overline{v_1} - \delta \underline{v_1} \iff \overline{v_1} (1 - \delta) \leq \underline{v_1} (1 - \delta). $$
+		Which implies $\overline{v_1} = \underline{v_1}$, so player 1's SPNE is uniquely determined:
+		$$ \Rightarrow v_1^0 = v - \delta v_1^0 = \frac{v}{1 + \delta} \text{ and } v_2^0 = \frac{\delta v}{1 + \delta} $$ 
+	\end{proof}
+\end{proposition}
+
+
+~\newpage
 
 \section{Exercises}
 
@@ -673,7 +1132,7 @@ Prove that if pure strategy $s_i$ is a strictly dominated strategy in game $\Gam
 	 	\end{proof}
 \end{enumerate}
 
-% todo hier angehalten
+
 \subsection*{Advanced Game Theory - 3. Exercise}
 
 
@@ -765,21 +1224,20 @@ Consider a bargaining situation in which two individuals are considering underta
 	\item Whenever communication is possible, we can even expect $(U, LL)$ or $(D, R)$ as outcome as both players would profit.
 \end{enumerate}
 
-\chapter{Kooperative Spiele}
+\chapter{Kooperative Spiele} % todo Kooperative Spieltheorie
 
-\section{Der Kern}
-
-~\newpage
-
-\section{Der Shapley-Wert}
+\section{Der Kern} % todo Kooperative Spieltheorie: Kern
 
 ~\newpage
 
-\section{Einfache Spiele}
+\section{Der Shapley-Wert} % todo Kooperative Spieltheorie: Der Shapley-Wert
 
 ~\newpage
 
-\section{Konvexe Spiele}
+\section{Einfache Spiele}  % todo Kooperative Spieltheorie: Einfache Spiele
+~\newpage
+
+\section{Konvexe Spiele} % todo Kooperative Spieltheorie: Konvexe Spiele
 
 ~\newpage
 
@@ -946,7 +1404,7 @@ Gegeben sei folgende Auszahlungstabelle eines Zwei-Personen-Spiels in Normalform
 Beschreiben Sie jeweils für $\alpha = 5$ und $\alpha = 7$ das korrespondierende Koalitionsspiel $\Gamma_C = [N, v]$ und bestimmen Sie den Kern $C(\Gamma_C)$.
 
 	\begin{proof}
-		Wir haben das Spiel gegeben durch $N = \{1, 2\}$ und $v \colon P(N) \rightarrow \R$.
+		Wir haben das Spiel gegeben durch $N = \{1, 2\}$ und $v \colon P(N) \Rightarrow \R$.
 		
 		Angenommen $v$ ist superadditiv, und da wir wissen, dass dieses Spile symmetrisch ist, gilt:
 		\begin{enumerate}
@@ -982,7 +1440,7 @@ Ein Kleintierzüchterverein hat sieben Mitglieder: zwei Meerschweinchenzüchter 
   \begin{enumerate}
  	\item Beschreiben Sie unter der Bedingung, dass die Mitglieder einer Zuchtgruppe stets einheitlich abstimmen, das Koalitionsspiel $\Gamma_C = [N, v]$ für die drei unabhängingen Spieler in Form der drei Zuchtgruppen $M = \{M_1,M_2\}$, $T = \{T_1, T_2\}$ und $H = \{H_1,H_2,H_3\}$, also $N = \{M, T, H\}$, und berechnen Sie die Shapley-Werte für $M$, $T$ und $H$.
  		\begin{proof}
- 			Es gilt $\Gamma_C = [N, v]$, wobei $N = \{ M, T, H \}$ und $v \colon P(N) \rightarrow \N$ mit:
+ 			Es gilt $\Gamma_C = [N, v]$, wobei $N = \{ M, T, H \}$ und $v \colon P(N) \Rightarrow \N$ mit:
  			$$ v(N) = 1, ~ v(\{M, T\}) = 1, ~ v(\{T, H\}) = 1, ~ v(\{M,H\}) = 1,$$
  			$$  v(\{M\}) = v(\{T\}) = v(\{H\}) = 0. $$
 			Für den Shapley-Wert betrachten wir:
@@ -1011,7 +1469,7 @@ Ein Kleintierzüchterverein hat sieben Mitglieder: zwei Meerschweinchenzüchter 
  		\end{proof}
 	\item Eines Tages zerstreiten sich die drei Hasenzüchter, was dazu führt, dass sie die Hasenkoalition auflösen und in Abstimmungen einzeln auftreten. Die Meerschweinchenzüchter und Taubenzüchter stimmen weiterhin einheitlich ab. Wie lauten die Ergebnisse von Teilaufgabe a) für die fünf unabhängingen Spieler $M$, $T$, $H_1$, $H_2$ und $H_3$. Vergleichen Sie die Shapley-Werte mit denen von Teilaufgabe a). Was fällt auf?
  		\begin{proof}
- 			Es gilt $\Gamma_C = [N, v]$, wobei $N = \{ M, T, H_{1}, H_{2}, H_{3} \}$ und $v \colon P(N) \rightarrow \N$ mit:
+ 			Es gilt $\Gamma_C = [N, v]$, wobei $N = \{ M, T, H_{1}, H_{2}, H_{3} \}$ und $v \colon P(N) \Rightarrow \N$ mit:
  			$$ v(\{T, H_{1}, H_{2}, H_{3} \}) = 1, ~ v(\{M, H_{1}, H_{2}, H_{3} \}) = 1,  ~ v(\{T, H_{i}, H_{j} \}) = 1, ~ v(\{M, H_{i}, H_{j} \}) = 1,$$
  			$$  v(\{M\}) = v(\{T\}) = v(\{ H_{i} \}) = v(\{ H_{i}, H_{j} \}) = v(\{ H_{1}, H_{2}, H_{3} \}) = 0. $$
  			$$ v(N) = 1, ~ v(\{M, T\}) = 1, ~v(\{T, H_{i}\}) = 0, ~ v(\{M, H_{i}\}) = 0$$
@@ -1092,7 +1550,7 @@ $$ C(s_{i}^{*}) \subseteq B_{i}(s_{-i}^{*}) $$
 		\item Population ist monomorph
 		\item random matching
 		\item Wettstreit (Spiel) ist statisch und symmetrisch
-			$$ \rightarrow \text{ symmetrisches Spiel in Normalform mit zwei Spielern}. $$
+			$$ \Rightarrow \text{ symmetrisches Spiel in Normalform mit zwei Spielern}. $$
 		\item Auszahlung entspricht der \enquote{biologischen Fitness} ($\phi$ Anzahl Nachkommen)
 		\item Reproduktion ist asexuell und die von den Eltern gewählt Strategie wird unverändert an die Nachkommen vererbt (nur Selektion, keine Mutation).
 	\end{enumerate}
@@ -1138,6 +1596,8 @@ $\Rightarrow \#$ ESS $\leq \left| \Sigma \right|$ - Gleichheit nur, fall es kein
   
 \section{Übungen}
 
+\subsection*{Advanced Game Theory - 5. Exercise}
+
 \subsubsection*{Aufgabe 5.2}  
   \begin{enumerate}[label=\alph*\upshape)] \setcounter{enumi}{1}
   	\item Gegeben sei:
@@ -1174,10 +1634,10 @@ $\Rightarrow \#$ ESS $\leq \left| \Sigma \right|$ - Gleichheit nur, fall es kein
    	\item es existiert kein symmetrisch Nash-Gleichgewicht in reinen Strategien
    	\item $(F, T)$, $(T, F)$ sind strikte Nash-Gleichgewichte
    \end{itemize}
-   Interpretation: Recource $v$, Tauben teilen friedlich, Falken vertielgt Zaube, Falken kämpfen $\rightarrow$ neg, outcome für beide. ~\\
+   Interpretation: Recource $v$, Tauben teilen friedlich, Falken vertielgt Zaube, Falken kämpfen $\Rightarrow$ neg, outcome für beide. ~\\
    $p = (p_F, p_T)$
   $$	H(F, p) \overset{!}{=} H(T, p) \overset{!}{=} H(p,p) $$
-   $$	\begin{rcases} H(F, p) & = p_{F} \frac{v-c}{2} + p_T v \\ H(T, p) & = p_F 0 + p_T \frac{v}{2} \end{rcases} \xrightarrow[]{p_F + p_T =1} p_F = \frac{v}{c}, p_T = 1 - \frac{v}{c} $$
+   $$	\begin{rcases} H(F, p) & = p_{F} \frac{v-c}{2} + p_T v \\ H(T, p) & = p_F 0 + p_T \frac{v}{2} \end{rcases} \xRightarrow[]{p_F + p_T =1} p_F = \frac{v}{c}, p_T = 1 - \frac{v}{c} $$
    ist das einzige symmetrisch Nas-Gleichgewicht, kein triviales Spiel $\Rightarrow \exists ESS$
    $$ \Rightarrow \left( \frac{v}{2}, 1 - \frac{v}{2} \right) \text{ ist ESS} $$
    oder man rechnet nach $H(F,p) = H(t, p) = H(p,p)$ ~\\

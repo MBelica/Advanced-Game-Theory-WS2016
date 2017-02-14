@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.7)  1 FEB 2017 01:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.7)  14 FEB 2017 15:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1331,8 +1331,8 @@ File: tikzlibrarymatrix.code.tex 2013/07/12 v3.0.0 (rcs-revision 1.4)
 )
 \c@unnamedtheorem=\count211
    defining Unicode char U+00A0 (decimal 160)
-Package hyperref Info: Option `colorlinks' set `true' on input line 147.
-Package hyperref Info: Option `breaklinks' set `true' on input line 147.
+Package hyperref Info: Option `colorlinks' set `true' on input line 148.
+Package hyperref Info: Option `breaklinks' set `true' on input line 148.
 \@indexfile=\write4
 \openout4 = `"Advanced Game Theory.idx"'.
 
@@ -1345,21 +1345,21 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 (/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.aux)
 \openout1 = `"Advanced Game Theory.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 164.
-LaTeX Font Info:    ... okay on input line 164.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 164.
-LaTeX Font Info:    ... okay on input line 164.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 164.
-LaTeX Font Info:    ... okay on input line 164.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 164.
-LaTeX Font Info:    ... okay on input line 164.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 164.
-LaTeX Font Info:    ... okay on input line 164.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 164.
-LaTeX Font Info:    ... okay on input line 164.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 164.
-LaTeX Font Info:    ... okay on input line 164.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 164.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 165.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<ot1.cmap>> (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -1377,7 +1377,7 @@ File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \everyMPtoPDFconversion=\toks55
 )
 \AtBeginShipoutBox=\box64
-Package hyperref Info: Link coloring ON on input line 164.
+Package hyperref Info: Link coloring ON on input line 165.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
  (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1385,9 +1385,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count218
 )
-LaTeX Info: Redefining \ref on input line 164.
-LaTeX Info: Redefining \pageref on input line 164.
-LaTeX Info: Redefining \nameref on input line 164.
+LaTeX Info: Redefining \ref on input line 165.
+LaTeX Info: Redefining \pageref on input line 165.
+LaTeX Info: Redefining \nameref on input line 165.
  (/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.out) (/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.out)
 \@outlinefile=\write5
 \openout5 = `"Advanced Game Theory.out"'.
@@ -1405,7 +1405,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.12} (current compat level: 1.7).
 
-LaTeX Info: Redefining \microtypecontext on input line 164.
+LaTeX Info: Redefining \microtypecontext on input line 165.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1466,167 +1466,237 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
  [1]
 Chapter 1.
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 187.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 188.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 187.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 188.
  [2
 
 
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 265.
+(Font)              <10> on input line 266.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 265.
+(Font)              <7> on input line 266.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 265.
+(Font)              <5> on input line 266.
  [3] [4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 
  []
 
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 361.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 362.
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 414--415
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
 
  []
 
 [8]
-Overfull \hbox (23.28625pt too wide) in paragraph at lines 433--434
+Overfull \hbox (23.28625pt too wide) in paragraph at lines 434--435
 []\OT1/lmr/bx/n/12 Definition: []\OT1/lmr/m/it/12 (-20) A strat-egy $\OML/lmm/m/it/12 ^^[[] \OMS/lmsy/m/n/12 2 \OT1/lmr/m/n/12 (-20) ^^A(\OMS/lmsy/m/n/12 S[]\OT1/lmr/m/n/12 (-20) )$ \OT1/lmr/m/it/12 (-20) is strictly dom-i-nated for $\OML/lmm/m/it/12 i$ \OT1/lmr/m/it/12 (-20) in game $\OT1/lmr/m/n/12 (-20) ^^@[] = [\OML/lmm/m/it/12 I; \OMS/lmsy/m/n/12 f\OT1/lmr/m/n/12 (-20) ^^A(\OMS/lmsy/m/n/12 S[]\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OML/lmm/m/it/12 ; \OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 u[]\OT1/lmr/m/n/12 (-20) (\OMS/lmsy/m/n/12 ^^A\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 (-20) ]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
+Underfull \hbox (badness 10000) in paragraph at lines 448--449
 
  []
 
-[9] [10] [11] [12] [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 587--591
-
- []
-
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 621--622
-
+[9] [10] [11]
+Overfull \hbox (12.47594pt too wide) detected at line 517
+\OMS/lmsy/m/n/12 ) \OT1/lmr/m/n/12 (\OML/lmm/m/it/12 EmpireState; EmpireState\OT1/lmr/m/n/12 )[](\OML/lmm/m/it/12 GrandCentral; GrandCentral\OT1/lmr/m/n/12 )[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 624--625
+Underfull \hbox (badness 10000) in paragraph at lines 511--519
 
  []
 
-[16]
-Overfull \hbox (18.99585pt too wide) in paragraph at lines 631--632
-\OT1/lmr/m/n/12 (-20) Prove that if pure strat-egy $\OML/lmm/m/it/12 s[]$ \OT1/lmr/m/n/12 (-20) is a strictly dom-i-nated strat-egy in game $^^@[] = [\OML/lmm/m/it/12 I; \OMS/lmsy/m/n/12 f\OT1/lmr/m/n/12 (-20) ^^A(\OMS/lmsy/m/n/12 S[]\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OML/lmm/m/it/12 ; \OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 u[]\OT1/lmr/m/n/12 (-20) (\OMS/lmsy/m/n/12 ^^A\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 (-20) ]$
+
+Overfull \hbox (50.00635pt too wide) detected at line 525
+\OMS/lmsy/m/n/12 ) []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 EmpireState; EmpireState\OT1/lmr/m/n/12 )[](\OML/lmm/m/it/12 GrandCentral; GrandCentral\OT1/lmr/m/n/12 )[]\OML/lmm/m/it/12 :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 634--635
+Underfull \hbox (badness 10000) in paragraph at lines 519--527
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12] [13]
+Overfull \hbox (50.00635pt too wide) detected at line 557
+\OMS/lmsy/m/n/12 ) []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 EmpireState; EmpireState\OT1/lmr/m/n/12 )[](\OML/lmm/m/it/12 GrandCentral; GrandCentral\OT1/lmr/m/n/12 )[]\OML/lmm/m/it/12 :
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 588--589
+
+ []
+
+[15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 644--645
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 666--667
-
+Overfull \hbox (44.17403pt too wide) detected at line 688
+\OMS/lmsy/m/n/12 ) []\OT1/lmr/m/n/12 ([])\OML/lmm/m/it/12 ; \OT1/lmr/m/n/12 ([])
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 684--685
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 689--690
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 692--694
-
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 753--755
-
- []
-
-[21] [22]
-Chapter 2.
-[23
-
-
-] [24] [25] [26] [27] [28] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 887--888
+Underfull \hbox (badness 10000) in paragraph at lines 880--889
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 892--893
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 890--901
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 913--914
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 915--916
+
+ []
+
+[23] [24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 1049--1053
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1084
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1086--1087
+
+ []
+
+[27]
+Overfull \hbox (18.99585pt too wide) in paragraph at lines 1093--1094
+\OT1/lmr/m/n/12 (-20) Prove that if pure strat-egy $\OML/lmm/m/it/12 s[]$ \OT1/lmr/m/n/12 (-20) is a strictly dom-i-nated strat-egy in game $^^@[] = [\OML/lmm/m/it/12 I; \OMS/lmsy/m/n/12 f\OT1/lmr/m/n/12 (-20) ^^A(\OMS/lmsy/m/n/12 S[]\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OML/lmm/m/it/12 ; \OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 u[]\OT1/lmr/m/n/12 (-20) (\OMS/lmsy/m/n/12 ^^A\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 (-20) ]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1096--1097
+
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1128--1129
+
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 1146--1147
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1151--1152
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1154--1156
 
  []
 
 [30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 955--956
+Underfull \hbox (badness 10000) in paragraph at lines 1215--1217
 
  []
 
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 966--967
+[32] [33]
+Chapter 2.
+[34
+
+
+] [35] [36] [37] [38] [39] [40]
+Underfull \hbox (badness 10000) in paragraph at lines 1348--1349
 
  []
 
-[33]
-Overfull \hbox (42.69174pt too wide) in paragraph at lines 1014--1016
+
+Underfull \hbox (badness 10000) in paragraph at lines 1353--1354
+
+ []
+
+[41] [42]
+Underfull \hbox (badness 10000) in paragraph at lines 1416--1417
+
+ []
+
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 1427--1428
+
+ []
+
+[44]
+Overfull \hbox (42.69174pt too wide) in paragraph at lines 1475--1477
 \OT1/lmr/m/n/12 (-20) Hasenkoali-tion aufl^^?osen und in Ab-stim-mungen einzeln auftreten. Die Meer-schweinchenz^^?uchter
  []
 
-[34]
-Overfull \hbox (34.04152pt too wide) detected at line 1017
+[45]
+Overfull \hbox (34.04152pt too wide) detected at line 1478
 \OML/lmm/m/it/12 v\OT1/lmr/m/n/12 (\OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 T; H[]; H[]; H[]\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 ) = 1\OML/lmm/m/it/12 ;  v\OT1/lmr/m/n/12 (\OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 M; H[]; H[]; H[]\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 ) = 1\OML/lmm/m/it/12 ;  v\OT1/lmr/m/n/12 (\OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 T; H[]; H[]\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 ) = 1\OML/lmm/m/it/12 ;  v\OT1/lmr/m/n/12 (\OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 M; H[]; H[]\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 ) = 1\OML/lmm/m/it/12 ;
  []
 
-[35]
+[46]
 Chapter 3.
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 1063.
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 1524.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 1073--1075
+Underfull \hbox (badness 10000) in paragraph at lines 1534--1536
 
  []
 
-[36
+[47
 
 
-] [37] [38] [39] [40] [41] (/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.ind)
+] [48] [49] [50] [51] [52] (/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.ind)
 \Changes@OutFile=\write7
 \openout7 = `"Advanced Game Theory.soc"'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1229.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1229.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1692.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1692.
  (/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1229.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1229.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1692.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1692.
 Package rerunfilecheck Info: File `"Advanced Game Theory".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 39967 strings out of 493089
- 886802 string characters out of 6134843
- 1068078 words of memory out of 5000000
- 42395 multiletter control sequences out of 15000+600000
- 74140 words of font info for 130 fonts, out of 8000000 for 9000
+ 40102 strings out of 493089
+ 888785 string characters out of 6134843
+ 1072114 words of memory out of 5000000
+ 42460 multiletter control sequences out of 15000+600000
+ 74829 words of font info for 137 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,14n,108p,10419b,1413s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,15n,108p,10419b,1456s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on "/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.pdf" (42 pages, 363774 bytes).
+Output written on "/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.pdf" (53 pages, 406607 bytes).
 PDF statistics:
- 500 PDF objects out of 1000 (max. 8388607)
- 426 compressed objects within 5 object streams
- 163 named destinations out of 1000 (max. 500000)
+ 605 PDF objects out of 1000 (max. 8388607)
+ 519 compressed objects within 6 object streams
+ 219 named destinations out of 1000 (max. 500000)
  14997 words of extra memory for PDF output out of 17280 (max. 10000000)
 
