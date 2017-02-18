@@ -43,7 +43,7 @@
 \usepackage{pgfplots}
 \usepackage{minibox}
 \usepackage{xcolor}
-\usepackage{sgame} % Game theory packages
+\usepackage{sgame}  % Game theory packages
 \usepackage{subfig} % Manipulation and reference of small or sub figures and tables
 
 \makesavenoteenv{tabular}
@@ -70,7 +70,7 @@
   % Linkfarbe, {0,0.35,0.35} für Türkis, {0,0,0} für Schwarz 
   \definecolor{linkcolor}{rgb}{0,0.35,0.35}
   % Zeilenabstand für bessere Leserlichkeit
-  \def\mystretch{1.5} 
+  \def\mystretch{1.75} 
   % Publisher definieren
   \newcommand\publishers[1]{\newcommand\@publishers{#1}} 
   % Enumerate im 1. Level: \alph für a), b), \dotsc
@@ -90,7 +90,7 @@
 % Meta Setup (Für Titelblatt und Metadaten im PDF)
 \title{Advanced Game Thoerie}
 \author{Prof. Dr. Clemens Puppe}
-\date{(inoffizielles Skript) ~\vspace{0.2cm} \\ Wintersemester 2016/17}
+\date{Vorlesungsmitschrieb ~\vspace{0.2cm} \\ Wintersemester 2016/17}
 \publishers{Karlsruher Institut für Technologie}
 
 %% Math. Definitions
@@ -140,7 +140,7 @@
 \newtheorem*{regeln}{Regeln}
 \newtheorem*{schreibweise}{Schreibweise}
 \newtheorem*{schreibweisen}{Schreibweisen}
-\newtheorem*{uebung}{Übung}
+\newtheorem*{uebung}{übung}
 \newtheorem*{vereinbarung}{Vereinbarung}
 
 %% Template
@@ -423,9 +423,8 @@ Applied to Prisoner's Dilemma: Confess is a strictly dominant strategy for each 
    	 				don't confess   &    $0, -2$   & $-10, -1$  \\
    	 				confess   &    $-1, -10$   & $-5, -5$  
    	   				\end{game} $$\Rightarrow D \text{ is strictly dominated by } U \text{ and } M.$$
-	\end{figure} ~\
-	
-	$\Rightarrow \text{ Player 1 has no dominant strategy anymore}$.
+	\end{figure}
+	$$\Rightarrow \text{ Player 1 has no dominant strategy anymore}.$$
 \end{example}
 
 In this game, the iterated elimination of strictly dominated strategies still leads to a unique prediction. In general, the order of elimination of strictly dominated strategies does not matter! How about iterated elimination of weakly dominated strategies?
@@ -1224,20 +1223,160 @@ Consider a bargaining situation in which two individuals are considering underta
 	\item Whenever communication is possible, we can even expect $(U, LL)$ or $(D, R)$ as outcome as both players would profit.
 \end{enumerate}
 
-\chapter{Kooperative Spiele} % todo Kooperative Spieltheorie
+\chapter{Kooperative Spiele} 
 
-\section{Der Kern} % todo Kooperative Spieltheorie: Kern
+Im Kontrast zur nicht-kooperativen Spieltheorie, die sich mit Spielern die individuell Entscheidungen treffen und ihre individuelle Auszahlung ohne Absprache maximieren, beschäftigt, gibt es die kooperative Spieltheorie, mit der wir uns im folgenden beschäftigen. In der kooperativen Spieltheorie können sich die Spieler gemeinsam auf Ergebnis einigen, die dann auch verpflichtend sind. Man braucht dazu Kontrollinstanzen; Wir suchen nach Stabilität und Ergebnissen, die sich in solchen Situationen ergeben.
 
+\subsection*{Koalitionsspiele (Spiele in charakteristischer Form)}
+\begin{itemize}
+	\item Die Modellierung als Koalitionsspiel wird angewendet, wenn bindende Absprachen möglich sind. 
+	\item Im Fokus: Was kann eine Gruppe von Spielern (eine \textit{Koalition}) gemeinsam erreichen? 
+	\item Es wird dabei nicht betrachtet, wie die Koalition dies erreicht, d.h. wie sie ihre gemeinsamen Aktionen abstimmt. 
+	\item Fragen: Wie wird sie dies aufteilen? Wie sollte sie dies aufteilen? Gibt es stabile Aufteilungen? 
+	\item \textit{Lösung eines Koalitionsspiels}: (Menge an) Payoffvektoren mit bestimmten Eigenschaften.
+\end{itemize}
+
+Wir betrachten nur Koalitionsspiele mit transferierbarem Nutzen, also Spiele bei denen der Wert, den eine Koalition erreichen kann, beliebig unter den Mitgliedern aufgeteilt werden kann.
+
+\begin{definition}[Koalitionsspiel mit transferierbarem Nutzen]
+	Ein Koalitionsspiel $(N, v)$ mit tranferierbarem nutzen besteht aus
+	\begin{itemize}
+		\item einer endlichen Menge $N = \{1, \dotsc, n\}$ an Spielern und
+		\item einer charakteristischen Funktion $v \colon \mathcal{P}(N) \rightarrow \mathbb{R}$, die jeder Teilmenge $S$ von $N$ einen (Koalitions-) Wert $v(\mathcal{S})$ zuweist.
+	\end{itemize}
+	($\mathcal{P}(N)$ ist die Potenzmenge von $N$.)
+\end{definition} 
+
+\begin{bemerkung} ~\
+  \begin{itemize}
+	\item Die charakteristische Funktion wird auch Koalitionsfunktion genannt.
+	\item Wir treffen die Annahme, dass Aktionen von Spielern in $N \setminus S$ den Wert $v(S)$ nicht beeinflussen (vgl. \enquote{outside option}).
+	\item Wir interpretieren $v(S)$ als den Payoff, den sich die Koalition $S$ aus eigener Kraft sichern kann.
+	\item Es gelte $v(\emptyset) = 0$.
+	\item Die Spieler in S entscheiden über mögliche Aufteilungen von $v(S)$ auf die Spieler in $S$ (da der Nutzen transferierbar ist).	
+  \end{itemize}	
+\end{bemerkung}
+
+Stille Annahme: Existenz einer übergeordneten Kontrollinstanz.~\\
+
+Zur Vereinfachung betrachten wir im Folgenden superadditive Spiele: Eine Koalition $S \cup T$ kann immer mindestens das erreichen, was ihre disjunkten Teilkoalitionen $S$ und $T$ getrennt erreichen können.
+
+\begin{definition}[Superadditive Spiele]
+	Ein Koalitionsspiel $(N, v)$ ist superadditiv, wenn
+	$$ v(S \cup T) \geq v(s) + v(t) $$
+	für alle Koalitionen $S$ und $T$ mit $S \cap T = \emptyset$.
+\end{definition}
+	
+Bei der Analyse von Koalitionsspielen spielt der Payoff, den die einzelnen Spieler erhalten, eine Rolle.
+\begin{itemize}
+	\item Ein Payoffvektor sei bezeichnet mit $x = (x_1, \dotsc, x_n)$.
+	\item Der Gesamtpayoff, den die Spieler einer Gruppe $S$ erhalten ist also $\sum_{i \in S} x_i$.
+	\item Anmerkung: Hier betrachten wir einen Payoffvektor und berechnen, wie hoch der gemeinsame Payoff der Spieler in $S$ ist. Dies hat nichts mit $v(S)$ zu tun, dem Payoff, den die Koalition $S$ aus eigener Kraft erreichen kann.
+\end{itemize} 
+
+\begin{definition}[Zulässiger Payoffvektor]
+	In einem superadditiven Spiel ist ein Payoffvektor $x$ zulässig, wenn
+	$$ \sum_{i \in N} x_i \leq v(N) $$
+\end{definition} ~\\
+	
+Wir werden zwei Lösungskonzepte kennen lernen:\begin{itemize}
+	\item Ein Mengenkonzept, das eine Menge von Payoffvektoren als Lösung vorschlägt: der Kern.	\item Ein Wertkonzept, das eine eindeutige Lösung des Spiels vorschlägt: der Shapley-Wert.
+\end{itemize}
+
+\section{Der Kern} 
+
+\begin{itemize}
+	\item Der Kern enthält alle \enquote{stabilen} Payoffvektoren.
+	\item Idee: Ein Payoffvektor eines Koalitionsspiels ist stabil, wenn es keine Koalition gibt, die aus eigener Kraft für jedes ihrer Mitglieder einen höheren Payoff erzielen könnte.
+	\item Bei transferierbarem Nutzen: Ein Payoffvektor ist stabil, wenn es keine Koalition gibt, deren Wert höher ist als die Summe der Payoffs ihrer Mitglieder (im betrachteten Payoffvektor).
+	\item Da wir nur superadditive Spiele betrachten, wird immer die große Koalition den Gesamtpayoff der Kernlösung (falls diese existiert) bestimmen.
+	\item Der Kern kann aus mehreren Payoffvektoren bestehen, er kann eindeutig sein und er kann leer sein.
+\end{itemize}
+
+\begin{definition}[Kern]
+	Der Kern eines Koalitionsspiels mit transferierbarem Nutzen $(N, v)$ ist die Menge zulässiger Payoffvektoren $x$, für die gilt
+	$$ \sum_{i \in S} x_i \geq v(S) $$
+	für alle $S \subseteq N$.
+\end{definition}
+
+\textbf{Eigenschaften:}
+\begin{itemize}
+	\item Das bedeutet, dass keine Koalition einen Payoffvektor im Kern blockieren kann: $\not\exists S \subseteq N$, so dass $v(S) > \sum_{i \in S} x_i$.
+	\item Payoffvektoren im Kern sind individuell rational: $x_i \geq v(i)$.
+	\item Da der Kern eine Menge an Payoffvektoren ist, welche Lösung eines Systems linearer Ungleichungen sind, ist er eine abgeschlossene und konvexe Menge.
+\end{itemize}
+
+\begin{unnamedtheorem}[Bedeutung des Kerns] ~\\
+	\begin{enumerate}
+		\item Ein Payoffvektor, der nicht im Kern liegt, ist als Lösung instabil: Mindestens eine Koalition wird der Absprache nicht zustimmen.
+		\item Wenn der Kern leer ist, gibt es keine Aufteilung des Gesamtwerts der großen Koalition (in superadditiven Spielen), welcher alle Gruppen zustimmen würden. Damit sind die Voraussetzungen für eine Aufteilung der Payoffs schlecht. Zum Beispiel kann dies bei der Gewinn- oder Kostenaufteilung in Unternehmen oder in Wertschöpfungsketten eine Rolle spielen.
+	\end{enumerate} 
+\end{unnamedtheorem}
+ 
+\begin{beispiel}[Abstimmungsspiel 1] ~\
+	\begin{itemize}
+		\item Drei Spieler wollen ein homogenes Gut mit Wert Eins aufteilen. 
+		\item Abstimmungsregel: Die Mehrheit muss der vorgeschlagenen Aufteilung zustimmen.
+	\end{itemize}
+	Welche Aufteilungen liegen im Kern?
+\end{beispiel}
+ 
+\begin{beispiel}[Abstimmungsspiel 2] ~\
+	\begin{itemize}
+		\item Drei Spieler wollen ein homogenes Gut mit Wert Eins aufteilen. 
+		\item Abstimmungsregel: Alle müssen der vorgeschlagenen Aufteilung zustimmen.
+	\end{itemize}
+	Welche Aufteilungen liegen im Kern?
+\end{beispiel} 
+ 
+\begin{beispiel}[Abstimmungsspiel 2] ~\
+	\begin{itemize}
+		\item Drei Spieler wollen ein homogenes Gut mit Wert Eins aufteilen. 
+		\item Abstimmungsregel: Mindestens 50\% Stimmgewicht muss zustimmen.
+		\item Abstimmungsregel: Mindestens 50\% Stimmgewicht muss zustimmen.
+	\end{itemize}
+	Welche Aufteilungen liegen im Kern?
+\end{beispiel}   
+ 
 ~\newpage
 
 \section{Der Shapley-Wert} % todo Kooperative Spieltheorie: Der Shapley-Wert
 
 ~\newpage
 
-\section{Einfache Spiele}  % todo Kooperative Spieltheorie: Einfache Spiele
+\section{Einfache Spiele} 
+
+\begin{definition}[Einfaches Spiel]
+	Ein Koalitionsspiel $(N, v)$ hei{\ss}t einfach, wenn für jede Koalition $S \subseteq N$ entweder $v(S) = 0$ und $v(S) = 1$ gilt.
+\end{definition}
+
+\begin{itemize}
+	\item Eine Koalition $S$ für die $v(S) = 1$ gilt hei{\ss}t Gewinnerkoalition.
+	\item Ein Spieler, der in jeder Gewinnerkoalition des Spiels ist, hei{\ss}t Veto-Spieler.
+\end{itemize}
+
+\begin{satz} ~\
+	\begin{itemize}
+		\item Wenn es in einem einfachen Spiel keinen Veto-Spieler gibt, ist der Kern leer.
+		\item Wenn es in einem einfachen Spiel (einen oder mehrere) Veto-Spieler gibt, besteht der Kern aus allen nicht-negativen zulässigen Payoffvektoren, in denen die anderen (Nicht-Veto-)Spieler Null erhalten.
+	\end{itemize}
+\end{satz}
+
 ~\newpage
 
-\section{Konvexe Spiele} % todo Kooperative Spieltheorie: Konvexe Spiele
+\section{Konvexe Spiele} 
+
+Gibt es eine Charakterisierung von Spielen, für die der Shapley-Wert im Kern liegt?
+
+\begin{definition}[Konvexes Spiel]
+	Ein Spiel heißt konvex, wenn für jeden Spieler $i$ der marginale Beitrag von $i$ grö{\ss}er ist wenn die Koalition wächst; genauer, wenn für alle $S \subset T$ und $i \in N \setminus T$ gilt, dass
+	$$ v( S \cup \{i\}) - v(S) \leq v( T \cup \{ i \}) - v(T). $$
+\end{definition}
+
+\begin{satz}
+	Der Shapley-Wert eines konvexen Spiels liegt im Kern.
+\end{satz}
+Aus diesem Satz folgt direkt, dass der Kern eines konvexen Spiels nicht leer ist.
 
 ~\newpage
 
@@ -1677,7 +1816,7 @@ $$A = \begin{pmatrix} 1 & 1 & 0 \\ 1& 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}$$
 
 
 \phantomsection \appendix \pagenumbering{Roman}  \cftaddtitleline{toc}{chapter}{Appendix}{}
-\cftaddtitleline{toc}{section}{Übungen}{I}
+\cftaddtitleline{toc}{section}{übungen}{I}
 
 
 

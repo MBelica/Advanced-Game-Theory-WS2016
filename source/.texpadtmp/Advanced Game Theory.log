@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.7)  14 FEB 2017 15:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.7)  18 FEB 2017 23:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1472,231 +1472,272 @@ File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/it' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 188.
- [2
 
 
-]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 266.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 266.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 266.
- [3] [4] [5] [6]
+[2
+
+
+]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3] [4] [5] [6] [7]
 Underfull \hbox (badness 10000) in paragraph at lines 358--359
 
  []
 
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 362.
-[7]
+[8]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 415--416
 
  []
 
-[8]
-Overfull \hbox (23.28625pt too wide) in paragraph at lines 434--435
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9] [10]
+Overfull \hbox (23.28625pt too wide) in paragraph at lines 433--434
 []\OT1/lmr/bx/n/12 Definition: []\OT1/lmr/m/it/12 (-20) A strat-egy $\OML/lmm/m/it/12 ^^[[] \OMS/lmsy/m/n/12 2 \OT1/lmr/m/n/12 (-20) ^^A(\OMS/lmsy/m/n/12 S[]\OT1/lmr/m/n/12 (-20) )$ \OT1/lmr/m/it/12 (-20) is strictly dom-i-nated for $\OML/lmm/m/it/12 i$ \OT1/lmr/m/it/12 (-20) in game $\OT1/lmr/m/n/12 (-20) ^^@[] = [\OML/lmm/m/it/12 I; \OMS/lmsy/m/n/12 f\OT1/lmr/m/n/12 (-20) ^^A(\OMS/lmsy/m/n/12 S[]\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OML/lmm/m/it/12 ; \OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 u[]\OT1/lmr/m/n/12 (-20) (\OMS/lmsy/m/n/12 ^^A\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 (-20) ]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
+Underfull \hbox (badness 10000) in paragraph at lines 447--448
 
  []
 
-[9] [10] [11]
-Overfull \hbox (12.47594pt too wide) detected at line 517
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11] [12] [13]
+Overfull \hbox (12.47594pt too wide) detected at line 516
 \OMS/lmsy/m/n/12 ) \OT1/lmr/m/n/12 (\OML/lmm/m/it/12 EmpireState; EmpireState\OT1/lmr/m/n/12 )[](\OML/lmm/m/it/12 GrandCentral; GrandCentral\OT1/lmr/m/n/12 )[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 511--519
-
- []
-
-
-Overfull \hbox (50.00635pt too wide) detected at line 525
-\OMS/lmsy/m/n/12 ) []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 EmpireState; EmpireState\OT1/lmr/m/n/12 )[](\OML/lmm/m/it/12 GrandCentral; GrandCentral\OT1/lmr/m/n/12 )[]\OML/lmm/m/it/12 :
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 519--527
+Underfull \hbox (badness 10000) in paragraph at lines 510--518
 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12] [13]
-Overfull \hbox (50.00635pt too wide) detected at line 557
+
+Overfull \hbox (50.00635pt too wide) detected at line 524
 \OMS/lmsy/m/n/12 ) []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 EmpireState; EmpireState\OT1/lmr/m/n/12 )[](\OML/lmm/m/it/12 GrandCentral; GrandCentral\OT1/lmr/m/n/12 )[]\OML/lmm/m/it/12 :
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 588--589
+
+Underfull \hbox (badness 10000) in paragraph at lines 518--526
 
  []
 
-[15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 644--645
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[14] [15]
+Overfull \hbox (50.00635pt too wide) detected at line 556
+\OMS/lmsy/m/n/12 ) []\OT1/lmr/m/n/12 (\OML/lmm/m/it/12 EmpireState; EmpireState\OT1/lmr/m/n/12 )[](\OML/lmm/m/it/12 GrandCentral; GrandCentral\OT1/lmr/m/n/12 )[]\OML/lmm/m/it/12 :
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 587--588
 
  []
 
-[17]
-Overfull \hbox (44.17403pt too wide) detected at line 688
+[17] [18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 643--644
+
+ []
+
+[20]
+Overfull \hbox (44.17403pt too wide) detected at line 687
 \OMS/lmsy/m/n/12 ) []\OT1/lmr/m/n/12 ([])\OML/lmm/m/it/12 ; \OT1/lmr/m/n/12 ([])
  []
 
-[18]
+[21] [22] [23] [24]
+Underfull \hbox (badness 10000) in paragraph at lines 879--888
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+ []
 
-[19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 880--889
+
+Underfull \hbox (badness 10000) in paragraph at lines 889--900
 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 890--901
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 912--913
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 913--914
+Underfull \hbox (badness 10000) in paragraph at lines 914--915
 
  []
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 915--916
+[26] [27] [28]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 1048--1052
 
  []
 
-[23] [24] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 1049--1053
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1083
 
  []
 
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 1083--1084
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 1085--1086
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1086--1087
-
- []
-
-[27]
-Overfull \hbox (18.99585pt too wide) in paragraph at lines 1093--1094
+Overfull \hbox (18.99585pt too wide) in paragraph at lines 1092--1093
 \OT1/lmr/m/n/12 (-20) Prove that if pure strat-egy $\OML/lmm/m/it/12 s[]$ \OT1/lmr/m/n/12 (-20) is a strictly dom-i-nated strat-egy in game $^^@[] = [\OML/lmm/m/it/12 I; \OMS/lmsy/m/n/12 f\OT1/lmr/m/n/12 (-20) ^^A(\OMS/lmsy/m/n/12 S[]\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OML/lmm/m/it/12 ; \OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 u[]\OT1/lmr/m/n/12 (-20) (\OMS/lmsy/m/n/12 ^^A\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 (-20) ]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1096--1097
-
- []
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 1128--1129
-
- []
-
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 1146--1147
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1151--1152
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1154--1156
-
- []
-
-[30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1215--1217
+Underfull \hbox (badness 10000) in paragraph at lines 1095--1096
 
  []
 
 [32] [33]
-Chapter 2.
-[34
-
-
-] [35] [36] [37] [38] [39] [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1348--1349
+Underfull \hbox (badness 10000) in paragraph at lines 1127--1128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1353--1354
+Underfull \hbox (badness 10000) in paragraph at lines 1145--1146
+
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1150--1151
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1153--1155
+
+ []
+
+[35] [36]
+Underfull \hbox (badness 10000) in paragraph at lines 1214--1216
+
+ []
+
+[37] [38]
+Chapter 2.
+[39
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1263--1264
+
+ []
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 1283--1284
 
  []
 
 [41] [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1416--1417
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1316
 
  []
 
-[43]
-Underfull \hbox (badness 10000) in paragraph at lines 1427--1428
+[43] [44] [45] [46] [47] [48] [49] [50]
+Underfull \hbox (badness 10000) in paragraph at lines 1489--1490
 
  []
 
-[44]
-Overfull \hbox (42.69174pt too wide) in paragraph at lines 1475--1477
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 1494--1495
+
+ []
+
+[52] [53]
+Underfull \hbox (badness 10000) in paragraph at lines 1557--1558
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1568--1569
+
+ []
+
+[54] [55]
+Overfull \hbox (42.69174pt too wide) in paragraph at lines 1616--1618
 \OT1/lmr/m/n/12 (-20) Hasenkoali-tion aufl^^?osen und in Ab-stim-mungen einzeln auftreten. Die Meer-schweinchenz^^?uchter
  []
 
-[45]
-Overfull \hbox (34.04152pt too wide) detected at line 1478
+
+Overfull \hbox (34.04152pt too wide) detected at line 1619
 \OML/lmm/m/it/12 v\OT1/lmr/m/n/12 (\OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 T; H[]; H[]; H[]\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 ) = 1\OML/lmm/m/it/12 ;  v\OT1/lmr/m/n/12 (\OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 M; H[]; H[]; H[]\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 ) = 1\OML/lmm/m/it/12 ;  v\OT1/lmr/m/n/12 (\OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 T; H[]; H[]\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 ) = 1\OML/lmm/m/it/12 ;  v\OT1/lmr/m/n/12 (\OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 M; H[]; H[]\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 ) = 1\OML/lmm/m/it/12 ;
  []
 
-[46]
+[56] [57]
 Chapter 3.
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 1524.
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 1665.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-)
-Underfull \hbox (badness 10000) in paragraph at lines 1534--1536
+) [58
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1675--1677
 
  []
 
-[47
-
-
-] [48] [49] [50] [51] [52] (/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.ind)
+[59] [60] [61] [62] [63] [64] (/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.ind)
 \Changes@OutFile=\write7
 \openout7 = `"Advanced Game Theory.soc"'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1692.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1692.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1833.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1833.
  (/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1692.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1692.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1833.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1833.
 Package rerunfilecheck Info: File `"Advanced Game Theory".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 40102 strings out of 493089
- 888785 string characters out of 6134843
- 1072114 words of memory out of 5000000
+ 40127 strings out of 493089
+ 889046 string characters out of 6134843
+ 1070114 words of memory out of 5000000
  42460 multiletter control sequences out of 15000+600000
- 74829 words of font info for 137 fonts, out of 8000000 for 9000
+ 75043 words of font info for 139 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,15n,108p,10419b,1456s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on "/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.pdf" (53 pages, 406607 bytes).
+Output written on "/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.pdf" (65 pages, 420328 bytes).
 PDF statistics:
- 605 PDF objects out of 1000 (max. 8388607)
- 519 compressed objects within 6 object streams
- 219 named destinations out of 1000 (max. 500000)
+ 667 PDF objects out of 1000 (max. 8388607)
+ 569 compressed objects within 6 object streams
+ 240 named destinations out of 1000 (max. 500000)
  14997 words of extra memory for PDF output out of 17280 (max. 10000000)
 
