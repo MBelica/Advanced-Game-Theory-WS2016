@@ -3,7 +3,7 @@
 % Language Setup (Deutsch)
 \usepackage[utf8]{inputenc} 
 \usepackage[english]{babel}
-\usepackage{subcaption}
+
 %% Packages
 \usepackage{scrextend}
 \usepackage{amssymb}
@@ -18,7 +18,6 @@
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage{footnote}
-
 \usepackage{lmodern}
 \usepackage{makeidx}
 \usepackage{mathtools} 
@@ -29,7 +28,8 @@
 \usepackage{apptools}
 \usepackage{booktabs}
 \usepackage{dsfont}
-
+\usepackage{subcaption}
+	\expandafter\def\csname ver@subfig.sty\endcsname{}
 \usepackage{graphicx}
 \usepackage{mathrsfs}
 \usepackage[square,numbers]{natbib}
@@ -330,7 +330,7 @@
 
 \begin{definition} ~\
 	\begin{enumerate}
-		\item $s_i \colon \mathcal{H}_i \Rightarrow \mathcal{A}$ describes deterministic choices at each $H \in \mathcal{H}_i$ and is called a \textbf{pure strategy}
+		\item $s_i \colon \mathcal{H}_i \rightarrow \mathcal{A}$ describes deterministic choices at each $H \in \mathcal{H}_i$ and is called a \textbf{pure strategy}
 		\item a \textbf{mixed strategy} is a probability distribution over all pure strategies $\sigma_i \colon \mathcal{S}_i \Rightarrow [0, 1]$, with $\sigma_i(s_i) \geq 0$ and $\sum_{s_i \in \mathcal{S}_i} \sigma_i(s_i) = 1$.
 		\item player $i$'s set of possible mixed strategies can be associated with the points of the simplex $\Delta(\mathcal{S}_i)$, called the \textbf{mixed extension} of $\mathcal{S}_i$.
 		\item since we assume that individuals are expected utility maximisers, player $i$'s utility of a profile of mixed strategies $\sigma = \left( \sigma_i, \dotsc, \sigma_l \right)$ is given by
@@ -424,8 +424,9 @@ Applied to Prisoner's Dilemma: Confess is a strictly dominant strategy for each 
    	    			   	 	&	  don't confess    &  confess   \\
    	 				don't confess   &    $0, -2$   & $-10, -1$  \\
    	 				confess   &    $-1, -10$   & $-5, -5$  
-   	   				\end{game} $$\Rightarrow D \text{ is strictly dominated by } U \text{ and } M.$$
+   	   				\end{game}
 	\end{figure}
+	 $$\Rightarrow D \text{ is strictly dominated by } U \text{ and } M.$$
 	$$\Rightarrow \text{ Player 1 has no dominant strategy anymore}.$$
 \end{example}
 
@@ -446,7 +447,7 @@ In this game, the iterated elimination of strictly dominated strategies still le
 		$$ u_i(\sigma_i', \sigma_{-i}) - u_i(s_i, \sigma_{-i}) = \sum_{s_{-i} \in \mathcal{S}_{-i}} \left[ \Pi_{k \neq i} \sigma_{k}(s_{k}) \right] \left[ u_{i}(\sigma_i', s_{-i}) - u_{i}(s_i, s_{-i}) \right]. $$
 		And this expression is positive for all $\sigma_{-i}$ if and only if $u_i(\sigma_i', s_{-i}) - u_{i}(s_{i}, s_{-i})$ is positive for all $s_{-i}$.
 	\end{proof}
-\end{proposition} ~\\
+\end{proposition}
 
 \begin{example} ~\
 	\begin{figure}[h!] \centering
@@ -905,7 +906,7 @@ This follows from the previous proposition on the existence of Nash equilibria b
   	\item Player 2  offers a split: $s^2 \in [0, v]$
   	\item Player 1 can reject and the game continues in period 3, or accept and the split is implemented and the game ends immediately with $u_1 = \delta \cdot s^2$, $u_2 = \delta \cdot (v - s^2)$.
   \end{itemize}
-  and so on $\dotsc$ ~\\
+  and so on $\dotsc$ ~\newpage
 
   \textbf{There is a unique SPNE:} ~\\
 
@@ -915,24 +916,19 @@ This follows from the previous proposition on the existence of Nash equilibria b
   	\item \underline{Period T-1:} Player 2 makes the offer and player 1 will accept if and only if the payoff for player 1 is at least $\delta^{T-1} \cdot v$. Payoffs: $(\delta^{T-1} \cdot v, \delta^{T-2} \cdot v - \delta^{T-1} \cdot v)$.
   	\item \underline{Period T-2:} Player 1 makes the offer and player 2 will accept if and only if the payoff for player 2 is at least $\delta^{T-2} \cdot v - \delta^{T-1} \cdot v$. Payoffs: $(\delta^{T-3} \cdot v - \delta^{T-2} \cdot v + \delta^{T-1} \cdot v, \delta^{T-2} \cdot v - \delta^{T-1} \cdot v)$.
   	\item $\dotsc$
-  \end{description} 
-  
-  $\Rightarrow$ The resulting SPNE for odd T is:
-	\begin{description}
-		\item $v_1^*(T) = v(1 - \delta + \delta^2 - \dotsc + \delta^{T-1}) = v \left[ (1 - \delta) \left(\frac{1 - \delta^{T-1}}{1 - \delta^2} \right) + \delta^{T-1} \right]$
-		\item $v_2^*(T) = v - v_1^*(T)$
-	\end{description} ~\\
-  $\Rightarrow$ The resulting SPNE for even T is:
-	\begin{description}
-		\item $v_1^*(T) = v - \delta v_1^*(T-1)$
-		\item $v_2^*(T) = v_1^*(T - 1)$.
-	\end{description} ~\\
+  \end{description}  
+  \begin{itemize}
+  	\item  The resulting SPNE for odd T is:
+		\begin{description}
+			\item $v_1^*(T) = v(1 - \delta + \delta^2 - \dotsc + \delta^{T-1}) = v \left[ (1 - \delta) \left(\frac{1 - \delta^{T-1}}{1 - \delta^2} \right) + \delta^{T-1} \right]$
+			\item $v_2^*(T) = v - v_1^*(T)$
+		\end{description}
+	\item The resulting SPNE for even T is:
+		$$ v_1^*(T) = v - \delta v_1^*(T-1), \quad v_2^*(T) = v_1^*(T - 1). $$
+  \end{itemize}
   $\Rightarrow$ For large T, this converges to:
-  \begin{description}
-  	\item $\lim_{T \rightarrow \infty} v_1^*(T) = \frac{v}{1 + \delta}$
-  	\item $\lim_{T \rightarrow \infty} v_2^*(T) = \frac{\delta v}{1 + \delta}$
-  \end{description}
-\end{example}
+ 	$$ \lim_{T \rightarrow \infty} v_1^*(T) = \frac{v}{1 + \delta}, \quad \lim_{T \rightarrow \infty} v_2^*(T) = \frac{\delta v}{1 + \delta}$$
+\end{example} 
 
 Now consider the bilateral bargaining gam with infinite horizon:
 
@@ -1027,7 +1023,7 @@ Wir werden zwei Lösungskonzepte kennen lernen:\begin{itemize}
 
 \textbf{Eigenschaften:}
 \begin{itemize}
-	\item Das bedeutet, dass keine Koalition einen Payoffvektor im Kern blockieren kann: $\not\exists S \subseteq N$, so dass $v(S) > \sum_{i \in S} x_i$.
+	\item Das bedeutet, dass keine Koalition einen Payoffvektor im Kern blockieren kann: $\exists! S \subseteq N$, so dass $v(S) > \sum_{i \in S} x_i$.
 	\item Payoffvektoren im Kern sind individuell rational: $x_i \geq v(i)$.
 	\item Da der Kern eine Menge an Payoffvektoren ist, welche Lösung eines Systems linearer Ungleichungen sind, ist er eine abgeschlossene und konvexe Menge.
 \end{itemize}
@@ -1048,7 +1044,7 @@ Wir werden zwei Lösungskonzepte kennen lernen:\begin{itemize}
 	
 	Formalisierung des Abstimmungsspiels (wobei im Folgenden werden Spielermengen vereinfacht ohne Klammer dargestellt)
 	\begin{itemize}
-		\item  itemize der Spieler: $\{1, 2, 3\}$
+		\item Menge der Spieler: $\{1, 2, 3\}$
 		\item Charakteristische Funktion: Was kann sich eine Koalition aus eigener Kraft sichern? ~\\
 			Wenn die Koalition aus der Mehrheit der Spieler besteht, kann sie die Abstimmung in ihrem Sinne entscheiden. Wenn sie aus der Minderheit besteht, kann sie gegen den Willen der anderen nichts erreichen.
 				\begin{itemize}
@@ -1110,8 +1106,215 @@ Wir werden zwei Lösungskonzepte kennen lernen:\begin{itemize}
 \end{beispiel} 
   
 
-\section{Der Shapley-Wert} % todo Kooperative Spieltheorie: Der Shapley-Wert
+\section{Der Shapley-Wert}
 
+\begin{itemize}
+	\item Im Gegensatz zum Kern ist der Shapley-Wert ein Wertkonzept, d.h. eine Lösungsfunktion, die genau einen Payoffvektor als Lösung auswählt.
+	\item Er schlägt eine Aufteilung des gemeinschaftlich erreichten Werts vor, die in gewissem Sinne \enquote{fair} ist. Er kann in vielen Spielen auch als Machtindex interpretiert werden.
+	\item Die Idee hinter dem Shapley-Wert ist, dass jeder Spieler den Durchschnitt seiner marginalen Beiträge zum Wert aller möglichen Koalitionen bekommt.
+	\item Der Shapley-Wert kann auch axiomatisch begründet werden.
+\end{itemize}
+
+\begin{definition}[Shapely-Wert]
+	Der Shapley-Wert $\phi(N, v) = \left( \phi_1(N,v), \dotsc, \phi_n(N,v) \right)$ im Koalitionsspiel $(N, v)$ ist gegeben durch
+	$$ \phi_i(N,v) = \frac{1}{n!} \sum_{\pi \in \pi_N} \left( v\left(S_i(\pi) \cup \{ i \} \right) - v\left(S_i(\pi)\right) \right) $$
+	für alle $i \in N$.
+\end{definition}
+
+\begin{itemize}
+	\item $\pi_N$ ist die Menge aller möglichen Spielerreihenfolgen. Es gibt $n!$ Reihenfolgen.
+	\item $S_i(\pi)$: Menge an Spielern, die in der Reihenfolge $\pi$ vor $i$ kommen.
+	\item Alternative Darstellung:
+		$$ \phi_i(N,v) = \sum_{S \subseteq N \setminus \{ i \}}\frac{\left( n - |S| - 1 \right)!\left(|S|\right)!}{n!} \left( v\left( S \cup \{i\} \right) v(S) \right). $$
+\end{itemize}
+
+\textbf{Intuition} ~\\Wenn die Koalition durch sequentielles Eintreten der Spieler gebildet wird und jeder Spieler seinen Beitrag $v(S \cup \{ i \}) - v(S)$ zur bisherigen Koalition $S$ als faire Entschädigung verlangt, dann entspricht $\phi_i(N, V)$ diesem Wert, wenn man den Durchschnitt über alle möglichen Reihenfolgen betrachtet, gemä{\ss} derer die Koalition $N$ sich bilden kann. ~\\
+
+Es kann gezeigt werden, dass der Shapley-Wert $\phi(N, v)$ der einzigen Lösung $\varphi(N, v)$ entspricht, die folgenden vier Axiome für alle $(N, v)$ erfüllt.
+
+\begin{unnamedtheorem}[Axiomatische Begründung] ~\
+	\begin{enumerate}
+		\item[A1] Effizienz: $\sum_{i \in N} \varphi_i(N,v) = v(N)$ ~\\
+			\textit{Dieses Axion verlangt, dass keine möglichen Nutzen verloren gehen. Alles was die große Koalition erreicht, wird aufgeteilt.}
+		\item[A2] Symmetrie: Wenn für zwei Spieler $i$ und $j$ gilt, dass
+			$$ v\left( S \cup \{i\} \right) - v(S) = v\left( S \cup \{j\} \right) - v(S) $$
+			für alle $S$ in denen $i$ und $j$ nicht enthalten sind, dann gilt $\varphi_i(N,v) = \varphi_j(N,v)$. ~\\
+			\textit{Dieses Axiom verlangt, dass eine Lösung nicht von der Bezeichnung der Spieler abhängt. Wenn Spieler austauschbar sind (da sie zu jeder Koalition dasselbe beitragen) dann soll auch ihr Wert der selbe sein.}
+		\item[A3] Null-Spieler: Wenn für einen Spieler $i$ gilt, dass
+			$$ v\left( S \cup \{i\} \right) - v(S) = 0 $$
+			für alle $S$, dann gilt $\varphi_i(N, v) = 0$. ~\\
+			\textit{Wenn ein Spieler zu keiner Koalition etwas beiträgt, soll er auch nichts erhalten.}	
+		\item[A4] Additivität: Ein Wert $\varphi$ erfüllt Additivität, wenn für jedes Paar von Spielen $(v, N)$ und $(w, N)$ gilt
+			$$ \varphi_i(v + w, N) = \varphi_i(v, N) + \varphi_i(w, N) $$
+			für alle $i \in N$, wobei $(v + w, N)$ definiert sei durch $(v + w)(S) = v(S) + w(S)$ für alle $S \subseteq N$.
+			\textit{Wenn die Koalitionswerte zweier Spiele jeweils addiert ein anderes Spiel ergeben, dann soll auch der Wert jedes Spielers die Summe seiner Werte in den beiden Spielen sein.}
+	\end{enumerate}
+\end{unnamedtheorem}
+
+\begin{satz}
+	Der Shapley-Wert $\phi(N, v)$ ist der einzige wert, der A1-A4 erfüllt.
+\end{satz}
+
+Man kann den Shapley-Wert auch über andere Axiomensysteme charakterisieren.
+~\newpage
+\begin{beispiel}[Abstimmungsspiel 1] ~\
+	\begin{itemize}
+		\item Drei Spieler wollen ein homogenes Gut mit Wert Eins aufteilen. 
+		\item Abstimmungsregel: Die Mehrheit muss der vorgeschlagenen Aufteilung zustimmen.
+	\end{itemize}
+	Welche Aufteilungen liegen im Kern? Welche Aufteilung schlägt der Shapley-Wert als Lösung vor?
+	\begin{align*}
+		x_1 + x_2 + x_3 & = v(123) = 1 \\
+		x_1 + x_2 & \geq v(12) = 1 \\
+		x_1 + x_3 & \geq v(13) = 1 \\
+		x_2 + x_3 & \geq v(23) = 1 \\
+		x_1 & \geq v(1) = 0 \\
+		x_2 & \geq v(2) = 0 \\
+		x_3 & \geq v(3) = 0 		
+	\end{align*}
+	Der Kern ist leer: 
+	\begin{itemize}
+		\item $x_1 + x_2 + x_3 = 1$ und $x_1 + x_2 \geq 1 \Rightarrow x_3 = 0$
+		\item $x_1 + x_2 + x_3 = 1$ und $x_1 + x_e \geq 1 \Rightarrow x_w = 0$
+		\item $\Rightarrow x_2 + x_3 = 0$, ein Widerspruch zu $x_2 + x_3 \geq 1$
+	\end{itemize} ~\newpage
+	Shapley-Wert: ~\\
+	  \begin{figure*}[h!] \centering
+		\begin{tabular}{cc}
+  			\hline
+  				Reihenfolge & marginaler Beitrag Spieler 1/2/3 \\
+  			\hline
+  				123 & 0/1/0 \\
+  				132 & 0/0/1 \\
+  				213 & 1/0/0 \\
+  				231 & 0/0/1 \\
+  				312 & 1/0/0 \\
+  				321 & 0/1/0 \\
+  			\hline
+		\end{tabular}
+	\end{figure*}
+	\begin{itemize}
+		\item Shapley-Wert: $\left( \frac{1}{3}, \frac{1}{3}, \frac{1}{3} \right)$ (z.B. ist der durchschnittliche marginale Beitrag von Spieler 1 $\phi_1(N, v) = (0+0+1+0+1+0)/6 = 1/3$.)
+	\end{itemize}
+	Der Shapley-Wert ist $\left( \frac{1}{3}, \frac{1}{3}, \frac{1}{3} \right)$ und der Kern ist leer.
+\end{beispiel}
+
+\begin{beispiel}[Abstimmungsspiel 2] ~\
+	\begin{itemize}
+		\item Drei Spieler wollen ein homogenes Gut mit Wert Eins aufteilen. 
+		\item Abstimmungsregel: alle müssen der vorgeschlagenen Aufteilung zustimmen.
+	\end{itemize}
+	Welche Aufteilungen liegen im Kern und welche schlägt der Shapley-Wert als Lösung vor?
+	\begin{align*}
+		x_1 + x_2 + x_3 & = v(123) = 1 \\
+		x_1 + x_2 & \geq v(12) = 0 \\
+		x_1 + x_3 & \geq v(13) = 0 \\
+		x_2 + x_3 & \geq v(23) = 0 \\
+		x_1 & \geq v(1) = 0 \\
+		x_2 & \geq v(2) = 0 \\
+		x_3 & \geq v(3) = 0 		
+	\end{align*}
+	Kern: Alle $(x_1, x_2, x_3)$ mit $x_1 + x_2 + x_3 = 1$ und $x_1 \geq 0$, $x_2 \geq 0$, $x_3 \geq 0$. Shapley-Wert: ~\\
+	  \begin{figure*}[h!] \centering
+		\begin{tabular}{cc}
+  			\hline
+  				Reihenfolge & marginaler Beitrag Spieler 1/2/3 \\
+  			\hline
+  				123 & 0/0/1 \\
+  				132 & 0/1/0 \\
+  				213 & 0/0/1 \\
+  				231 & 1/0/0 \\
+  				312 & 0/1/0 \\
+  				321 & 1/0/0 \\
+  			\hline
+		\end{tabular}
+	\end{figure*}
+	\begin{itemize}
+		\item Shapley-Wert: $\left( \frac{1}{3}, \frac{1}{3}, \frac{1}{3} \right)$ (z.B. ist der durchschnittliche marginale Beitrag von Spieler 1 $\phi_1(N, v) = (0+0+0+1+0+1)/6 = 1/3$.)
+	\end{itemize}
+	Der Shapley-Wert schlägt eine gleichmäßige Aufteilung vor, die im Kern liegt.
+\end{beispiel}
+
+\begin{beispiel}[Abstimmungsspiel 3] ~\
+	\begin{itemize}
+		\item Drei Spieler wollen ein homogenes Gut mit Wert Eins aufteilen. 
+		\item Abstimmungsregel: Mindestens 50\% Stimmgewicht muss zustimmen.
+		\item Stimmengewicht der drei Spieler: 60\%, 20\%, 20\%
+	\end{itemize}
+	Welche Aufteilungen liegen im Kern? Welche Aufteilung schlägt der Shapley-Wert als Lösung vor?
+	\begin{align*}
+		x_1 + x_2 + x_3 & = v(123) = 1 \\
+		x_1 + x_2 & \geq v(12) = 1 \\
+		x_1 + x_3 & \geq v(13) = 1 \\
+		x_2 + x_3 & \geq v(23) = 0 \\
+		x_1 & \geq v(1) = 1 \\
+		x_2 & \geq v(2) = 0 \\
+		x_3 & \geq v(3) = 0 		
+	\end{align*}
+	Der Kern ist eindeutig: (1, 0, 0). ~\newpage
+	Shapley-Wert: ~\\
+	  \begin{figure*}[h!] \centering
+		\begin{tabular}{cc}
+  			\hline
+  				Reihenfolge & marginaler Beitrag Spieler 1/2/3 \\
+  			\hline
+  				123 & 1/0/0 \\
+  				132 & 1/0/0 \\
+  				213 & 1/0/0 \\
+  				231 & 1/0/0 \\
+  				312 & 1/0/0 \\
+  				321 & 1/0/0 \\
+  			\hline
+		\end{tabular}
+	\end{figure*}
+	\begin{itemize}
+		\item Shapley-Wert: $\left( 1, 0, 0 \right)$ (z.B. ist der durchschnittliche marginale Beitrag von Spieler 1 $\phi_1(N, v) = (1+1+1+1+1+1)/6 = 1$.)
+	\end{itemize}
+	Der Shapley-Wert stimmt mit der eindeutigen Kern-Lösung überein.
+\end{beispiel}
+
+\begin{beispiel}[Abstimmungsspiel 4] ~\
+	\begin{itemize}
+		\item Drei Spieler wollen ein homogenes Gut mit Wert Eins aufteilen. 
+		\item Abstimmungsregel: Mindestens 75\% Stimmgewicht muss zustimmen.
+		\item Stimmengewicht der drei Spieler: 60\%, 20\%, 20\%
+	\end{itemize}
+	Welche Aufteilungen liegen im Kern? Welche Aufteilung schlägt der Shapley-Wert als Lösung vor?
+	\begin{align*}
+		x_1 + x_2 + x_3 & = v(123) = 1 \\
+		x_1 + x_2 & \geq v(12) = 1 \\
+		x_1 + x_3 & \geq v(13) = 1 \\
+		x_2 + x_3 & \geq v(23) = 0 \\
+		x_1 & \geq v(1) = 0 \\
+		x_2 & \geq v(2) = 0 \\
+		x_3 & \geq v(3) = 0 		
+	\end{align*}
+	Der Kern ist eindeutig: (1, 0, 0)
+	\begin{itemize}
+		\item $x_1 + x_2 + x_3 = 1$ und $x_1 + x_2 \geq 1 \Rightarrow x_3 = 0, x_1 + x_2 = 1$
+		\item $x_1 + x_2 + x_3 = 1$ und $x_1 + x_3 \geq 1 \Rightarrow x_2 = 0$
+		\item $x_1 + x_2 = 1$ und $x_2 = 0 \Rightarrow x_1 = 1$
+	\end{itemize} ~\newpage
+	Shapley-Wert: ~\\
+	  \begin{figure*}[h!] \centering
+		\begin{tabular}{cc}
+  			\hline
+  				Reihenfolge & marginaler Beitrag Spieler 1/2/3 \\
+  			\hline
+  				123 & 0/1/0 \\
+  				132 & 0/0/1 \\
+  				213 & 1/0/0 \\
+  				231 & 1/0/0 \\
+  				312 & 1/0/0 \\
+  				321 & 1/0/0 \\
+  			\hline
+		\end{tabular}
+	\end{figure*}
+	\begin{itemize}
+		\item Shapley-Wert: $\left( \frac{2}{3}, \frac{1}{6}, \frac{1}{6} \right)$ (z.B. der durchschnittliche marginale Beitrag von Spieler 1: $\phi_1(N, v) = (0+0+1+1+1+1)/6 = 2/3$.)
+	\end{itemize}
+	Der Shapley-Wert schlägt die Aufteilung $\left( \frac{2}{3}, \frac{1}{6}, \frac{1}{6} \right)$ vor und die eindeutige Kern-Lösung ist $(1, 0, 0)$.
+\end{beispiel}
 
 \section{Einfache Spiele} 
 
@@ -1122,7 +1325,7 @@ Wir werden zwei Lösungskonzepte kennen lernen:\begin{itemize}
 \begin{itemize}
 	\item Eine Koalition $S$ für die $v(S) = 1$ gilt hei{\ss}t Gewinnerkoalition.
 	\item Ein Spieler, der in jeder Gewinnerkoalition des Spiels ist, hei{\ss}t Veto-Spieler.
-\end{itemize}
+\end{itemize} ~\newpage
 
 \begin{satz} ~\
 	\begin{itemize}
