@@ -3,7 +3,7 @@
 % Language Setup (Deutsch)
 \usepackage[utf8]{inputenc} 
 \usepackage[english]{babel}
-
+\usepackage{subcaption}
 %% Packages
 \usepackage{scrextend}
 \usepackage{amssymb}
@@ -29,6 +29,7 @@
 \usepackage{apptools}
 \usepackage{booktabs}
 \usepackage{dsfont}
+
 \usepackage{graphicx}
 \usepackage{mathrsfs}
 \usepackage[square,numbers]{natbib}
@@ -190,7 +191,7 @@
 		\item The outcomes: For each possible set of actions by the players, what is the outcome of the game?
 		\item The payoffs: What are the players' preferences over the possible outcomes?
 	\end{itemize} 
-\end{definition} 
+\end{definition} ~\newpage
 
 
 \begin{example}[of simultaneous move games]  ~\
@@ -204,7 +205,7 @@
    				\end{game}
 			\end{figure} 
 		\item Meeting in New York ~\\
-			\begin{figure}[h!] \centering
+			\begin{figure}[H] \centering
   				\begin{game}{2}{2}[Player $1$][Player $2$]
    	    			   	 		&	Empire State    &  Grand Central   \\
    	 				Empire State   &    $100, 100$   & $0, 0$  \\
@@ -246,7 +247,7 @@
              node[right] {$T$}};
     \end{tikzpicture}
   \end{figure}
-		\item Matching Pennies Version C
+		\item Matching Pennies Version C ~\\
 	% Node styles
 	\tikzset{
 	% Two node styles for game trees: solid and hollow
@@ -288,7 +289,7 @@
 		\item \textbf{Information Set:} A player doesn't know which of the nodes in the information set she is actually at. Therefore, at any decision node in a player's information set, there must be the same possible actions.
 		\item \textbf{Perfect Information:} A game is said to be of perfect information if each information set contains a single decision node. Otherwise, it is a game of \textbf{imperfect information}.
 	\end{enumerate}
-\end{definition}
+\end{definition} ~\newpage
 
 \begin{definition}[Extensive Form Game] ~\
 	A game in \textbf{extensive form} consists of:
@@ -320,14 +321,12 @@
 
 \begin{definition}[Strategy]
 	Let $\mathcal{H}_i$ denote the collection of player $i$'s information sets, $\mathcal{A}$ the set of possible actions in the game, and $C(H) \subset \mathcal{A}$ the set of actions possible at information set $H$. A \textbf{strategy} for player $i$ is a function $s_i \colon \mathcal{H}_i \Rightarrow \mathcal{A}$ such that $s_i(H) \in C(H)$ for all $H \in \mathcal{H}_i$.
-\end{definition}
+\end{definition} 
 
 \begin{definition}[Normal Form Representation]
 	For a game with $I$ players, the \textbf{normal form representation} $\Gamma_N$ specifies for each player $i$ a set of strategies $\mathcal{S}_{i}$ (with $s_i \in \mathcal{S}_i$) and a payoff function $u_i(s_1, \dotsc, s_l)$, formally 
 	$$ \Gamma_N = [I, \{ S_i \}, \{ u_i(\cdot) \}]. $$
-\end{definition} 
-
-\newpage
+\end{definition} ~\newpage
 
 \begin{definition} ~\
 	\begin{enumerate}
@@ -352,7 +351,7 @@
 \begin{theorem}
 	If $\Gamma_E$ is an extensive form game with perfect recall, then for any mixed strategy there is an outcome equivalent behaviour strategy and vice versa.	
 \end{theorem}
- ~\newpage
+
 \section{Rationalisable Strategies}
 
 Central question of Game Theory: What should we expect to observe in a game played by rational players? Or more precisely: What should we expect to observe in a game played by rational players who are fully knowledgeable about the structure of the game and each others' rationality? ~\\
@@ -395,25 +394,28 @@ Applied to Prisoner's Dilemma: Confess is a strictly dominant strategy for each 
 	$s_i \mathcal{S}_{i}$ is \textbf{weakly dominated} for player $i$ in game $\Gamma_N$ if there exists another strategy $s_i' \in \mathcal{S}_i$ such that:
 	$$ u_i(s_i', s_{-i}) \geq u_i(s_i, s_{-i}) $$
 	for all $s_{-i} \in \mathcal{S}_{-i}$, with strict inequality for at least one $s_{-i}$.
-\end{definition}
+\end{definition} ~\newpage
 
 \begin{example} ~\\
 	\begin{figure}[h!] \centering
+		\begin{subfigure}{.5\textwidth} \centering
   				\begin{game}{3}{2}[Player $1$][Player $2$]
    	    			   	 	&	  L    &  R   \\
    	 				U   &    $1, -1$   & $-1, 1$  \\
    	 				M   &    $-1, 1$   & $1, -1$  \\
    					D   &    $-2, 5$   & $-3, 2$  \\
-   				\end{game} $ \Rightarrow D \text{ is strictly dominated by } U \text{ and } M.$
-   					\begin{game}{3}{2}[Player $1$][Player $2$]
+   				\end{game} $$ \Rightarrow D \text{ is strictly dominated by } U \text{ and } M.$$
+		\end{subfigure}%
+		\begin{subfigure}{.5\textwidth} \centering	
+   				\begin{game}{3}{2}[Player $1$][Player $2$]
    	    			   	 	&	  L    &  R   \\
    	 				U   &    $5, 1$   & $4, 0$  \\
    	 				M   &    $6, 0$   & $3, 1$  \\
    					D   &    $6,4$   & $4, 4$  \\
-   				\end{game} $\Rightarrow U \text{ and } M \text{ are weakly dominated by } D.$
+   				\end{game} $$\Rightarrow U \text{ and } M \text{ are weakly dominated by } D.$$
+		\end{subfigure}
 	\end{figure}
-\end{example} ~\\
-
+\end{example} 
 
 \begin{example}[Prisoners’ Dilemma – A Variation]
 	Assume Prisoner 1 is the district attorney’s brother: If neither player confesses, player 1 is free	 ~\\
@@ -466,7 +468,7 @@ In this game, the iterated elimination of strictly dominated strategies still le
 
 \begin{definition}[Rationalisable Strategies]
 	In game $\Gamma_N = [I, \{ \Delta(\mathcal{S}_i) \}, \{ u_i(\cdot) \}]$, the strategies in $\Delta(\mathcal{S}_i)$ that survive the iterated elimination of strategies that are never a best response are known as player $i$'s \textbf{rationalisable strategies}.
-\end{definition} ~\newpage
+\end{definition}
 
 \begin{example} ~\\
 		\begin{figure}[h!] \centering
@@ -481,8 +483,6 @@ In this game, the iterated elimination of strictly dominated strategies still le
 	$\Rightarrow b_4$ is never best response for player 2 and \textit{then} $a_4$ is never best response for player 1. ~\\
 	$\Rightarrow \{a_1, a_2, a_3\}$ and $\{ b_1, b_2, b_3 \}$ are the rationalisable strategies in this game.
 \end{example}
-
-~\newpage
 
 \section{Nash Equilibrium}
 
@@ -503,7 +503,7 @@ In this game, the iterated elimination of strictly dominated strategies still le
 	A strategy profile $s = (s_1, \dotsc, s_l)$ constitutes a Nash equilibrium (NE) of game $\Gamma_N$ if for every $i = 1, \dotsc, l$
 	$$ u_i(s_i, s_{-i}) \geq u_i(s_i', s_{-i}) \text{ for all } s_i' \in \mathcal{S}_i $$
 	In the game on the previous slide, there is only one Nash equilibrium.
-\end{definition} ~\newpage
+\end{definition}
 
 \begin{example}[Meeting in New York]
 	\begin{enumerate}
@@ -645,7 +645,6 @@ This follows from the previous proposition on the existence of Nash equilibria b
 	$\Rightarrow$ The only mixed strategy Nash-Equilibrium in this game $\left( \frac{3}{5} O + \frac{2}{5} U, \frac{2}{5} L + \frac{3}{5} R \right)$.
 \end{example}
  
-~\newpage 
  
 \section{Subgame Perfection in Dynamic Games}
 
@@ -1033,7 +1032,7 @@ Wir werden zwei Lösungskonzepte kennen lernen:\begin{itemize}
 	\item Da der Kern eine Menge an Payoffvektoren ist, welche Lösung eines Systems linearer Ungleichungen sind, ist er eine abgeschlossene und konvexe Menge.
 \end{itemize}
 
-\begin{unnamedtheorem}[Bedeutung des Kerns] ~\\
+\begin{unnamedtheorem}[Bedeutung des Kerns] ~\
 	\begin{enumerate}
 		\item Ein Payoffvektor, der nicht im Kern liegt, ist als Lösung instabil: Mindestens eine Koalition wird der Absprache nicht zustimmen.
 		\item Wenn der Kern leer ist, gibt es keine Aufteilung des Gesamtwerts der großen Koalition (in superadditiven Spielen), welcher alle Gruppen zustimmen würden. Damit sind die Voraussetzungen für eine Aufteilung der Payoffs schlecht. Zum Beispiel kann dies bei der Gewinn- oder Kostenaufteilung in Unternehmen oder in Wertschöpfungsketten eine Rolle spielen.
@@ -1045,7 +1044,32 @@ Wir werden zwei Lösungskonzepte kennen lernen:\begin{itemize}
 		\item Drei Spieler wollen ein homogenes Gut mit Wert Eins aufteilen. 
 		\item Abstimmungsregel: Die Mehrheit muss der vorgeschlagenen Aufteilung zustimmen.
 	\end{itemize}
-	Welche Aufteilungen liegen im Kern?
+	Welche Aufteilungen liegen im Kern? ~\\
+	
+	Formalisierung des Abstimmungsspiels (wobei im Folgenden werden Spielermengen vereinfacht ohne Klammer dargestellt)
+	\begin{itemize}
+		\item  itemize der Spieler: $\{1, 2, 3\}$
+		\item Charakteristische Funktion: Was kann sich eine Koalition aus eigener Kraft sichern? ~\\
+			Wenn die Koalition aus der Mehrheit der Spieler besteht, kann sie die Abstimmung in ihrem Sinne entscheiden. Wenn sie aus der Minderheit besteht, kann sie gegen den Willen der anderen nichts erreichen.
+				\begin{itemize}
+					\item $v(S) = 1$ für alle $S$ mit $|S| \geq 2$
+					\item $v(S) = 0$ für alle $S$ mit $|S| < 2$
+				\end{itemize}
+	\end{itemize}
+	Der Kern ist die Menge der Lösungen des folgenden Systems linearer Ungleichungen:
+	\begin{align*}
+		x_1 + x_2 + x_3 & = v(123) = 1 \\
+		x_1 + x_2 & \geq v(12) = 1 \\
+		x_1 + x_3 & \geq v(13) = 1 \\
+		x_2 + x_3 & \geq v(23) = 1 \\
+		x_1 & \geq v(1) = 0 \\
+		x_2 & \geq v(2) = 0 \\
+		x_3 & \geq v(3) = 0 		
+	\end{align*}
+	Der Kern ist leer:
+	$$ x_1 + x_2 + x_3 = 1 \text{ und } x_1 + x_2 \geq 1 \text{ und } x_3 \geq 0 \Rightarrow x_3 = 0 $$
+	$$ x_1 + x_2 + x_3 = 1 \text{ und } x_1 + x_3 \geq 1 \text{ und } x_3 \geq 0 \Rightarrow x_2 = 0 $$
+	$\Rightarrow x_2 + x_3 = 0$, ein Widerspruch zu $x_2 + x_3 \geq 1$.
 \end{beispiel}
  
 \begin{beispiel}[Abstimmungsspiel 2] ~\
@@ -1054,22 +1078,40 @@ Wir werden zwei Lösungskonzepte kennen lernen:\begin{itemize}
 		\item Abstimmungsregel: Alle müssen der vorgeschlagenen Aufteilung zustimmen.
 	\end{itemize}
 	Welche Aufteilungen liegen im Kern?
+	\begin{align*}
+		x_1 + x_2 + x_3 & = v(123) = 1 \\
+		x_1 + x_2 & \geq v(12) = 0 \\
+		x_1 + x_3 & \geq v(13) = 0 \\
+		x_2 + x_3 & \geq v(23) = 0 \\
+		x_1 & \geq v(1) = 0 \\
+		x_2 & \geq v(2) = 0 \\
+		x_3 & \geq v(3) = 0 		
+	\end{align*}
+	Kern: alle $(x_1, x_2, x_3)$ mit $x_1 + x_2 + x_3 = 1$ und $x_1 \geq 0$, $x_2 \geq 0$, $x_3 \geq 0$.
 \end{beispiel} 
  
 \begin{beispiel}[Abstimmungsspiel 2] ~\
 	\begin{itemize}
 		\item Drei Spieler wollen ein homogenes Gut mit Wert Eins aufteilen. 
 		\item Abstimmungsregel: Mindestens 50\% Stimmgewicht muss zustimmen.
-		\item Abstimmungsregel: Mindestens 50\% Stimmgewicht muss zustimmen.
+		\item Stimmgewicht der drei Spieler: 60\%, 20\%, 20\%
 	\end{itemize}
 	Welche Aufteilungen liegen im Kern?
-\end{beispiel}   
- 
-~\newpage
+	\begin{align*}
+		x_1 + x_2 + x_3 & = v(123) = 1 \\
+		x_1 + x_2 & \geq v(12) = 1 \\
+		x_1 + x_3 & \geq v(13) = 1 \\
+		x_2 + x_3 & \geq v(23) = 0 \\
+		x_1 & \geq v(1) = 1 \\
+		x_2 & \geq v(2) = 0 \\
+		x_3 & \geq v(3) = 0 		
+	\end{align*}
+	Der Kern ist eindeutig: $(1, 0, 0)$.
+\end{beispiel} 
+  
 
 \section{Der Shapley-Wert} % todo Kooperative Spieltheorie: Der Shapley-Wert
 
-~\newpage
 
 \section{Einfache Spiele} 
 
@@ -1088,8 +1130,6 @@ Wir werden zwei Lösungskonzepte kennen lernen:\begin{itemize}
 		\item Wenn es in einem einfachen Spiel (einen oder mehrere) Veto-Spieler gibt, besteht der Kern aus allen nicht-negativen zulässigen Payoffvektoren, in denen die anderen (Nicht-Veto-)Spieler Null erhalten.
 	\end{itemize}
 \end{satz}
-
-~\newpage
 
 \section{Konvexe Spiele} 
 
