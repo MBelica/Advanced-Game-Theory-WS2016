@@ -286,10 +286,15 @@
 
 \begin{definition}[Information] ~\
 	\begin{enumerate}
-		\item \textbf{Information Set:} A player doesn't know which of the nodes in the information set she is actually at. Therefore, at any decision node in a player's information set, there must be the same possible actions.
-		\item \textbf{Perfect Information:} A game is said to be of perfect information if each information set contains a single decision node. Otherwise, it is a game of \textbf{imperfect information}.
+		\item \textbf{Information Set:} A player doesn't know which of the nodes in the information set she is actually at. Therefore, at any decision node in a player's information set, there must be the same possible actions. More formally,in the extensive form, an information set is a set of decision nodes such that:
+			\begin{enumerate}
+				\item Every node in the set belongs to one player.
+			 	\item When play reaches the information set, the player with the move cannot differentiate between nodes within the information set, i.e. if the information set contains more than one node, the player to whom that set belongs does not know which node in the set has been reached.
+			 			\end{enumerate}
+			Therefore, at any decision node in a player's information set, there must be the same possible actions.
+		\item \textbf{Perfect Information:} A game is said to be of perfect information if each information set contains a single decision node. Otherwise, it is a game of \textbf{imperfect information}. In other words, perfect information persists, if each player, when making any decision, is perfectly informed of all the events that have previously occurred, including the early equipment.
 	\end{enumerate}
-\end{definition} ~\newpage
+\end{definition} 
 
 \begin{definition}[Extensive Form Game] ~\
 	A game in \textbf{extensive form} consists of:
@@ -325,7 +330,7 @@
 \begin{definition}[Normal Form Representation]
 	For a game with $I$ players, the \textbf{normal form representation} $\Gamma_N$ specifies for each player $i$ a set of strategies $\mathcal{S}_{i}$ (with $s_i \in \mathcal{S}_i$) and a payoff function $u_i(s_1, \dotsc, s_l)$, formally 
 	$$ \Gamma_N = \left[I, \{ S_i \}, \{ u_i(\cdot) \} \right]. $$
-\end{definition} ~\newpage
+\end{definition} 
 
 \begin{definition} ~\
 	\begin{enumerate}
@@ -339,12 +344,12 @@
 \end{definition}
 
 \begin{definition}[Behaviour Strategy]
-	Given an extensive form game $\Gamma_E$, a \textbf{behaviour strategy} for player $i$ specifies for every information set $h \in \mathcal{H}_i$ and action $a \in C(H)$, a probability $\lambda_i(a, H) \geq 0$, with
+	Given an extensive form game $\Gamma_E$, a \textbf{behaviour strategy} for player $i$ specifies for every information set $H \in \mathcal{H}_i$ and action $a \in C(H)$, a probability $\lambda_i(a, H) \geq 0$, with
 	$$ \sum_{a \in C(H)} \lambda_i(a, H) = 1 \text{ for all } H \in \mathcal{H}_i. $$
 \end{definition}
 
 \begin{definition}[Perfect Recall]
-	A player has \textbf{perfect recall} if he doesn't \enquote{forget} what she once knew, including her own actions. In laymen's terms, a game in extensive form exhibits recall if all elements in an information set of player $i$ are induced by the same action of $i$ in an earlier stage of the game. 
+	A player has \textbf{perfect recall} if he doesn't \enquote{forget} what she once knew, including her own actions. That means, perfect recall refers to the assumption that, at every decision node, each Player remembers what he did in prior moves, and each player remembers everything that he knew before; effectively, the assumption is one that players never forget information once it is acquired.
 \end{definition}
 
 \begin{theorem}
@@ -384,7 +389,7 @@ Applied to Prisoner's Dilemma: Confess is a strictly dominant strategy for each 
 
 \begin{definition}[Strictly Dominated Strategy]
 	$s_i \in \mathcal{S}_i$ is \textbf{strictly dominated} for player $i$ in game $\Gamma_N$ if there exists another strategy $s_i' \in \mathcal{S}_i$ such that:
-	$$ u_i(s_i', s_{-i}) \geq u_i(s_i, s_{-i}) $$
+	$$ u_i(s_i', s_{-i}) > u_i(s_i, s_{-i}) $$
 	for all $s_{-i} \in \mathcal{S}_{-i}$. In this case we say that $s_i'$ strictly dominates $s_i$.
 \end{definition}
 
@@ -393,7 +398,7 @@ Applied to Prisoner's Dilemma: Confess is a strictly dominant strategy for each 
 	$s_i \in \mathcal{S}_{i}$ is \textbf{weakly dominated} for player $i$ in game $\Gamma_N$ if there exists another strategy $s_i' \in \mathcal{S}_i$ such that:
 	$$ u_i(s_i', s_{-i}) \geq u_i(s_i, s_{-i}) $$
 	for all $s_{-i} \in \mathcal{S}_{-i}$, with strict inequality for at least one $s_{-i}$.
-\end{definition} ~\newpage
+\end{definition} 
 
 \begin{example} ~\\
 	\begin{figure}[h!] \centering
@@ -1354,7 +1359,16 @@ Aus diesem Satz folgt direkt, dass der Kern eines konvexen Spiels nicht leer ist
 Für symmetrische Spiele:
 $$ A = \left( a_{ij} \right) \quad i = 1, \dotsc, m_{i}, ~ j = 1, \dotsc, m_{j} $$
 d.h.
-% todo game table 
+\begin{figure*}[h!] \centering
+ \begin{tabular}{l|ccc}
+   ~                & $\sigma_{21}$ & $\dotsc$  & $\sigma_{2 m_{2}} $\\
+  \hline
+  $\sigma_{11}$     &  $a_{11}$     & $\dotsc$  & $a_{1m_{2}}$ \\
+  $\vdots$          & $\vdots$      & ~         & $\vdots$ \\
+  $\sigma_{1m_{1}}$ & $a_{m_{1} 1}$ & $\dotsc $ & $a_{m_{1} m_{2}}$
+ \end{tabular}	
+\end{figure*}
+
 \begin{description}
 	\item $N$: Spielermenge $|N| = n$
 	\item $\Sigma_{i}$: Menge der reinen Strategien von $i \in N$, $\left| \Sigma_{i} \right| = m_{i}$, $\sigma_{i} \in \mathcal{E}_{i}$.
