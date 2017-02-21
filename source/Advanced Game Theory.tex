@@ -295,17 +295,16 @@
 	A game in \textbf{extensive form} consists of:
 	\begin{enumerate}[label=(\roman*\upshape)]
 		\item A finite set of nodes $\mathcal{X}$, a finite set of possible actions $\mathcal{A}$, and a finite set of players $\{1, \dotsc, l\}$.
-		\item A funktion $p \colon \mathcal{X} \Rightarrow \{ \mathcal{X} \cup \emptyset \}$ specifying a single immediate predecessor of each node $x$; $p(x) \in \mathcal{X}$ expect for one element $x_{0}$, the \textbf{initial node}. The immediate \textbf{successor node} of $x$ are $s(x) = p^{-1}(x)$. ~\\
+		\item A funktion $p \colon \mathcal{X} \rightarrow \{ \mathcal{X} \cup \emptyset \}$ specifying a single immediate predecessor of each node $x$; $p(x) \in \mathcal{X}$ expect for one element $x_{0}$, the \textbf{initial node}. The immediate \textbf{successor node} of $x$ are $s(x) = p^{-1}(x)$. ~\\
 			To have a tree structure, a predecessor can never be a successor and vice versa. The set of \textbf{terminal nodes} $T = \{ x \in \mathcal{X} \colon s(x) = \emptyset \}$. All other nodes $X \setminus T$ are \textbf{decision nodes}.
-		\item A function $\alpha \colon \mathcal{X} \setminus \{ x_{0} \} \Rightarrow \mathcal{A}$ giving the action that leads to any non-initial node $x$ from its immediate predecessor $p(x)$ with $x', x'' \in s(x); x' \neq x'' \Rightarrow \alpha(x') \neq \alpha(x'')$. The set of choices at decision node $x$ is $c(x) = \{ a \in \mathcal{A} \colon a = \alpha(x') \text{ for some } x' \in s(x) \}$.
-		\item A collection of information sets $\mathcal{H}$, and a function $H \colon \mathcal{X} \Rightarrow \mathcal{H}$ assigning each decision node $x$ to an information set $H(x) \in \mathcal{H}$ with $c(x) = c(x')$ if H(x) = $H(x')$. ~\\
+		\item A function $\alpha \colon \mathcal{X} \setminus \{ x_{0} \} \rightarrow \mathcal{A}$ giving the action that leads to any non-initial node $x$ from its immediate predecessor $p(x)$ with $x', x'' \in s(x); x' \neq x'' \Rightarrow \alpha(x') \neq \alpha(x'')$. The set of choices at decision node $x$ is $c(x) = \{ a \in \mathcal{A} \colon a = \alpha(x') \text{ for some } x' \in s(x) \}$.
+		\item A collection of information sets $\mathcal{H}$, and a function $H \colon \mathcal{X} \rightarrow \mathcal{H}$ assigning each decision node $x$ to an information set $H(x) \in \mathcal{H}$ with $c(x) = c(x')$ if H(x) = $H(x')$. ~\\
 			The choices available at information set $H$ can be written as
 			$$ C(H) = \{ a \in \mathcal{A} \colon a \in c(x) \text{ for } x \in H \}. $$
-		\item A function $\iota \colon \mathcal{H} \Rightarrow \{ 0, 1, \dotsc, l \}$ assigning a player to each information set ($i = 0$ 'nature'). ~\\
-			The collection of player i's information set is denoted by
+		\item A function $\iota \colon \mathcal{H} \rightarrow \{ 0, 1, \dotsc, l \}$ assigning a player to each information set ($i = 0$ 'nature'). The collection of player i's information set is denoted by
 			$$ \mathcal{H}_i = \{ H \in \mathcal{H} \colon i = \iota(H) \}. $$
-		\item A function $\rho \colon \mathcal{H}_0 \times \mathcal{A} \Rightarrow [0,1]$ assigning a probability to each action of nature with $\rho(H,a) = 0$ if $a \notin C(H)$ und $\sum_{a \in C(H)} \rho(H, a) = 1$ for all $H \in \mathcal{H}_{0}$.
-		\item A collection of payoff function $u = \{ u_1(\cdot), \dotsc, u_l(\cdot) \}$, where $u_i \colon T \Rightarrow \R$.
+		\item A function $\rho \colon \mathcal{H}_0 \times \mathcal{A} \rightarrow [0,1]$ assigning a probability to each action of nature with $\rho(H,a) = 0$ if $a \notin C(H)$ und $\sum_{a \in C(H)} \rho(H, a) = 1$ for all $H \in \mathcal{H}_{0}$.
+		\item A collection of payoff function $u = \{ u_1(\cdot), \dotsc, u_l(\cdot) \}$, where $u_i \colon T \rightarrow \R$.
 	\end{enumerate}
 	\textbf{A game in extensive form:} $\Gamma_E = \{ \mathcal{X}, \mathcal{A}, I, p(\cdot), \alpha(\cdot), \mathcal{H}, H(\cdot), \iota(\cdot), \rho(\cdot), u \}$.
 \end{definition}
@@ -325,13 +324,13 @@
 
 \begin{definition}[Normal Form Representation]
 	For a game with $I$ players, the \textbf{normal form representation} $\Gamma_N$ specifies for each player $i$ a set of strategies $\mathcal{S}_{i}$ (with $s_i \in \mathcal{S}_i$) and a payoff function $u_i(s_1, \dotsc, s_l)$, formally 
-	$$ \Gamma_N = [I, \{ S_i \}, \{ u_i(\cdot) \}]. $$
+	$$ \Gamma_N = \left[I, \{ S_i \}, \{ u_i(\cdot) \} \right]. $$
 \end{definition} ~\newpage
 
 \begin{definition} ~\
 	\begin{enumerate}
 		\item $s_i \colon \mathcal{H}_i \rightarrow \mathcal{A}$ describes deterministic choices at each $H \in \mathcal{H}_i$ and is called a \textbf{pure strategy}
-		\item a \textbf{mixed strategy} is a probability distribution over all pure strategies $\sigma_i \colon \mathcal{S}_i \Rightarrow [0, 1]$, with $\sigma_i(s_i) \geq 0$ and $\sum_{s_i \in \mathcal{S}_i} \sigma_i(s_i) = 1$.
+		\item a \textbf{mixed strategy} is a probability distribution over all pure strategies $\sigma_i \colon \mathcal{S}_i \rightarrow [0, 1]$, with $\sigma_i(s_i) \geq 0$ and $\sum_{s_i \in \mathcal{S}_i} \sigma_i(s_i) = 1$.
 		\item player $i$'s set of possible mixed strategies can be associated with the points of the simplex $\Delta(\mathcal{S}_i)$, called the \textbf{mixed extension} of $\mathcal{S}_i$.
 		\item since we assume that individuals are expected utility maximisers, player $i$'s utility of a profile of mixed strategies $\sigma = \left( \sigma_i, \dotsc, \sigma_l \right)$ is given by
 			$$ u_i(\sigma) = \sum_{s \in \mathcal{S}} [\sigma_1(s_1) \cdot \sigma_2(s_2) \cdot \dotsc \cdot \sigma_l(s_l)] \cdot u_i(s), $$
@@ -345,7 +344,7 @@
 \end{definition}
 
 \begin{definition}[Perfect Recall]
-	A player has \textbf{perfect recall} if he doesn't \enquote{forget} what she once knew, including her own actions.
+	A player has \textbf{perfect recall} if he doesn't \enquote{forget} what she once knew, including her own actions. In laymen's terms, a game in extensive form exhibits recall if all elements in an information set of player $i$ are induced by the same action of $i$ in an earlier stage of the game. 
 \end{definition}
 
 \begin{theorem}
@@ -358,8 +357,8 @@ Central question of Game Theory: What should we expect to observe in a game play
 
 We first address the above question for simultaneous-move games, which we study using their normal form representation. We use the following notation:
 \begin{itemize}
-	\item $\Gamma_N = [I, \{ S_i \}, \{ u_i(\cdot)]$ if we consider pure strategies only, ~\\
-		$\Gamma_{N} = [I, \{ \Delta(S_i)\}, \{ u_i(\cdot) \}]$ if we allow for mixed strategies
+	\item $\Gamma_N = \left[I, \{ S_i \}, \{ u_i(\cdot) \right]$ if we consider pure strategies only, ~\\
+		$\Gamma_{N} = \left[I, \{ \Delta(S_i)\}, \{ u_i(\cdot) \} \right]$ if we allow for mixed strategies
 	\item $s_{-i} = (s_1, \dotsc, s_{i-1}, s_{i+1}, \dotsc, s_l) \in \mathcal{S}_{-i}$ where $\mathcal{S}_{-i} = S_1 \times \dotsc \times S_{i-1} \times S_{i+1} \times \cdots \times S_{l}$
 	\item $s = (s_i, s_{-i})$
 \end{itemize}
@@ -377,7 +376,7 @@ We first address the above question for simultaneous-move games, which we study 
 What should we expect to observe in the Prisoners' Dilemma?
 
 \begin{definition}[Strictly Dominant Strategy]
-	A strategy $s_i \in \mathcal{S}_i$ is \textbf{strictly dominant} for player $i$ in game $\Gamma_N = ]I, \{  \mathcal{S}_i \}, \{ u_i(\cdot)\}]$ if for all $s_i' \neq s_i$:
+	A strategy $s_i \in \mathcal{S}_i$ is \textbf{strictly dominant} for player $i$ in game $\Gamma_N = \left[I, \{  \mathcal{S}_i \}, \{ u_i(\cdot)\} \right]$ if for all $s_i' \neq s_i$:
 	$$ u_{i}(s_i, s_{-i}) > u_i(s_i', s_{-i})  $$
 	for all $s_{i} \in \mathcal{S}_{-i}$.
 \end{definition}
@@ -426,7 +425,6 @@ Applied to Prisoner's Dilemma: Confess is a strictly dominant strategy for each 
    	 				confess   &    $-1, -10$   & $-5, -5$  
    	   				\end{game}
 	\end{figure}
-	 $$\Rightarrow D \text{ is strictly dominated by } U \text{ and } M.$$
 	$$\Rightarrow \text{ Player 1 has no dominant strategy anymore}.$$
 \end{example}
 
@@ -468,7 +466,7 @@ In this game, the iterated elimination of strictly dominated strategies still le
 \end{definition}
 
 \begin{definition}[Rationalisable Strategies]
-	In game $\Gamma_N = [I, \{ \Delta(\mathcal{S}_i) \}, \{ u_i(\cdot) \}]$, the strategies in $\Delta(\mathcal{S}_i)$ that survive the iterated elimination of strategies that are never a best response are known as player $i$'s \textbf{rationalisable strategies}.
+	In game $\Gamma_N = \left[I, \{ \Delta(\mathcal{S}_i) \}, \{ u_i(\cdot) \}\right]$, the strategies in $\Delta(\mathcal{S}_i)$ that survive the iterated elimination of strategies that are never a best response are known as player $i$'s \textbf{rationalisable strategies}.
 \end{definition}
 
 \begin{example} ~\\
@@ -504,7 +502,7 @@ In this game, the iterated elimination of strictly dominated strategies still le
 	A strategy profile $s = (s_1, \dotsc, s_l)$ constitutes a Nash equilibrium (NE) of game $\Gamma_N$ if for every $i = 1, \dotsc, l$
 	$$ u_i(s_i, s_{-i}) \geq u_i(s_i', s_{-i}) \text{ for all } s_i' \in \mathcal{S}_i $$
 	In the game on the previous slide, there is only one Nash equilibrium.
-\end{definition}
+\end{definition} ~\newpage
 
 \begin{example}[Meeting in New York]
 	\begin{enumerate}
@@ -515,7 +513,7 @@ In this game, the iterated elimination of strictly dominated strategies still le
    	 				$Empire State$   &$\underline{100}, \underline{100}$& $0, 0$  \\
    	 				$Grand Central$   &    $0, 0$   & $\underline{100}, \underline{100}$ \\
    	   			\end{game} $$\Rightarrow (Empire State, Empire State) \text{ and } (Grand Central, Grand Central) \text{ are Nash equilibria.} $$
-			\end{figure} ~\\
+			\end{figure}
 		\item Part 2
 			\begin{figure}[h!] \centering
   				\begin{game}{2}{2}[Player $1$][Player $2$]
@@ -523,7 +521,7 @@ In this game, the iterated elimination of strictly dominated strategies still le
    	 				$Empire State$   &$\underline{100}, \underline{100}$& $0, 0$  \\
    	 				$Grand Central$   &    $0, 0$   & $\underline{1000}, \underline{1000}$ \\
    	   			\end{game} $$\Rightarrow \text{Again, } (Empire State, Empire State) \text{ and } (Grand Central, Grand Central) \text{ are Nash equilibria}. $$
-			\end{figure} ~\\
+			\end{figure} 
 	\end{enumerate}
 \end{example}
 
@@ -565,8 +563,8 @@ Why should we acre about Nash equilibria? Why should players' conjecture about e
 \begin{itemize}
 	\item In a Nash equilibrium each player's strategy is a best response to all other players' strategies.
 	\item Let $b_i(s_{-i})$ denote the best response(s) of player $i$ to the strategies $s_{-i}$
-	\item Then $b_i \colon \mathcal{S}_{-i} \Rightarrow \mathcal{S}_i$ is a correspondence, called player $i$'s best response correspondence.
-	\item Define $b \colon \mathcal{S} \Rightarrow \mathcal{S}$ by $(s_1, \dotsc, s_l) \Rightarrow b_1(s_{-1}) \times \dotsc \times b_l(s_{-l})$
+	\item Then $b_i \colon \mathcal{S}_{-i} \rightarrow \mathcal{S}_i$ is a correspondence, called player $i$'s best response correspondence.
+	\item Define $b \colon \mathcal{S} \rightarrow \mathcal{S}$ by $(s_1, \dotsc, s_l) \mapsto b_1(s_{-1}) \times \dotsc \times b_l(s_{-l})$
 	\item A strategy profile $s \in \mathcal{S}$ is a Nash equilibrium if and only if $s \in b(s)$
 	\item Thus, to prove existence of Nash equilibria, we have to show that a fixed point of the correspondence $b$ exists
 	\item To do so, we employ Kakutani's fixed-point theorem
@@ -577,15 +575,15 @@ Why should we acre about Nash equilibria? Why should players' conjecture about e
 \end{lemma} 
  
 \begin{definition}[Quasi-Concave Function]
-	The function $f \colon A \Rightarrow \mathbb{R}$, defined on the convex set $A \subset \mathbb{R}^N$, is quasi-concave if its upper contour sets $\{ x \in A \colon f(x) \geq t \}$ are convex sets.
+	The function $f \colon A \rightarrow \mathbb{R}$, defined on the convex set $A \subset \mathbb{R}^N$, is quasi-concave if its upper contour sets $\{ x \in A \colon f(x) \geq t \}$ are convex sets.
 \end{definition} 
  
 \begin{definition}[Upper Hemicontinuous Correspondence]
-	Given $A \subset \mathbb{R}^{N}$ and the closed set $Y \subset \mathbb{R}^{K}$, the correspondence $f \colon A \Rightarrow Y$ is upper hemicontinuous if it has a closed graph and the images of compact sets are bounded.
+	Given $A \subset \mathbb{R}^{N}$ and the closed set $Y \subset \mathbb{R}^{K}$, the correspondence $f \colon A \rightarrow Y$ is upper hemicontinuous if it has a closed graph and the images of compact sets are bounded.
 \end{definition} 
 
 \begin{theorem}[Kakutani's Fixed Point Theorem]
-	Suppose that $A \subset \mathbb{R}^N$ is a nonempty, compact, convex set, and that $f \colon A \Rightarrow A$ is a correspondence from $A$ into itself that is nonempty-valued, convex-valued and upper hemicontinuous. ~\\
+	Suppose that $A \subset \mathbb{R}^N$ is a nonempty, compact, convex set, and that $f \colon A \rightarrow A$ is a correspondence from $A$ into itself that is nonempty-valued, convex-valued and upper hemicontinuous. ~\\
 	
 	Then $f(\cdot)$ has a fixed point; that is, there is an $x \in A$ such that $x \in f(x)$.
 \end{theorem}
@@ -632,7 +630,7 @@ This follows from the previous proposition on the existence of Nash equilibria b
 			
 	\textbf{Player 2's calculation:}
 	\begin{align*}
-		\Rightarrow & u_2(p \cdot O + (1 - p) \cdot U, q \cdot L + (1 - q) \cdot R) \\
+		\Longrightarrow ~ & u_2(p \cdot O + (1 - p) \cdot U, q \cdot L + (1 - q) \cdot R) \\
 			& = pq1 + p(1-q)(-1) + (1-p)q(-2) + (1-p)(1-q)1 \\
 			& = pq - p + pq - 2q + 2pq - q + pq - p + 1 \\
 			& = 5pq - 2p - 3q + 1 \\
@@ -644,7 +642,7 @@ This follows from the previous proposition on the existence of Nash equilibria b
 	$$ b_2(p) = \begin{cases} o, & p < \frac{3}{5} \\ \in [0,1], & p = \frac{3}{5} \\ 1, & p > \frac{3}{5} \end{cases} ~\qquad $$ ~\\
 	
 	$\Rightarrow$ The only mixed strategy Nash-Equilibrium in this game $\left( \frac{3}{5} O + \frac{2}{5} U, \frac{2}{5} L + \frac{3}{5} R \right)$.
-\end{example}
+\end{example} ~\newpage
  
  
 \section{Subgame Perfection in Dynamic Games}
@@ -906,7 +904,7 @@ This follows from the previous proposition on the existence of Nash equilibria b
   	\item Player 2  offers a split: $s^2 \in [0, v]$
   	\item Player 1 can reject and the game continues in period 3, or accept and the split is implemented and the game ends immediately with $u_1 = \delta \cdot s^2$, $u_2 = \delta \cdot (v - s^2)$.
   \end{itemize}
-  and so on $\dotsc$ ~\newpage
+  and so on $\dotsc$ 
 
   \textbf{There is a unique SPNE:} ~\\
 
