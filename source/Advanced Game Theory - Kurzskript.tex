@@ -195,8 +195,13 @@
 
 \begin{definition}[Information] ~\
 	\begin{enumerate}
-		\item \textbf{Information Set:} A player doesn't know which of the nodes in the information set she is actually at. Therefore, at any decision node in a player's information set, there must be the same possible actions.
-		\item \textbf{Perfect Information:} A game is said to be of perfect information if each information set contains a single decision node. Otherwise, it is a game of \textbf{imperfect information}.
+		\item \textbf{Information Set:} in the extensive form, an information set is a set of decision nodes such that:
+			\begin{enumerate}
+				\item Every node in the set belongs to one player.
+			 	\item When play reaches the information set, the player with the move cannot differentiate between nodes within the information set, i.e. if the information set contains more than one node, the player to whom that set belongs does not know which node in the set has been reached.
+			\end{enumerate}
+			Therefore, at any decision node in a player's information set, there must be the same possible actions.
+		\item \textbf{Perfect Information:} A game is said to be of perfect information if each information set contains a single decision node. Otherwise, it is a game of \textbf{imperfect information}. More formally, perfect information persists, if each player, when making any decision, is perfectly informed of all the events that have previously occurred, including the early equipment.
 	\end{enumerate}
 \end{definition} 
 
@@ -204,16 +209,16 @@
 	A game in \textbf{extensive form} consists of:
 	\begin{enumerate}[label=(\roman*\upshape)]
 		\item A finite set of nodes $\mathcal{X}$, a finite set of possible actions $\mathcal{A}$, and a finite set of players $\{1, \dotsc, l\}$.
-		\item A funktion $p \colon \mathcal{X} \Rightarrow \{ \mathcal{X} \cup \emptyset \}$ specifying a single immediate predecessor of each node $x$; $p(x) \in \mathcal{X}$ expect for one element $x_{0}$, the \textbf{initial node}. The immediate \textbf{successor node} of $x$ are $s(x) = p^{-1}(x)$. ~\\
+		\item A funktion $p \colon \mathcal{X} \rightarrow \{ \mathcal{X} \cup \emptyset \}$ specifying a single immediate predecessor of each node $x$; $p(x) \in \mathcal{X}$ expect for one element $x_{0}$, the \textbf{initial node}. The immediate \textbf{successor node} of $x$ are $s(x) = p^{-1}(x)$. ~\\
 			To have a tree structure, a predecessor can never be a successor and vice versa. The set of \textbf{terminal nodes} $T = \{ x \in \mathcal{X} \colon s(x) = \emptyset \}$. All other nodes $X \setminus T$ are \textbf{decision nodes}.
-		\item A function $\alpha \colon \mathcal{X} \setminus \{ x_{0} \} \Rightarrow \mathcal{A}$ giving the action that leads to any non-initial node $x$ from its immediate predecessor $p(x)$ with $x', x'' \in s(x); x' \neq x'' \Rightarrow \alpha(x') \neq \alpha(x'')$. The set of choices at decision node $x$ is $c(x) = \{ a \in \mathcal{A} \colon a = \alpha(x') \text{ for some } x' \in s(x) \}$.
-		\item A collection of information sets $\mathcal{H}$, and a function $H \colon \mathcal{X} \Rightarrow \mathcal{H}$ assigning each decision node $x$ to an information set $H(x) \in \mathcal{H}$ with $c(x) = c(x')$ if H(x) = $H(x')$. ~\\
+		\item A function $\alpha \colon \mathcal{X} \setminus \{ x_{0} \} \rightarrow \mathcal{A}$ giving the action that leads to any non-initial node $x$ from its immediate predecessor $p(x)$ with $x', x'' \in s(x); x' \neq x'' \Rightarrow \alpha(x') \neq \alpha(x'')$. The set of choices at decision node $x$ is $c(x) = \{ a \in \mathcal{A} \colon a = \alpha(x') \text{ for some } x' \in s(x) \}$.
+		\item A collection of information sets $\mathcal{H}$, and a function $H \colon \mathcal{X} \rightarrow \mathcal{H}$ assigning each decision node $x$ to an information set $H(x) \in \mathcal{H}$ with $c(x) = c(x')$ if H(x) = $H(x')$. ~\\
 			The choices available at information set $H$ can be written as
 			$$ C(H) = \{ a \in \mathcal{A} \colon a \in c(x) \text{ for } x \in H \}. $$
-		\item A function $\iota \colon \mathcal{H} \Rightarrow \{ 0, 1, \dotsc, l \}$ assigning a player to each information set ($i = 0$ 'nature'). ~\\
+		\item A function $\iota \colon \mathcal{H} \rightarrow \{ 0, 1, \dotsc, l \}$ assigning a player to each information set ($i = 0$ 'nature'). ~\\
 			The collection of player i's information set is denoted by
 			$$ \mathcal{H}_i = \{ H \in \mathcal{H} \colon i = \iota(H) \}. $$
-		\item A function $\rho \colon \mathcal{H}_0 \times \mathcal{A} \Rightarrow [0,1]$ assigning a probability to each action of nature with $\rho(H,a) = 0$ if $a \notin C(H)$ und $\sum_{a \in C(H)} \rho(H, a) = 1$ for all $H \in \mathcal{H}_{0}$.
+		\item A function $\rho \colon \mathcal{H}_0 \times \mathcal{A} \rightarrow [0,1]$ assigning a probability to each action of nature with $\rho(H,a) = 0$ if $a \notin C(H)$ und $\sum_{a \in C(H)} \rho(H, a) = 1$ for all $H \in \mathcal{H}_{0}$.
 		\item A collection of payoff function $u = \{ u_1(\cdot), \dotsc, u_l(\cdot) \}$, where $u_i \colon T \Rightarrow \R$.
 	\end{enumerate}
 	\textbf{A game in extensive form:} $\Gamma_E = \{ \mathcal{X}, \mathcal{A}, I, p(\cdot), \alpha(\cdot), \mathcal{H}, H(\cdot), \iota(\cdot), \rho(\cdot), u \}$.
@@ -274,7 +279,7 @@ We first address the above question for simultaneous-move games, which we study 
 \end{itemize}
 
 \begin{definition}[Strictly Dominant Strategy]
-	A strategy $s_i \in \mathcal{S}_i$ is \textbf{strictly dominant} for player $i$ in game $\Gamma_N = ]I, \{  \mathcal{S}_i \}, \{ u_i(\cdot)\}]$ if for all $s_i' \neq s_i$:
+	A strategy $s_i \in \mathcal{S}_i$ is \textbf{strictly dominant} for player $i$ in game $\Gamma_N = [I, \{ \mathcal{S}_i \}, \{ u_i(\cdot)\}]$ if for all $s_i' \neq s_i$:
 	$$ u_{i}(s_i, s_{-i}) > u_i(s_i', s_{-i})  $$
 	for all $s_{i} \in \mathcal{S}_{-i}$.
 \end{definition}
