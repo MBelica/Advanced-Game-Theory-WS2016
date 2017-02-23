@@ -530,7 +530,7 @@ In this game, the iterated elimination of strictly dominated strategies still le
 	\end{enumerate}
 \end{example}
 
-Why should we acre about Nash equilibria? Why should players' conjecture about each other's play be correct?
+Why should we care about Nash equilibria? Why should players' conjecture about each other's play be correct?
 \begin{enumerate}
 	\item If there is a unique predict outcome to a game, it must be a Nash-Equilibrium.
 	\item Thus, a \enquote{focal point} (see example part 2) can be the unique predicted outcome to a game only if it is a Nash-Equilibrium.
@@ -946,13 +946,13 @@ Now consider the bilateral bargaining gam with infinite horizon:
 	\end{proof}
 \end{proposition}
 
-
+% todo 952 Kooperative Spiele
 \chapter{Kooperative Spiele} 
 
 
 Im Kontrast zur nicht-kooperativen Spieltheorie, die sich mit Spielern die individuell Entscheidungen treffen und ihre individuelle Auszahlung ohne Absprache maximieren, beschäftigt, gibt es die kooperative Spieltheorie, mit der wir uns im folgenden beschäftigen. In der kooperativen Spieltheorie können sich die Spieler gemeinsam auf Ergebnis einigen, die dann auch verpflichtend sind. Man braucht dazu Kontrollinstanzen; Wir suchen nach Stabilität und Ergebnissen, die sich in solchen Situationen ergeben.
 
-\subsection*{Koalitionsspiele (Spiele in charakteristischer Form)}
+\subsubsection*{Koalitionsspiele (Spiele in charakteristischer Form)}
 \begin{itemize}
 	\item Die Modellierung als Koalitionsspiel wird angewendet, wenn bindende Absprachen möglich sind. 
 	\item Im Fokus: Was kann eine Gruppe von Spielern (eine \textit{Koalition}) gemeinsam erreichen? 
@@ -1008,6 +1008,7 @@ Wir werden zwei Lösungskonzepte kennen lernen:\begin{itemize}
 	\item Ein Mengenkonzept, das eine Menge von Payoffvektoren als Lösung vorschlägt: der Kern.	\item Ein Wertkonzept, das eine eindeutige Lösung des Spiels vorschlägt: der Shapley-Wert.
 \end{itemize}
 
+% todo 1016 Der Kern
 \section{Der Kern} 
 
 \begin{itemize}
@@ -1108,7 +1109,7 @@ Wir werden zwei Lösungskonzepte kennen lernen:\begin{itemize}
 	Der Kern ist eindeutig: $(1, 0, 0)$.
 \end{beispiel} 
   
-
+% todo 1117 Der Shapley-Wert
 \section{Der Shapley-Wert}
 
 \begin{itemize}
@@ -1319,6 +1320,7 @@ Man kann den Shapley-Wert auch über andere Axiomensysteme charakterisieren.
 	Der Shapley-Wert schlägt die Aufteilung $\left( \frac{2}{3}, \frac{1}{6}, \frac{1}{6} \right)$ vor und die eindeutige Kern-Lösung ist $(1, 0, 0)$.
 \end{beispiel}
 
+% todo 1329 Einfache Spiele
 \section{Einfache Spiele} 
 
 \begin{definition}[Einfaches Spiel]
@@ -1351,7 +1353,7 @@ Gibt es eine Charakterisierung von Spielen, für die der Shapley-Wert im Kern li
 \end{satz}
 Aus diesem Satz folgt direkt, dass der Kern eines konvexen Spiels nicht leer ist.
 
-
+% todo 1362 Evolutionäre Spieltheorie
 \chapter{Evolutionäre Spieltheorie}
 
   
@@ -1374,7 +1376,7 @@ d.h.
 	\item $\Sigma_{i}$: Menge der reinen Strategien von $i \in N$, $\left| \Sigma_{i} \right| = m_{i}$, $\sigma_{i} \in \mathcal{E}_{i}$.
 	\item $S_{i}$: Menge der gemischten Strategien von $i \in N$
 		\begin{description}
-			\item $S_{i} = \left\{ \right\}$.
+			\item $S_{i} = \left\{ s_i \in \mathbb{R}^m_i : \sum_{j=1}^{m_i} s_{ij} = 1, s_{ij} \geq 0 \text{ für alle} j = 1, \dotsc, m_i \right\}$.
 			\item $s_{ij} = \mathds{P}(\sigma_{ij})$.
 		\end{description}
 \end{description}
@@ -1453,7 +1455,7 @@ $$ C(s_{i}^{*}) \subseteq B_{i}(s_{-i}^{*}) $$
 
 $\Rightarrow \#$ ESS $\leq \left| \Sigma \right|$ - Gleichheit nur, fall es kein ESS in gemischten Strategien gibt.  
     
-
+% todo 1464 Übungen
 \newpage \phantomsection \appendix 
 \chapter{Übungen}
 
