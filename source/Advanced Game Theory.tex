@@ -1449,11 +1449,106 @@ Aufgrund der Symmetrie müssen bzw. können die Spieler nicht unterschieden werd
 \end{unnamedtheorem}
   
 \begin{unnamedtheorem}[Allgemein gilt]
-	Ist $p$ ESS $\Rightarrow \exists! \sigma \in C(p)$ mit $\sigma \in C(S
-	s^{*})$ für $s^{*} \neq p$ ist ESS. % Nash-Gleichgewicht
+	Ist $p$ ESS $\Rightarrow \exists! \sigma \in C(p)/B(p)?$ mit $\sigma \in C(s^{*})$ für $s^{*} \neq p$ ist ESS. % Nash-Gleichgewicht
 \end{unnamedtheorem} 
 
 $\Rightarrow \#$ ESS $\leq \left| \Sigma \right|$ - Gleichheit nur, fall es kein ESS in gemischten Strategien gibt.  
+    
+\subsubsection*{Addendum}    
+    
+Schwach dominant so können Gleichgewichte in schwach dominierten Strategien existieren, diese sind aber nie evolutionär stabil.
+
+\begin{bemerkung}
+	ESS ist nur für symmetrisches 2-Personen Spiele konzipiert! Aufpassen auf Trickfragen!
+\end{bemerkung}
+
+\begin{beispiel}[aus Übung] ~\
+	\begin{figure*}[h!] \centering
+	  \begin{game}{2}{2}[][]
+   	   		&  					F     	 		&  T     \\
+   	 	  F &  $\frac{v-c}{2}, \frac{v-c}{2} $  & $v, 0$  \\
+   	  	  T &  	$0,v$ 							& $\frac{v}{2}, \frac{v}{2}$\\
+     \end{game} 
+    \end{figure*}
+	\begin{itemize}
+ 		\item Ist $c > v$: zwei asymmetrische Gleichgewichte und ein symmetrisches
+		\item Ist $c < v$: so ist $F$ strikt dominant, also ist $(F,F)$ das einzige Gleichgewicht
+	\end{itemize}	
+\end{beispiel}
+
+\begin{beispiel} ~\
+	\begin{figure*}[h!] \centering
+	  \begin{game}{2}{2}[][]
+   	   		&  	 X     &    Y     \\
+   	 	  X &  $3, 3$  &  $2, 2$  \\
+   	  	  Y &  $2, 2$  &  $2, 2$  \\
+     \end{game}
+    \end{figure*}   ~\\
+    
+	$X$ dominiert hier $Y$ schwach, und es gibt 2 Gleichgewichte nämlich $(X,X)$, $(Y,Y)$. Beachte es kann keine Gleichgewichte in gemischten Strategien geben, da sobald einer mischt, die beste Antwort X ist.  ~\\
+	
+	Die Lösung ist allerdings einfach: $XX$ ist striktes NGG damit ist es ein ESS. Überprüfen wir trotzdem für $YY$ so sind die notwendingen Bedingungen:
+	\begin{itemize}
+		\item Gleichgewichtsbedingung: $H(Y,Y) \geq H(X,Y)$ passt!
+		\item Stabilitätsbedingung: falls $H(X,Y) = H(Y,Y)$: $H(X,X) < H(Y,X)$, Widerspruch.
+	\end{itemize}
+	Außerdem kann $YY$ kann kein ESS sein, da es schwach dominiert ist. Andersherum gilt dies allerdings nicht, denn schwach dominante Strategien müssen kein ESS sein. ~\\
+
+	In besten Antwortmenge $B(Y) = \{ X, Y \}$. In der Besten-Antwort-Menge eines ESS kann keine Strategie enthalten sein die in der Trägermenge eines anderen ESS sein.
+\end{beispiel}
+
+\begin{satz}
+	Sei $\Sigma$ ein symmetrisches Spiel, $\sigma \in \Sigma$ und $s$ eine gemischte Strategie. Ist $s$ ein ESS in ggf. gemischten Strategien $\Rightarrow$ es existiert keine reine Strategie $t$: $t$ ist in $B(s)$ und $t \in C(v)$ (Trägermenge von $v$) wobei $v \in S$ ein ESS ist mit $s \neq v.$
+\end{satz}
+
+\begin{beispiel} ~\
+	\begin{figure*}[h!] \centering
+	  \begin{game}{2}{2}[][]
+   	   		&  	 X     &    Y     \\
+   	 	  X &  $0,0$  &  $3, 1$  \\
+   	  	  Y &  $1, 3$  &  $2, 2$  \\
+     \end{game}
+    \end{figure*}   ~\\
+	Wir haben zwar zwei Gleichgewichte in reinen Strategien $(Y, X)$ und $(X, Y)$, aber diese können kein ESS sein, da sie nicht symmetrisch sind! ~\\
+
+	In gemischten Strategien ist das Gleichgewicht gegeben durch:
+	$$ 3 cdot (1 - p) = 3 - 3p \overset{!}{=} 2 - p = 1 \cdot p + 2 \cdot (1 - p) \Rightarrow p = \frac{1}{2}, $$
+	und da das Spiel symmetrisch ist gilt $q = \frac{1}{2} \Rightarrow s = \left( \frac{1}{2}, \frac{1}{2} \right)$ ist ein Gleichgewicht in gemischten Strategien. 
+	\begin{equation}
+		\Rightarrow H(s, s) = H(\sigma, s) \quad \forall \sigma \in C(S) \tag*{$(*)$}
+	\end{equation}
+
+	Die erste Bedingung für ESS ist erfüllt, da es sich um ein Gleichgewicht handelt, die zweite folgt da, bei gemischten Strategien nach $(*)$ gilt:
+	$$ H(X,S) = H(Y,S) = H(S,S), $$ 
+	und damit folgt die zweite Bedingung:
+	\begin{itemize}
+		\item $0.5 = H(s,s) > H(x,x) =  0$
+		\item $2.5 H(S,Y) > H(Y,Y) = 2$
+	\end{itemize}
+	$\Rightarrow s = \left( \frac{1}{2}, \frac{1}{2} \right)$ ist somit ein ESS.
+
+	Schnell könnte man das lösen, indem man sich daran erinnert, dass jedes $2 \times 2$ Spiel ein ESS besitzt. Da es hier allerdings nur ein symmetrisches Nash-Gleichgewicht gibt, muss dieses ein ESS sein. Beachte allerdings, dass das ab $3 \times 3$-Spielen nicht mehr gilt.
+\end{beispiel}
+
+\begin{lemma}
+	Es kann nur höchsten so viele ESS geben wie reine Strategien, da es dann in der besten Antwortmenge Strategien git und die nicht in der Trägermenge sein können
+\end{lemma}
+
+\begin{beispiel}
+	Betrachten wir allgemein die Einheitsmatrix also $(1,1)$ auf den Diagonalen, sonst $(0,0)$. Dann sind alle $(1,1)$ NE; da diese Strategien zusätzlich strikt sind, sind sie damit auch ESS. Für eine $2 \times 2$-Einheitsmatrix:
+ ~\
+	\begin{figure*}[h!] \centering
+	  \begin{game}{2}{2}[][]
+   	   		&  	 x     &    Yy    \\
+   	 	  x &  $1, 1$  &  $0, 0$  \\
+   	  	  y &  $0, 0$  &  $1, 1$  \\
+     \end{game}
+    \end{figure*}   ~\\
+	$\Rightarrow$ beide $(1,1)$ sind NGG, außerdem gibt es noch das gemischte Nash-Gleichgewicht $s= \left( \frac{1}{2}, \frac{1}{2} \right)$.  Das gemischte Gleichgewicht kann allerdings kein ESS sein, da in der besten Antwortmenge die beiden reinen Strategien enthalten sind und diese selbst strikte ESS sein, also im Widerspruch zum obigen Lemma. Per Hand kann man das allerdings auch noch nachrechnen, es gilt
+	$$ H(s,s) = H(y,s) = 1/2. $$
+	Wir müssen überprüfen, dass $H(y,x) > H(x,x)$ gilt, dies ist allerdings ein Widerspruch. da $x$ selbst ein striktes NGG ist. 
+\end{beispiel}
+   
     
 % todo 1464 Übungen
 \newpage \phantomsection \appendix 
