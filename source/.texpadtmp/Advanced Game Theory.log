@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.7)  24 FEB 2017 13:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.7)  25 FEB 2017 03:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1492,7 +1492,11 @@ Overfull \hbox (23.28625pt too wide) in paragraph at lines 439--440
 []\OT1/lmr/bx/n/12 Definition: []\OT1/lmr/m/it/12 (-20) A strat-egy $\OML/lmm/m/it/12 ^^[[] \OMS/lmsy/m/n/12 2 \OT1/lmr/m/n/12 (-20) ^^A(\OMS/lmsy/m/n/12 S[]\OT1/lmr/m/n/12 (-20) )$ \OT1/lmr/m/it/12 (-20) is strictly dom-i-nated for $\OML/lmm/m/it/12 i$ \OT1/lmr/m/it/12 (-20) in game $\OT1/lmr/m/n/12 (-20) ^^@[] = [\OML/lmm/m/it/12 I; \OMS/lmsy/m/n/12 f\OT1/lmr/m/n/12 (-20) ^^A(\OMS/lmsy/m/n/12 S[]\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OML/lmm/m/it/12 ; \OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 u[]\OT1/lmr/m/n/12 (-20) (\OMS/lmsy/m/n/12 ^^A\OT1/lmr/m/n/12 (-20) )\OMS/lmsy/m/n/12 g\OT1/lmr/m/n/12 (-20) ]$
  []
 
-[10] [11] [12] [13]
+[10] [11]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12] [13]
 Overfull \hbox (12.47594pt too wide) detected at line 520
 \OMS/lmsy/m/n/12 ) \OT1/lmr/m/n/12 (\OML/lmm/m/it/12 EmpireState; EmpireState\OT1/lmr/m/n/12 )[](\OML/lmm/m/it/12 GrandCentral; GrandCentral\OT1/lmr/m/n/12 )[]
  []
@@ -1686,13 +1690,13 @@ Package rerunfilecheck Info: File `"Advanced Game Theory".out' has not changed.
 Here is how much of TeX's memory you used:
  40076 strings out of 493089
  888130 string characters out of 6134843
- 1061071 words of memory out of 5000000
+ 1061070 words of memory out of 5000000
  42380 multiletter control sequences out of 15000+600000
  75616 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,15n,106p,10419b,1455s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on "/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.pdf" (72 pages, 438430 bytes).
+Output written on "/Users/martin/Dropbox/Skripte/Advanced-Game-Theory-WS2016/source/.texpadtmp/Advanced Game Theory.pdf" (72 pages, 439064 bytes).
 PDF statistics:
  722 PDF objects out of 1000 (max. 8388607)
  616 compressed objects within 7 object streams

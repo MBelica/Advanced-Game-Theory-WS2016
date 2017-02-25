@@ -482,7 +482,7 @@ In this game, the iterated elimination of strictly dominated strategies still le
    	 				$a_2$   &    $5, 2$   & $\underline{3}, \underline{3}$&    $5, 2$   & $0, 1$ \\
    	 				$a_3$   &    $\underline{7}, 0$   & $2, 5$ &    $0, \underline{7}$   & $0, 1$  \\
 					$a_4$   &    $0, \underline{0}$   & $0, -2$ &    $0, \underline{0}$   & $\underline{10}, -1$ 
-   	   				\end{game} $$\Rightarrow \frac{1}{2}U+ \frac{1}{2} D \text{ strictly dominates } M.$$
+   	   				\end{game} 
 	\end{figure} ~\\
 	$\Rightarrow b_4$ is never best response for player 2 and \textit{then} $a_4$ is never best response for player 1. ~\\
 	$\Rightarrow \{a_1, a_2, a_3\}$ and $\{ b_1, b_2, b_3 \}$ are the rationalisable strategies in this game.
@@ -1382,7 +1382,7 @@ d.h.
 \end{description}
   
 \begin{definition}[Trägermenge] Wir definieren die Trägermenge für jeden Spieler $i \in N$:
-	$$ C(S_{i}) = \left\{ \sigma_{ij} \in \Sigma_{i} : s_{ij} > 0 \right\}, $$
+	$$ C(s_{i}) = \left\{ \sigma_{ij} \in \Sigma_{i} : s_{ij} > 0 \right\}, $$
 	als die Menge der Strategien die mit positiver Wahrscheinlichkeit gespielt werden.
 \end{definition}  
 
@@ -1395,7 +1395,7 @@ d.h.
   
 \begin{beispiel*}
 	$\sigma_{ij} \in B_{i}(S_{-i})$ und $\sigma_{ik} \in B(S_{-i}) \Rightarrow$ alle $s_{i} \in S_{i}$ mit
-	$$ C(S_{i}) = \{ \sigma_{ij}, \sigma_{ik} \} $$	
+	$$ C(s_{i}) = \{ \sigma_{ij}, \sigma_{ik} \} $$	
 	sind auch beste Antwort, denn
 	$$ s_{ij} H(\sigma_{j}, s_{-i}) + s_{ik} H(\sigma_{ik}, s_{-i}) = (s_{ij} + s_{ik}) \hat{H}(s_{-i}) = \hat{H}(s_{-i}). $$
 \end{beispiel*}
@@ -1412,19 +1412,19 @@ $$ C(s_{i}^{*}) \subseteq B_{i}(s_{-i}^{*}) $$
 		\item random matching
 		\item Wettstreit (Spiel) ist statisch und symmetrisch
 			$$ \Rightarrow \text{ symmetrisches Spiel in Normalform mit zwei Spielern}. $$
-		\item Auszahlung entspricht der \enquote{biologischen Fitness} ($\phi$ Anzahl Nachkommen)
+		\item Auszahlung entspricht der \enquote{biologischen Fitness} ($\varnothing$ Anzahl Nachkommen)
 		\item Reproduktion ist asexuell und die von den Eltern gewählt Strategie wird unverändert an die Nachkommen vererbt (nur Selektion, keine Mutation).
 	\end{enumerate}
 \end{unnamedtheorem} 
  
 
-\begin{unnamedtheorem}[Symmetrisches 2-Personenspiel in Normalform]
-	Spieler müssen nicht unterschieden werden $\Rightarrow$ Strategieraum:
-	$$ S = \{ s\in \R^{m} : \sum_{i=1}^{m} s_{i} = 1, s_{i} \geq 0, i = 1, \dotsc, m \} $$
+\begin{unnamedtheorem}[Symmetrisches 2-Personenspiel in Normalform] ~\\
+Aufgrund der Symmetrie müssen bzw. können die Spieler nicht unterschieden werden. Somit hat der Strategieraum die folgende Form:
+	$$ S = \left\{ s\in \R^{m} : \sum_{i=1}^{m} s_{i} = 1, s_{i} \geq 0, i = 1, \dotsc, m \right\} $$
 \end{unnamedtheorem}
   
  
-\begin{definition}[Evolutionär stabile Strategie, ESS]
+\begin{definition}[Evolutionär stabile Strategie, ESS] ~\\
 	Eine Strategie $p \in S$ hei{\ss}t evolutionär stabil, wenn
 	\begin{enumerate}
 		\item $H(p,p) \geq H(q, p)$ für alle $q \in S$ (Gleichgewichtsbedingung)
@@ -1437,14 +1437,14 @@ $$ C(s_{i}^{*}) \subseteq B_{i}(s_{-i}^{*}) $$
 		\item Ist $p \in S$ eine evolutionär stabile Strategie, dann bildet $(p, p)$ ein symmetrisches Nash-Gleichgewicht
 		\item Jede $2 \times 2$-Matrix $A = \begin{pmatrix}
 			a_{11} & a_{12} \\ a_{21} & a_{22}
-		\end{pmatrix}$ mit $H(p,p) = p'Ap$ sodass $a_{11} \neq a_{21}$ und / oder $a_{12} = a_{22}$, besitzt eine ESS
-		Ist $(p,p)$ ein striktes NGG, dann ist $p$ eine ESS. Im strikten NGG $(p, p)$ gilt $C(p) = B(p)$. Ein striktes NGG ist immer ein Gleichgewicht in reinen Strategien. Beispiel:
+		\end{pmatrix}$ mit $H(p,p) = p'Ap$, sodass $a_{11} \neq a_{21}$ und / oder $a_{12} = a_{22}$, besitzt eine ESS.
+		\item Ist $(p,p)$ ein striktes NGG, dann ist $p$ eine ESS. Im strikten NGG $(p, p)$ gilt $C(p) = B(p)$. Ein striktes NGG ist immer ein Gleichgewicht in reinen Strategien. Beispiel:
    \begin{game}{2}{2}[~][]
    	    &  ~      &  ~     \\
    	 ~  &    $3, 3$      & $2, 0$  \\
    	  	&  $0, 2$ & $4, 4$\\
    \end{game}
-	\item Im Normalformspielen mit $m \times m$-Matrizen $a$ mit $m \geq 3$ existieren entweder endlich viele ESS keine.
+	\item In Normalformspielen mit $m \times m$-Matrizen $a$ mit $m \geq 3$ existieren entweder endlich viele ESS oder keine.
 	\end{itemize}
 \end{unnamedtheorem}
   
