@@ -1437,19 +1437,20 @@ Aufgrund der Symmetrie müssen bzw. können die Spieler nicht unterschieden werd
 		\item Ist $p \in S$ eine evolutionär stabile Strategie, dann bildet $(p, p)$ ein symmetrisches Nash-Gleichgewicht
 		\item Jede $2 \times 2$-Matrix $A = \begin{pmatrix}
 			a_{11} & a_{12} \\ a_{21} & a_{22}
-		\end{pmatrix}$ mit $H(p,p) = p'Ap$, sodass $a_{11} \neq a_{21}$ und / oder $a_{12} = a_{22}$, besitzt eine ESS.
+		\end{pmatrix}$ mit $H(p,p) = p^{T}Ap$, sodass $a_{11} \neq a_{21}$ und / oder $a_{12} = a_{22}$, besitzt eine ESS.
 		\item Ist $(p,p)$ ein striktes NGG, dann ist $p$ eine ESS. Im strikten NGG $(p, p)$ gilt $C(p) = B(p)$. Ein striktes NGG ist immer ein Gleichgewicht in reinen Strategien. Beispiel:
    \begin{game}{2}{2}[~][]
    	    &  ~      &  ~     \\
    	 ~  &    $3, 3$      & $2, 0$  \\
    	  	&  $0, 2$ & $4, 4$\\
    \end{game}
-	\item In Normalformspielen mit $m \times m$-Matrizen $a$ mit $m \geq 3$ existieren entweder endlich viele ESS oder keine.
+	\item In Normalformspielen mit $m \times m$-Matrizen $A$ mit $m \geq 3$ existieren entweder endlich viele ESS oder keine.
 	\end{itemize}
 \end{unnamedtheorem}
   
 \begin{unnamedtheorem}[Allgemein gilt]
-	Ist $p$ ESS $\Rightarrow \neg \exists \sigma \in C(p)$ mit $\sigma \in C(S^{*})$ für $s^{*} \neq q$ ist Nash-Gleichgewicht
+	Ist $p$ ESS $\Rightarrow \exists! \sigma \in C(p)$ mit $\sigma \in C(S
+	s^{*})$ für $s^{*} \neq p$ ist ESS. % Nash-Gleichgewicht
 \end{unnamedtheorem} 
 
 $\Rightarrow \#$ ESS $\leq \left| \Sigma \right|$ - Gleichheit nur, fall es kein ESS in gemischten Strategien gibt.  
