@@ -1,17 +1,11 @@
 Advanced Game Theory
 ===========
-Dieses Skript zur Vorlesung "Advanced Game Theory" am KIT (WS 2016/2017) wurde von Studenten erstellt, es ist somit 
-inoffiziell, in Bearbeitung und enthält sehr wahrscheinlich einige Fehler (Übertragungsfehler, Tippfehler oder Verständnisprobleme) - ich bitte deswegen um Verständnis.
+This script for the lecture 'Advanced Game Theory' held by Prof. Dr. Puppe at the KIT during winter course 2016/17 was created by students and is therefore unofficial. It contains most likely mistakes (typos, copy errors or comprehension problems) since it is a work in progress - I call on your understanding.
 
+Please submit all improvement and suggestions either via email or push them directly into the script on Github, i.e.
+* either directly implemented via pull/push or
+* sent by mail (MBelica@hmamail.com).
 
-Verbesserungsvorschläge (wenn auch nur für Rechtschreibfehler) kann man
-* entweder direkt selbst umsetzen via push oder
-* mir per Email (simany.proxi@gmail.com) schicken.
+I'm going to try to implement all notes and suggestions as soon as possible.
 
-Ich werde versuchen sowohl die Vorlesung, als auch eure Verbesserungsvorschläge zeitnah einzuarbeiten.
-
-**Erst durch eure Mitarbeit, kann hieraus ein gutes Skript entstehen.**
-
-Zeichnungen
-===========
-Sollte ich wichtige Zeichnungen ausgelassen haben, schickt sie mir einfach (entweder eure Zeichnen abfotographieren / einscannen oder selbst mit TikZ erstellen) und ich binde sie ein.
+**With your help we can create good lecture notes.**
